@@ -32,8 +32,7 @@ namespace Hellomsg
             {
                 result = process.StandardOutput.ReadToEnd();
             }
-            Console.WriteLine(lblHelloWorld.Text = result);
-
+            lblHelloWorld.Text = result;
         }
 
         private void label1_Click(object sender, EventArgs e)
