@@ -77,48 +77,34 @@ namespace Hellomsg
 
             System.Diagnostics.ProcessStartInfo start = new System.Diagnostics.ProcessStartInfo();
             start.FileName = @"C:\Users\User\AppData\Local\Programs\Python\Python310\python.exe";
-
-            //string arg = string.Format(@"F:\\C#Example\\PythonFile\\arrfile.py {0} {1} {2}", var1, var2, var3);
-
-            ////start.Arguments = string.Format("{0}", Path.Combine(
-            ////    AppDomain.CurrentDomain.BaseDirectory, "F:\\C#Example\\PythonFile\\print.py"), var);
-            //start.UseShellExecute = false;
-            //start.CreateNoWindow = true;
-            //start.RedirectStandardInput = true;
-            //start.RedirectStandardOutput = true;
-            //start.RedirectStandardError = true;
-            //start.LoadUserProfile = true;
-            //using (System.Diagnostics.Process process = System.Diagnostics.Process.Start(start))
-            //{
-            //    using (StreamWriter myStreamWriter = process.StandardInput)
-            //    {
-            //        myStreamWriter.WriteLine(var1, var2, var3);
-            //        myStreamWriter.Close();
-            //        using (StreamReader reader = process.StandardOutput)
-            //        {
-            //            string stderr = process.StandardError.ReadToEnd();
-            //            string result = reader.ReadToEnd();
-            //            string message = result;
-            //            string title = "Python File content";
-            //            MessageBox.Show(message, title);  
-            //        }
-            //    }
-            //}
-
-            start.Arguments = string.Format("{0} {1} {2}", var1, var2, var3);
+            start.Arguments = string.Format("{0} {1} {2} {3}", Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory, "F:\\C#Example\\PythonFile\\arrfile.py"), var1, var2, var3);
             start.UseShellExecute = false;
+            start.CreateNoWindow = true;
+            start.RedirectStandardInput = true;
             start.RedirectStandardOutput = true;
-            using (Process process = Process.Start(start))
+            start.RedirectStandardError = true;
+            start.LoadUserProfile = true;
+            using (System.Diagnostics.Process process = System.Diagnostics.Process.Start(start))
             {
-                using (StreamReader reader = process.StandardOutput)
+                using (StreamWriter myStreamWriter = process.StandardInput)
                 {
-                    string result = reader.ReadToEnd();
-                    // this prints 11
-                    Console.Write(result);
-
+                    myStreamWriter.WriteLine(var1, var2, var3);
+                    myStreamWriter.Close();
+                    using (StreamReader reader = process.StandardOutput)
+                    {
+                        string stderr = process.StandardError.ReadToEnd();
+                        string result = reader.ReadToEnd();
+                        string message = result;
+                        //Console.WriteLine(message);
+                        string title = "Python File content";
+                        MessageBox.Show(message, title);
+                    }
                 }
             }
-            Console.Read();
+            }
+
+
 
 
 
