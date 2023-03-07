@@ -41,7 +41,7 @@ namespace Hellomsg
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button2.Location = new System.Drawing.Point(255, 150);
+            this.button2.Location = new System.Drawing.Point(12, -4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(174, 149);
             this.button2.TabIndex = 3;
