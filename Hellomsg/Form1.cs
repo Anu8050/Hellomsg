@@ -21,26 +21,7 @@ namespace Hellomsg
         {
             InitializeComponent();
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = @"C:\Users\User\AppData\Local\Programs\Python\Python310\python.exe";
-            start.Arguments = @"F:\\C#Example\\PythonFile\\print.py";
-            start.UseShellExecute = false;
-            start.CreateNoWindow = true;
-            start.RedirectStandardOutput = true;
-            string result = "";
-            using (Process process = Process.Start(start))
-            {
-                result = process.StandardOutput.ReadToEnd();
-            }
-            string message = result;
-            string title = "Python File content";
-            MessageBox.Show(message, title);
-
-        }
-
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -82,26 +63,7 @@ namespace Hellomsg
 
     }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            StreamWriter ws = new StreamWriter("F:\\C#Example\\PythonFile\\File.txt");
-
-            //sw.Write(String.Join(Environment.NewLine, listBox1.Items));
-            //textbox
-            ws.Write(String.Join(Environment.NewLine, "Name : "));
-            ws.WriteLine(String.Join(Environment.NewLine, textBox2.Text));
-
-            //ws.WriteLine(String.Join(Environment.NewLine, "Responses are "));
-
-            ws.WriteLine(String.Join(Environment.NewLine, "\n"));
-
-
-            //saving
-            ws.Close();
-            MessageBox.Show("saved.");
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
