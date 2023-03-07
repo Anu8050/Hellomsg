@@ -36,7 +36,6 @@ namespace Hellomsg
                 result = process.StandardOutput.ReadToEnd();
             }
             string message = result;
-            //Console.WriteLine(message);
             string title = "Python File content";
             MessageBox.Show(message, title);
 
@@ -53,9 +52,7 @@ namespace Hellomsg
             var = textBox1.Text;
 
             System.Diagnostics.ProcessStartInfo start = new System.Diagnostics.ProcessStartInfo();
-            //python interprater location
             start.FileName = @"C:\Users\User\AppData\Local\Programs\Python\Python310\python.exe";
-            //argument with file name and input parameters
             start.Arguments = string.Format("{0}", Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory, "F:\\C#Example\\PythonFile\\print.py"), var);
             start.UseShellExecute = false;
@@ -74,19 +71,12 @@ namespace Hellomsg
                     {
                         string stderr = process.StandardError.ReadToEnd(); 
                         string result = reader.ReadToEnd();
-                        //Console.WriteLine("From System Diagnostics");
-                        //Console.WriteLine( result);
                         string message = result;
                         //Console.WriteLine(message);
                         string title = "Python File content";
                         MessageBox.Show(message, title);
                     }
                 }
-
-
-                //        
-
-
 
             }
 

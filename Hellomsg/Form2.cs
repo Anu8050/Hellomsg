@@ -8,19 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
+using System.Runtime.Remoting.Contexts;
+using System.Diagnostics;
 
 namespace Hellomsg
 {
     public partial class Form2 : Form
     {
-        
+        int index = 0;
         List<string> listFiles = new List<string>();
         public Form2()
         {
             InitializeComponent();
         }
 
-       
+
         private void button1_Click(object sender, EventArgs e)
         {
             listFiles.Clear();
@@ -64,5 +67,62 @@ namespace Hellomsg
                 textBox3.Text = fdlg.FileName;
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string var1, var2, var3;
+            var1 = textBox1.Text;
+            var2 = textBox2.Text;
+            var3 = textBox3.Text;
+
+            System.Diagnostics.ProcessStartInfo start = new System.Diagnostics.ProcessStartInfo();
+            start.FileName = @"C:\Users\User\AppData\Local\Programs\Python\Python310\python.exe";
+
+            //string arg = string.Format(@"F:\\C#Example\\PythonFile\\arrfile.py {0} {1} {2}", var1, var2, var3);
+
+            ////start.Arguments = string.Format("{0}", Path.Combine(
+            ////    AppDomain.CurrentDomain.BaseDirectory, "F:\\C#Example\\PythonFile\\print.py"), var);
+            //start.UseShellExecute = false;
+            //start.CreateNoWindow = true;
+            //start.RedirectStandardInput = true;
+            //start.RedirectStandardOutput = true;
+            //start.RedirectStandardError = true;
+            //start.LoadUserProfile = true;
+            //using (System.Diagnostics.Process process = System.Diagnostics.Process.Start(start))
+            //{
+            //    using (StreamWriter myStreamWriter = process.StandardInput)
+            //    {
+            //        myStreamWriter.WriteLine(var1, var2, var3);
+            //        myStreamWriter.Close();
+            //        using (StreamReader reader = process.StandardOutput)
+            //        {
+            //            string stderr = process.StandardError.ReadToEnd();
+            //            string result = reader.ReadToEnd();
+            //            string message = result;
+            //            string title = "Python File content";
+            //            MessageBox.Show(message, title);  
+            //        }
+            //    }
+            //}
+
+            start.Arguments = string.Format("{0} {1} {2}", var1, var2, var3);
+            start.UseShellExecute = false;
+            start.RedirectStandardOutput = true;
+            using (Process process = Process.Start(start))
+            {
+                using (StreamReader reader = process.StandardOutput)
+                {
+                    string result = reader.ReadToEnd();
+                    // this prints 11
+                    Console.Write(result);
+
+                }
+            }
+            Console.Read();
+
+
+
+        }
+
     }
 }
