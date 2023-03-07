@@ -21,14 +21,14 @@ namespace Hellomsg
         {
             InitializeComponent();
         }
-        
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-
             string var;
             var = textBox1.Text;
 
@@ -50,7 +50,7 @@ namespace Hellomsg
                     myStreamWriter.Close();
                     using (StreamReader reader = process.StandardOutput)
                     {
-                        string stderr = process.StandardError.ReadToEnd(); 
+                        string stderr = process.StandardError.ReadToEnd();
                         string result = reader.ReadToEnd();
                         string message = result;
                         //Console.WriteLine(message);
@@ -60,12 +60,7 @@ namespace Hellomsg
                 }
 
             }
-
-    }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
+
     }
 }
