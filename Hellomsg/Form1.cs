@@ -39,5 +39,31 @@ namespace Hellomsg
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            ProcessStartInfo start = new ProcessStartInfo();
+            start.FileName = @"C:\Users\User\AppData\Local\Programs\Python\Python310\python.exe";
+            start.Arguments = @"F:\\C#Example\\PythonFile\\print.py";
+            start.UseShellExecute = false;
+            start.CreateNoWindow = true;
+            start.RedirectStandardOutput = true;
+            string result = "";
+            using (Process process = Process.Start(start))
+            {
+                result = process.StandardOutput.ReadToEnd();
+            }
+
+            string message = result;
+            string title = "Python File content";
+            MessageBox.Show(message, title);
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
