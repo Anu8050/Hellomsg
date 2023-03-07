@@ -48,7 +48,7 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox1.Location = new System.Drawing.Point(354, 37);
+            this.textBox1.Location = new System.Drawing.Point(405, 37);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(165, 26);
             this.textBox1.TabIndex = 4;
@@ -58,7 +58,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(255, 69);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(264, 25);
+            this.button1.Size = new System.Drawing.Size(315, 25);
             this.button1.TabIndex = 5;
             this.button1.Text = "Click Me";
             this.button1.UseVisualStyleBackColor = true;
@@ -68,11 +68,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label1.Location = new System.Drawing.Point(269, 40);
+            this.label1.Location = new System.Drawing.Point(251, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
+            this.label1.Size = new System.Drawing.Size(130, 20);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Text area";
+            this.label1.Text = "Enter your name:";
             // 
             // Form1
             // 
