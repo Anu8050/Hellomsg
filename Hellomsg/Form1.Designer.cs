@@ -47,9 +47,9 @@
             this.lblHelloWorld.AutoSize = true;
             this.lblHelloWorld.Location = new System.Drawing.Point(449, 232);
             this.lblHelloWorld.Name = "lblHelloWorld";
-            this.lblHelloWorld.Size = new System.Drawing.Size(66, 20);
+            this.lblHelloWorld.Size = new System.Drawing.Size(143, 20);
             this.lblHelloWorld.TabIndex = 1;
-            this.lblHelloWorld.Text = "Contant";
+            this.lblHelloWorld.Text = "Python file Contant";
             this.lblHelloWorld.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
