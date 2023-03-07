@@ -32,11 +32,15 @@ namespace Hellomsg
                 result = process.StandardOutput.ReadToEnd();
             }
             string message = result;
-            Console.WriteLine(message);
-            //string title = "Python File content";
-            //MessageBox.Show(message, title);
+            //Console.WriteLine(message);
+            string title = "Python File content";
+            MessageBox.Show(message, title);
 
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
