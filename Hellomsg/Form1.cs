@@ -31,10 +31,10 @@ namespace Hellomsg
             {
                 result = process.StandardOutput.ReadToEnd();
             }
-
             string message = result;
-            string title = "Python File content";
-            MessageBox.Show(message, title);
+            Console.WriteLine(message);
+            //string title = "Python File content";
+            //MessageBox.Show(message, title);
 
         }
 
