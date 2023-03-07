@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Hellomsg
 {
@@ -91,5 +92,29 @@ namespace Hellomsg
 
     }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            StreamWriter ws = new StreamWriter("F:\\C#Example\\PythonFile\\File.txt");
+
+            ws.Write(String.Join(Environment.NewLine, listBox1.Items));
+            //textbox
+            ws.Write(String.Join(Environment.NewLine, "Name : "));
+            ws.WriteLine(String.Join(Environment.NewLine, textBox2.Text));
+            ws.WriteLine(String.Join(Environment.NewLine, "\n"));
+
+            //saving
+            ws.Close();
+            MessageBox.Show("saved.");
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
