@@ -96,11 +96,15 @@ namespace Hellomsg
         {
             StreamWriter ws = new StreamWriter("F:\\C#Example\\PythonFile\\File.txt");
 
-            ws.Write(String.Join(Environment.NewLine, listBox1.Items));
+            //sw.Write(String.Join(Environment.NewLine, listBox1.Items));
             //textbox
             ws.Write(String.Join(Environment.NewLine, "Name : "));
             ws.WriteLine(String.Join(Environment.NewLine, textBox2.Text));
+
+            //ws.WriteLine(String.Join(Environment.NewLine, "Responses are "));
+
             ws.WriteLine(String.Join(Environment.NewLine, "\n"));
+
 
             //saving
             ws.Close();
@@ -108,11 +112,6 @@ namespace Hellomsg
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
