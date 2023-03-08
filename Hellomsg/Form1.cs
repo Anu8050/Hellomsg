@@ -1,4 +1,7 @@
-﻿using System;
+﻿using IronPython.Hosting;
+using Microsoft.Scripting.Hosting;
+using Microsoft.Scripting.Runtime;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +13,13 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static IronPython.Modules.PythonCsvModule;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+
+using IronPython.Runtime;
+using IronPython;
+using Microsoft.Scripting;
 
 namespace Hellomsg
 {
@@ -29,38 +37,29 @@ namespace Hellomsg
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string var;
-            var = textBox1.Text;
-
-            System.Diagnostics.ProcessStartInfo start = new System.Diagnostics.ProcessStartInfo();
-            start.FileName = @"C:\Users\User\AppData\Local\Programs\Python\Python310\python.exe";
-            start.Arguments = string.Format("{0}", Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory, "F:\\C#Example\\PythonFile\\print.py"), var);
-            start.UseShellExecute = false;
-            start.CreateNoWindow = true;
-            start.RedirectStandardInput = true;
-            start.RedirectStandardOutput = true;
-            start.RedirectStandardError = true;
-            start.LoadUserProfile = true;
-            using (System.Diagnostics.Process process = System.Diagnostics.Process.Start(start))
-            {
-                using (StreamWriter myStreamWriter = process.StandardInput)
-                {
-                    myStreamWriter.WriteLine(var);
-                    myStreamWriter.Close();
-                    using (StreamReader reader = process.StandardOutput)
-                    {
-                        string stderr = process.StandardError.ReadToEnd();
-                        string result = reader.ReadToEnd();
-                        string message = result;
-                        //Console.WriteLine(message);
-                        string title = "Python File content";
-                        MessageBox.Show(message, title);
-                    }
-                }
-
-            }
+            string var1;
+            var1 = textBox1.Text;
+            ScriptEngine engine = Python.CreateEngine();
+            ScriptScope scope = engine.CreateScope();
+            engine.ExecuteFile(@"F:\\C#Example\\PythonFile\\print.py ", scope);
+            dynamic sumFunction = scope.GetVariable("sum");
+            var result = sumFunction(var1);
+            Console.WriteLine(result);
+            MessageBox.Show(result);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fdlg = new OpenFileDialog();
+            fdlg.Title = "F# Corner Open File Dialog";
+            fdlg.InitialDirectory = @"f:\";
+            fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
+            fdlg.FilterIndex = 2;
+            fdlg.RestoreDirectory = true;
+            if (fdlg.ShowDialog() == DialogResult.OK)
+            {
+                textBox2.Text = fdlg.FileName;
+            }
+        }
     }
 }
