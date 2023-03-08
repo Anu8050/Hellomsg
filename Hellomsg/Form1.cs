@@ -20,11 +20,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using IronPython.Runtime;
 using IronPython;
 using Microsoft.Scripting;
+using static IronPython.Modules.ArrayModule;
 
 namespace Hellomsg
 {
     public partial class Form1 : Form
     {
+        //List<string> textboxs = new List<string>();
+        string[] textboxs = new string[5];
         public Form1()
         {
             InitializeComponent();
@@ -103,7 +106,19 @@ namespace Hellomsg
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            
+            textboxs = new string[]
+            {
+                textBox2.Text, textBox3.Text,textBox4.Text
+            };
+            
+            ScriptEngine engine = Python.CreateEngine();
+            ScriptScope scope = engine.CreateScope();
+            engine.ExecuteFile(@"F:\\C#Example\\PythonFile\\print.py ", scope);
+            dynamic sumFunction = scope.GetVariable("arry");
+            var result = sumFunction(textboxs);
+            Console.WriteLine(result);
+           
         }
     }
 }
