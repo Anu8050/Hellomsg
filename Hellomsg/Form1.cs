@@ -24,7 +24,6 @@ namespace MergeFilesTool
             fdlg.InitialDirectory = @"C:\Users\User\Documents\";
             //Only allow pdf files
             fdlg.Filter = "Pdf Files (.pdf)|*.pdf";
-                
             fdlg.FilterIndex = 2;
             fdlg.RestoreDirectory = true;
             if (fdlg.ShowDialog() == DialogResult.OK)
@@ -72,7 +71,11 @@ namespace MergeFilesTool
                 txtFirstFile.Text, txtSecondFile.Text,txtThirdFile.Text
             };
 
-            if((textboxs.ElementAt(0).Length != 0 && textboxs.ElementAt(1).Length != 0 && textboxs.ElementAt(2).Length != 0)
+            //textboxs.Add(textBox2.Text);
+            //textboxs.Add(textBox3.Text);
+            //textboxs.Add(textBox4.Text);
+
+            if ((textboxs.ElementAt(0).Length != 0 && textboxs.ElementAt(1).Length != 0 && textboxs.ElementAt(2).Length != 0)
                 || (textboxs.ElementAt(0).Length == 0 && textboxs.ElementAt(1).Length != 0 && textboxs.ElementAt(2).Length != 0)
                 || (textboxs.ElementAt(0).Length != 0 && textboxs.ElementAt(1).Length == 0 && textboxs.ElementAt(2).Length != 0)
                 || (textboxs.ElementAt(0).Length != 0 && textboxs.ElementAt(1).Length != 0 && textboxs.ElementAt(2).Length == 0)
@@ -94,36 +97,7 @@ namespace MergeFilesTool
             }
 
             
-
-            //textboxs.Add(textBox2.Text);
-            //textboxs.Add(textBox3.Text);
-            //textboxs.Add(textBox4.Text);
-
-            //ScriptEngine engine = Python.CreateEngine();
-            //ScriptScope scope = engine.CreateScope();
-
-            //engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
-            //dynamic sumFunction = scope.GetVariable("arry1");
-            //var result = sumFunction(textboxs);
-            //lblStatus.Text = result;
-
-
-            //ScriptRuntimeSetup setup = Python.CreateRuntimeSetup(null);
-            //ScriptRuntime runtime = new ScriptRuntime(setup);
-            //ScriptEngine engine = Python.GetEngine(runtime);
-            //ScriptSource source = engine.CreateScriptSourceFromFile("F:\\C#Example\\PythonFile\\print.py");
-            //ScriptScope scope = engine.CreateScope();
-
-            //engine.GetSysModule().SetVariable("textboxs", textboxs);
-            //source.Execute(scope);
-            //var result = run_cmd();
-            //Console.WriteLine(result);
-
         }
-
-     
-
-      
 
 
        
