@@ -1,4 +1,4 @@
-﻿namespace Hellomsg
+﻿namespace MergeFilesTool
 {
     partial class Form2
     {

@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Runtime.Remoting.Contexts;
 using System.Diagnostics;
 
-namespace Hellomsg
+namespace MergeFilesTool
 {
     public partial class Form2 : Form
     {
