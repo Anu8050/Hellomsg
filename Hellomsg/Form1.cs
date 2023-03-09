@@ -64,16 +64,16 @@ namespace MergeFilesTool
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
 
-            textboxs = new List<string>
-            {
-                txtFirstFile.Text, txtSecondFile.Text,txtThirdFile.Text
-            };
 
-            //textboxs.Add(textBox2.Text);
-            //textboxs.Add(textBox3.Text);
-            //textboxs.Add(textBox4.Text);
+            //textboxs = new List<string>
+            //{
+            //    txtFirstFile.Text, txtSecondFile.Text,txtThirdFile.Text
+            //};
+
+            textboxs.Add(txtFirstFile.Text);
+            textboxs.Add(txtSecondFile.Text);
+            textboxs.Add(txtThirdFile.Text);
 
             if ((textboxs.ElementAt(0).Length != 0 && textboxs.ElementAt(1).Length != 0 && textboxs.ElementAt(2).Length != 0)
                 || (textboxs.ElementAt(0).Length == 0 && textboxs.ElementAt(1).Length != 0 && textboxs.ElementAt(2).Length != 0)
