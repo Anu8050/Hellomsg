@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace MergeFilesTool
 {
     public partial class Form1 : Form
@@ -65,7 +66,6 @@ namespace MergeFilesTool
         private void button5_Click(object sender, EventArgs e)
         {
 
-
             //textboxs = new List<string>
             //{
             //    txtFirstFile.Text, txtSecondFile.Text,txtThirdFile.Text
@@ -93,13 +93,12 @@ namespace MergeFilesTool
             }
             else 
             {
-                MessageBox.Show("Select minimum two pdf file");
+                MessageBox.Show("Select minimum two pdf files");
             }
 
             
         }
 
-
-       
     }
 }
+;
