@@ -77,24 +77,56 @@ namespace MergeFilesTool
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
 
-            if ((textboxs.ElementAt(0).Length != 0 && textboxs.ElementAt(1).Length != 0 && textboxs.ElementAt(2).Length != 0)
-                || (textboxs.ElementAt(0).Length == 0 && textboxs.ElementAt(1).Length != 0 && textboxs.ElementAt(2).Length != 0)
-                || (textboxs.ElementAt(0).Length != 0 && textboxs.ElementAt(1).Length == 0 && textboxs.ElementAt(2).Length != 0)
-                || (textboxs.ElementAt(0).Length != 0 && textboxs.ElementAt(1).Length != 0 && textboxs.ElementAt(2).Length == 0)
-
-                )
+            if (((textboxs.ElementAt(0).Length != 0) ||
+                (textboxs.ElementAt(1).Length != 0) ||
+                (textboxs.ElementAt(2).Length != 0)))
             {
-                MessageBox.Show("hii");
-                MergeDocument document = new MergeDocument(txtFirstFile.Text);
-                document.Append(txtSecondFile.Text);
-                document.Append(txtThirdFile.Text);
-                document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
+                if ((textboxs.ElementAt(0).Length != 0) && 
+                    (textboxs.ElementAt(1).Length != 0) && 
+                    (textboxs.ElementAt(2).Length != 0))
+                {
+                    MessageBox.Show("Sucessfuly merge 3 pdf files.");
+                    MergeDocument document = new MergeDocument(txtFirstFile.Text);
+                    document.Append(txtSecondFile.Text);
+                    document.Append(txtThirdFile.Text);
+                    document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
+                }
+                if ((textboxs.ElementAt(0).Length == 0 && 
+                    textboxs.ElementAt(1).Length != 0 && 
+                    textboxs.ElementAt(2).Length != 0))
+                {
+                    MessageBox.Show("Sucessfuly merge 3 pdf files.");
+                    MergeDocument document = new MergeDocument(txtSecondFile.Text);;
+                    document.Append(txtThirdFile.Text);
+                    document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
+                }
+                if ((textboxs.ElementAt(0).Length != 0 && 
+                    textboxs.ElementAt(1).Length == 0 && 
+                    textboxs.ElementAt(2).Length != 0))
+                {
+                    MessageBox.Show("Sucessfuly merge 3 pdf files.");
+                    MergeDocument document = new MergeDocument(txtFirstFile.Text); ;
+                    document.Append(txtThirdFile.Text);
+                    document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
+                }
+                if ((textboxs.ElementAt(0).Length != 0 && 
+                    textboxs.ElementAt(1).Length != 0 && 
+                    textboxs.ElementAt(2).Length == 0))
+                {
+                    MessageBox.Show("Sucessfuly merge 3 pdf files.");
+                    MergeDocument document = new MergeDocument(txtFirstFile.Text); ;
+                    document.Append(txtSecondFile.Text);
+                    document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
+                }
+
+                else
+                {
+                    MessageBox.Show("Select minimum two pdf files");
+                }
+
 
             }
-            else 
-            {
-                MessageBox.Show("Select minimum two pdf files");
-            }
+            
 
             
         }
