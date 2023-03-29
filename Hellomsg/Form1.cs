@@ -79,7 +79,7 @@ namespace MergeFilesTool
                     MergeDocument document = new MergeDocument(txtFirstFile.Text);
                     document.Append(txtSecondFile.Text);
                     document.Append(txtThirdFile.Text);
-                    document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
+                    document.Draw("C://Users//User//Documents//Mergepdf.pdf");
                 }
 
                 else if ((textboxs.ElementAt(0).Length == 0 && 
@@ -89,7 +89,7 @@ namespace MergeFilesTool
                     MessageBox.Show("Sucessfuly merge second and thrid pdf files.");
                     MergeDocument document = new MergeDocument(txtSecondFile.Text);;
                     document.Append(txtThirdFile.Text);
-                    document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
+                    document.Draw("C://Users//User//Documents//Mergepdf.pdf");
                 }
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
@@ -99,7 +99,7 @@ namespace MergeFilesTool
                     MessageBox.Show("Sucessfuly merge"+ txtFirstFile.Text + " and"+ txtThirdFile.Text + " pdf files.");
                     MergeDocument document = new MergeDocument(txtFirstFile.Text); ;
                     document.Append(txtThirdFile.Text);
-                    document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
+                    document.Draw("C://Users//User//Documents//Mergepdf.pdf");
                 }
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
@@ -109,7 +109,7 @@ namespace MergeFilesTool
                     MessageBox.Show("Sucessfuly merge "+ txtFirstFile.Text +" and"+ txtSecondFile.Text + " pdf files.");
                     MergeDocument document = new MergeDocument(txtFirstFile.Text); ;
                     document.Append(txtSecondFile.Text);
-                    document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
+                    document.Draw("C://Users//User//Documents//Mergepdf.pdf");
                 }
 
                 else
