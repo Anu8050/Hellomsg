@@ -91,7 +91,7 @@ namespace MergeFilesTool
                     document.Append(txtThirdFile.Text);
                     document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
                 }
-                if ((textboxs.ElementAt(0).Length == 0 && 
+                else if ((textboxs.ElementAt(0).Length == 0 && 
                     textboxs.ElementAt(1).Length != 0 && 
                     textboxs.ElementAt(2).Length != 0))
                 {
@@ -100,7 +100,7 @@ namespace MergeFilesTool
                     document.Append(txtThirdFile.Text);
                     document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
                 }
-                if ((textboxs.ElementAt(0).Length != 0 && 
+                else if ((textboxs.ElementAt(0).Length != 0 && 
                     textboxs.ElementAt(1).Length == 0 && 
                     textboxs.ElementAt(2).Length != 0))
                 {
@@ -109,7 +109,7 @@ namespace MergeFilesTool
                     document.Append(txtThirdFile.Text);
                     document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
                 }
-                if ((textboxs.ElementAt(0).Length != 0 && 
+                else if ((textboxs.ElementAt(0).Length != 0 && 
                     textboxs.ElementAt(1).Length != 0 && 
                     textboxs.ElementAt(2).Length == 0))
                 {
