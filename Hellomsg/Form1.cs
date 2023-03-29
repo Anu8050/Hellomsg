@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using ceTe.DynamicPDF.Merger;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
@@ -83,19 +84,11 @@ namespace MergeFilesTool
 
                 )
             {
-                //ScriptEngine engine = Python.CreateEngine();
-                //ScriptScope scope = engine.CreateScope();
-
-                //engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
-                //dynamic sumFunction = scope.GetVariable("arry1");
-                //var result = sumFunction(textboxs);
-                //lblStatus.Text = result;
                 MessageBox.Show("hii");
-                //MergeDocument document = new MergeDocument(textBox1.Text);
-                //document.Append(txtFirstFile.Text);
-                //document.Append(txtSecondFile.Text);
-                //document.Append(txtThirdFile.Text);
-                //document.Draw("C://Users//User//Documents//text.pdf");
+                MergeDocument document = new MergeDocument(txtFirstFile.Text);
+                document.Append(txtSecondFile.Text);
+                document.Append(txtThirdFile.Text);
+                document.Draw("C://Users//User//Documents//Anuoutput2.pdf");
 
             }
             else 
