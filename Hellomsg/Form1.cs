@@ -81,7 +81,7 @@ namespace MergeFilesTool
 
                     ScriptScope scope = engine.CreateScope();
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
-                    dynamic sumFunction = scope.GetVariable("myfunc");
+                    dynamic sumFunction = scope.GetVariable("merge");
                     var result = sumFunction(textboxs);
                     lblStatus.Text = result;
 
