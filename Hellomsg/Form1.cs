@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Microsoft.Scripting.Hosting;
 using IronPython.Hosting;
 
+
 namespace MergeFilesTool
 {
     public partial class Form1 : Form
@@ -74,6 +75,8 @@ namespace MergeFilesTool
                     (textboxs.ElementAt(1).Length != 0) && 
                     (textboxs.ElementAt(2).Length != 0))
                 {
+                    //Microsoft.Scripting.Hosting.ScriptEngine engine = Python.CreateEngine();
+
                     ScriptEngine engine = Python.CreateEngine();
 
                     ScriptScope scope = engine.CreateScope();
@@ -82,7 +85,7 @@ namespace MergeFilesTool
                     var result = sumFunction(textboxs);
                     lblStatus.Text = result;
 
-                    
+
 
                     //document.Draw("C://Users//User//Documents//Mergepdf.pdf");
                 }

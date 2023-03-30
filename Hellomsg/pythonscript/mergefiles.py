@@ -46,21 +46,22 @@ def myfunc1(resultFile):
 
 
 from pypdf import PdfMerger
-
-
-
 merger = PdfMerger()
 def myfunc():
 
     def myfunc(pdfs):
-    for pdf in pdfs:
-        merger.append(pdf)
-    merger.write("result.pdf")
-    merger.close()
-    return pdfs
+        for pdf in pdfs:
+            print(pdf)
+            merger.append(pdf)
+        merger.write("C://Users//User//Documents//result.pdf")
+        merger.close()
+        return pdfs
+
+        
 
 
 
 
 if __name__ == "__main__":
      myfunc(n)
+     
