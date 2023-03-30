@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Scripting.Hosting;
 using IronPython.Hosting;
+using static com.sun.tools.javah.Util;
 
 
 namespace MergeFilesTool
@@ -75,16 +76,15 @@ namespace MergeFilesTool
                     (textboxs.ElementAt(1).Length != 0) && 
                     (textboxs.ElementAt(2).Length != 0))
                 {
-                    //Microsoft.Scripting.Hosting.ScriptEngine engine = Python.CreateEngine();
 
                     ScriptEngine engine = Python.CreateEngine();
-
                     ScriptScope scope = engine.CreateScope();
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"F:\\C#Example\\Hellomsg\\Hellomsg\\pythonscript\\mergefiles.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge");
                     var result = sumFunction(textboxs);
                     lblStatus.Text = result;
-                    //document.Draw("C://Users//User//Documents//Mergepdf.pdf");
+
+
                 }
 
                 else if ((textboxs.ElementAt(0).Length == 0 && 
