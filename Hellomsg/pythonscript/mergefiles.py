@@ -62,33 +62,23 @@ def myfunc():
 
 
 
-if __name__ == "__main__":
-     myfunc1(resultFile)
-    
+#if __name__ == "__main__":
+   #  myfunc1()
      
-from PyPDF2 import PdfFileMerger
+     
+#from PyPDF2 import PdfFileMerger
+import PyPDF2
 import os
-
-#Create an instance of PdfFileMerger() class
-merger = PdfFileMerger()
-
-#Define the path to the folder with the PDF files
-
-path_to_files = r'C://Users//User//Documents//'    
-def merge(path_to_files)
-    
-    
-    #Get the file names in the directory
-    for root, dirs, file_names in os.walk(path_to_files):
-        #Iterate over the list of the file names
-        for file_name in file_names:
-            #Append PDF files
-            merger.append(path_to_files + file_name)
-
-    #Write out the merged PDF file
-    merger.write("merged_all_pages.pdf")
-    merger.close()
-
-
-if __name__ == "__main__":
-     merge(path_to_files)
+pdfMerge = PyPDF2.PdfFileMerger()
+pdfiles ={
+        'C:\\Users\\User\\Documents\\text.pdf'
+        'C:/Users/User/Documents/pdf_files/a.pdf',
+        'C://Users//User//Documents//pdf_files//Anusha.pdf', 
+        }
+for filename in pdfiles:
+        pdfFile = open(filename, 'rb')
+        pdfReader = PyPDF2.PdfFileReader(pdfFile)
+        pdfMerge.append(pdfReader)
+pdfFile.close()
+pdfMerge.write('C://Users//User//Documents//pdf_files//merged.pdf')
+     
