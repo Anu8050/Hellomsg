@@ -1,10 +1,9 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using ceTe.DynamicPDF.Merger;
-
+using Microsoft.Scripting.Hosting;
+using IronPython.Hosting;
 
 namespace MergeFilesTool
 {
@@ -75,11 +74,17 @@ namespace MergeFilesTool
                     (textboxs.ElementAt(1).Length != 0) && 
                     (textboxs.ElementAt(2).Length != 0))
                 {
-                    MessageBox.Show("Sucessfuly merge First, second and Thrid pdf files.");
-                    MergeDocument document = new MergeDocument(txtFirstFile.Text);
-                    document.Append(txtSecondFile.Text);
-                    document.Append(txtThirdFile.Text);
-                    document.Draw("C://Users//User//Documents//Mergepdf.pdf");
+                    ScriptEngine engine = Python.CreateEngine();
+
+                    ScriptScope scope = engine.CreateScope();
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+                    dynamic sumFunction = scope.GetVariable("myfunc");
+                    var result = sumFunction(textboxs);
+                    lblStatus.Text = result;
+
+                    
+
+                    //document.Draw("C://Users//User//Documents//Mergepdf.pdf");
                 }
 
                 else if ((textboxs.ElementAt(0).Length == 0 && 
@@ -87,9 +92,7 @@ namespace MergeFilesTool
                     textboxs.ElementAt(2).Length != 0))
                 {
                     MessageBox.Show("Sucessfuly merge second and thrid pdf files.");
-                    MergeDocument document = new MergeDocument(txtSecondFile.Text);;
-                    document.Append(txtThirdFile.Text);
-                    document.Draw("C://Users//User//Documents//Mergepdf.pdf");
+                    
                 }
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
@@ -97,9 +100,7 @@ namespace MergeFilesTool
                     textboxs.ElementAt(2).Length != 0))
                 {
                     MessageBox.Show("Sucessfuly merge"+ txtFirstFile.Text + " and"+ txtThirdFile.Text + " pdf files.");
-                    MergeDocument document = new MergeDocument(txtFirstFile.Text); ;
-                    document.Append(txtThirdFile.Text);
-                    document.Draw("C://Users//User//Documents//Mergepdf.pdf");
+                   
                 }
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
@@ -107,9 +108,7 @@ namespace MergeFilesTool
                     textboxs.ElementAt(2).Length == 0))
                 {
                     MessageBox.Show("Sucessfuly merge "+ txtFirstFile.Text +" and"+ txtSecondFile.Text + " pdf files.");
-                    MergeDocument document = new MergeDocument(txtFirstFile.Text); ;
-                    document.Append(txtSecondFile.Text);
-                    document.Draw("C://Users//User//Documents//Mergepdf.pdf");
+                    
                 }
 
                 else

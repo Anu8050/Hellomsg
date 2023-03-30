@@ -39,9 +39,28 @@ def add(n):
     print(n)
 
 
-def myfunc(n):
+def myfunc1(resultFile):
     print("aaa")
-    return n
+    return resultFile
+
+
+
+from pypdf import PdfMerger
+
+
+
+merger = PdfMerger()
+def myfunc():
+
+    def myfunc(pdfs):
+    for pdf in pdfs:
+        merger.append(pdf)
+    merger.write("result.pdf")
+    merger.close()
+    return pdfs
+
+
+
 
 if __name__ == "__main__":
      myfunc(n)
