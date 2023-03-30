@@ -80,13 +80,10 @@ namespace MergeFilesTool
                     ScriptEngine engine = Python.CreateEngine();
 
                     ScriptScope scope = engine.CreateScope();
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"C:\Users\User\Documents\mergefiles.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"F:\\C#Example\\Hellomsg\\Hellomsg\\pythonscript\\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge");
                     var result = sumFunction(textboxs);
                     lblStatus.Text = result;
-
-
-
                     //document.Draw("C://Users//User//Documents//Mergepdf.pdf");
                 }
 
@@ -94,6 +91,13 @@ namespace MergeFilesTool
                     textboxs.ElementAt(1).Length != 0 && 
                     textboxs.ElementAt(2).Length != 0))
                 {
+                    ScriptEngine engine = Python.CreateEngine();
+
+                    ScriptScope scope = engine.CreateScope();
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"C:\Users\User\Documents\mergefiles.py", scope);
+                    dynamic sumFunction = scope.GetVariable("merge");
+                    var result = sumFunction(textboxs);
+                    lblStatus.Text = result;
                     MessageBox.Show("Sucessfuly merge second and thrid pdf files.");
                     
                 }
@@ -102,6 +106,12 @@ namespace MergeFilesTool
                     textboxs.ElementAt(1).Length == 0 && 
                     textboxs.ElementAt(2).Length != 0))
                 {
+                    ScriptEngine engine = Python.CreateEngine();
+                    ScriptScope scope = engine.CreateScope();
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"C:\Users\User\Documents\mergefiles.py", scope);
+                    dynamic sumFunction = scope.GetVariable("merge");
+                    var result = sumFunction(textboxs);
+                    lblStatus.Text = result;
                     MessageBox.Show("Sucessfuly merge"+ txtFirstFile.Text + " and"+ txtThirdFile.Text + " pdf files.");
                    
                 }
@@ -110,12 +120,24 @@ namespace MergeFilesTool
                     textboxs.ElementAt(1).Length != 0 && 
                     textboxs.ElementAt(2).Length == 0))
                 {
+                    ScriptEngine engine = Python.CreateEngine();
+                    ScriptScope scope = engine.CreateScope();
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"C:\Users\User\Documents\mergefiles.py", scope);
+                    dynamic sumFunction = scope.GetVariable("merge");
+                    var result = sumFunction(textboxs);
+                    lblStatus.Text = result;
                     MessageBox.Show("Sucessfuly merge "+ txtFirstFile.Text +" and"+ txtSecondFile.Text + " pdf files.");
                     
                 }
 
                 else
                 {
+                    ScriptEngine engine = Python.CreateEngine();
+                    ScriptScope scope = engine.CreateScope();
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"C:\Users\User\Documents\mergefiles.py", scope);
+                    dynamic sumFunction = scope.GetVariable("merge");
+                    var result = sumFunction(textboxs);
+                    lblStatus.Text = result;
                     MessageBox.Show("Select minimum two pdf files");
                 }
 
