@@ -71,9 +71,9 @@ import PyPDF2
 import os
 pdfMerge = PyPDF2.PdfFileMerger()
 pdfiles ={
-        'C:\\Users\\User\\Documents\\text.pdf'
+        'C:/Users/User/Documents/Anusha.pdf',
+        'C:/Users/User/Documents/pdf_files/sample.pdf',
         'C:/Users/User/Documents/pdf_files/a.pdf',
-        'C://Users//User//Documents//pdf_files//Anusha.pdf', 
         }
 for filename in pdfiles:
         pdfFile = open(filename, 'rb')
