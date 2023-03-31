@@ -1,3 +1,14 @@
+#import datetime
+
+#def merge1(pdfiles):
+#    for i in pdfiles:
+#        print(i)
+#        x = datetime.datetime.now()
+#        print(x)
+#    return "Anu"
+
+
+
 import PyPDF2
 import os
 
@@ -17,7 +28,6 @@ def merge(pdfiles):
     pdfFile.close()
     pdfMerge.write('C://Users//User//Documents//pdf_files//merged.pdf')
     return "Sucessfuly merge pdf files."
-
 
 
 if __name__ == "__main__":

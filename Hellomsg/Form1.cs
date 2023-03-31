@@ -4,8 +4,9 @@ using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Scripting.Hosting;
 using IronPython.Hosting;
-using static com.sun.tools.javah.Util;
-using com.sun.xml.@internal.ws.api.pipe;
+using IronPython.Runtime;
+using IronPython;
+using Microsoft.Scripting;
 
 
 namespace MergeFilesTool
@@ -80,10 +81,15 @@ namespace MergeFilesTool
                     ScriptEngine engine = Python.CreateEngine();
                     ScriptScope scope = engine.CreateScope();
                     var paths = engine.GetSearchPaths();
-                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib");
+
+                    paths.Add(AppDomain.CurrentDomain.BaseDirectory + @"\Local\Programs\Python\Python310\Lib\site-packages");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\");
                     engine.SetSearchPaths(paths);
-                    engine.ExecuteFile(@"C:\Users\User\Documents\mergefiles.py", scope);
-                    //engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+
+                    //paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Tools\scripts");
+                    //engine.SetSearchPaths(paths);
+                    //engine.ExecuteFile(@"C:\Users\User\Documents\mergefiles.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge");
                     var result = sumFunction(textboxs);
                     lblStatus.Text = result;
