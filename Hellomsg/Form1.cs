@@ -82,8 +82,8 @@ namespace MergeFilesTool
                     ScriptScope scope = engine.CreateScope();
                     var paths = engine.GetSearchPaths();
 
-                    paths.Add(AppDomain.CurrentDomain.BaseDirectory + @"\Local\Programs\Python\Python310\Lib\site-packages");
-                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\");
+                    paths.Add(AppDomain.CurrentDomain.BaseDirectory + @"\Lib\site-packages");
+                    paths.Add(@"F:\C#Example\Hellomsg\Hellomsg\pythonscript\Lib\");
                     engine.SetSearchPaths(paths);
 
                     //paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Tools\scripts");
