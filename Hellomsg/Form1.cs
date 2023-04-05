@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System;
 using System.Windows.Forms;
-using Microsoft.Scripting.Hosting;
 using IronPython.Hosting;
-using IronPython.Runtime;
-using IronPython;
-using Microsoft.Scripting;
+using Microsoft.Scripting.Hosting;
+
+//using IronPython.Runtime;
+//using IronPython;
+//using Microsoft.Scripting;
 
 
 namespace MergeFilesTool
@@ -81,14 +82,34 @@ namespace MergeFilesTool
                     ScriptEngine engine = Python.CreateEngine();
                     ScriptScope scope = engine.CreateScope();
                     var paths = engine.GetSearchPaths();
-                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\DLLs");
-                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib");
-                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310");
-                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages");
+
+                    paths.Add(@"F:\C#Example\Hellomsg\Hellomsg\packages\DynamicLanguageRuntime.1.3.3");
+                    paths.Add(@"C:\Python27\include");
+                    paths.Add(@"C:\Python27\Lib");
+                    //paths.Add(@"F:\C#Example\Hellomsg\Hellomsg");
+                    paths.Add(@"C:\Program Files\IronPython 2.7\Lib");
+
+
+                    //paths.Add(@"C:\myProject\'where mergefiles.py exists'");
+
+                    //engine.SetSearchPaths(paths);
+                    //var mainfile = @"F:\C#Example\Hellomsg\Hellomsg\pythonscript\mergefiles.py";
+                    ////var scope = engine.CreateScope();
+                    //engine.CreateScriptSourceFromFile(mainfile).Execute(scope);
+                    //var result = scope.GetVariable("merge1");
+                    //// Console.WriteLine(result);
+                    //Console.ReadKey();
+
+                    //paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\DLLs");
+                    //paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib");
+                    //paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310");
+                    //paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages");
                     //engine.SetSearchPaths(paths);
                     //engine.ExecuteFile(@"C:\Users\User\Documents\mergefiles.py", scope); 
-                    engine.ExecuteFile(@"F:\C#Example\Hellomsg\Hellomsg\pythonscript\mergefiles.py", scope);
+
+                    //engine.ExecuteFile(@"F:\C#Example\Hellomsg\Hellomsg\pythonscript\mergefiles.py", scope);
                     //engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     engine.SetSearchPaths(paths);
                     dynamic sumFunction = scope.GetVariable("merge");
                     var result = sumFunction(textboxs);
