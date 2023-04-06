@@ -93,7 +93,18 @@ namespace MergeFilesTool
                     textboxs.ElementAt(1).Length != 0 && 
                     textboxs.ElementAt(2).Length != 0))
                 {
-                     
+                    var p = Python.CreateEngine();
+                    var scope = p.CreateScope();
+                    var libs = new[] {
+                                        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\Extensions\\Microsoft\\Python Tools for Visual Studio\\2.2",
+                                        "C:\\Program Files\\IronPython 2.7\\Lib",
+                                        "C:\\Program Files\\IronPython 2.7\\DLLs",
+                                        "C:\\Program Files\\IronPython 2.7",
+                                        "C:\\Program Files\\IronPython 2.7\\Lib\\site-packages"
+                                     };
+
+                    p.SetSearchPaths(libs);
+                    p.ExecuteFile("Test.py", scope);
                 }
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
