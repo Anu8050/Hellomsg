@@ -87,6 +87,7 @@ namespace MergeFilesTool
                     paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Scripts");
                     paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\include");
                     paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages\aspose");
                     //paths.Add(@"F:\C#Example\Hellomsg\Hellomsg");
                     paths.Add(@"C:\Program Files\IronPython 2.7\Lib");
 

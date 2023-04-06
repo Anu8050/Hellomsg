@@ -11,8 +11,8 @@
 
 import aspose.words as aw
 # -*- coding: utf-8 -*-
-#import sys
-#sys.path.append(r"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages\PyPDF2")
+import sys
+sys.path.append(r"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages\aspose_words-23.3.0.dist-info")
 
 #import PyPDF2
 #import os
