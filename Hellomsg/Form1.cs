@@ -80,7 +80,7 @@ namespace MergeFilesTool
                     ScriptEngine engine = Python.CreateEngine();
                     ScriptScope scope = engine.CreateScope();
                     var paths = engine.GetSearchPaths();
-                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages\PyPDF2");
+                    paths.Add(@"c:\users\user\appdata\local\programs\python\python310\lib\site-packages");
                     engine.SetSearchPaths(paths);
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
