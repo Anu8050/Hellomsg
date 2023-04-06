@@ -104,7 +104,7 @@ namespace MergeFilesTool
                                      };
 
                     p.SetSearchPaths(libs);
-                    p.ExecuteFile("Test.py", scope);
+                    p.ExecuteFile("F:\\C#trial\\Hellomsg\\Hellomsg\\pythonscript\\mergefiles.py", scope);
                 }
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
