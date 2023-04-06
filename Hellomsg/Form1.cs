@@ -84,22 +84,14 @@ namespace MergeFilesTool
                     ScriptScope scope = engine.CreateScope();
                     var paths = engine.GetSearchPaths();
 
-
-                    paths.Add(@"C:\\Python34\\Scripts");
-                    paths.Add("C:\\Python34\\DLLs");
-                    paths.Add("C:\\Python34\\include");
-                    paths.Add(@"C:\\Python34\\Lib");
-                   
-                    paths.Add(@"C:\\Python34\\Lib\\site-packages");
-                    paths.Add(@"F:\C#Example\Hellomsg\Hellomsg\packages\IronPython.StdLib.3.4.0");
-
                     //paths.Add(@"C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python310\\Scripts");
                     //paths.Add(@"C:\\Users\\User\\AppData\Local\\Programs\\Python\\Python310\\include");
                     //paths.Add(@"C:\\Users\\User\\AppData\\Local\\Programs\\Python\Python310\\Lib");
-                    //paths.Add(@"C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python310\\site-packages");
-                    //paths.Add(@"C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\PyPDF2");
-                    //paths.Add(@"C:\\Program Files\\IronPython 3.4\\Lib");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages\PyPDF2");
+                    paths.Add(@"C:\\Program Files\\IronPython 3.4\\Lib");
                     paths.Add(@"F:\C#Example\Hellomsg\Hellomsg\packages\IronPython.3.4.0");
+                    paths.Add(@"F:\C#Example\Hellomsg\Hellomsg\packages\IronPython.StdLib.3.4.0");
 
 
                     //paths.Add(@"F:\C#Example\Hellomsg\Hellomsg\packages\DynamicLanguageRuntime.1.3.3");
