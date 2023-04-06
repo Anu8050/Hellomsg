@@ -1,7 +1,6 @@
-#-*- coding: ISO-8859-1 -*-
 # pysqlite2/__init__.py: the pysqlite2 package.
 #
-# Copyright (C) 2005 Gerhard Häring <gh@ghaering.de>
+# Copyright (C) 2005 Gerhard HÃ¤ring <gh@ghaering.de>
 #
 # This file is part of pysqlite.
 #
@@ -23,10 +22,13 @@
 
 def _():
     import sys
-    if sys.platform == 'cli':
+    if sys.implementation.name == 'ironpython':
         import clr
-        clr.AddReference('IronPython.SQLite')
+        try:
+            clr.AddReference('IronPython.SQLite')
+        except:
+            pass
 _()
 del _
 
-from dbapi2 import *
+from sqlite3.dbapi2 import *

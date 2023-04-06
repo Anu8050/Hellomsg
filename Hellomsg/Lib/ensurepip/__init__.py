@@ -1,10 +1,6 @@
-#!/usr/bin/env python2
-from __future__ import print_function
-
 import os
 import os.path
 import pkgutil
-import shutil
 import sys
 import tempfile
 
@@ -12,11 +8,9 @@ import tempfile
 __all__ = ["version", "bootstrap"]
 
 
-_SETUPTOOLS_VERSION = "20.10.1"
+_SETUPTOOLS_VERSION = "28.8.0"
 
-_PIP_VERSION = "8.1.1"
-
-IRONPYTHON = sys.platform == 'cli'
+_PIP_VERSION = "9.0.1"
 
 # pip currently requires ssl support, so we try to provide a nicer
 # error message when that is missing (http://bugs.python.org/issue19744)
@@ -25,7 +19,6 @@ try:
     import ssl
 except ImportError:
     ssl = None
-
     def _require_ssl_for_pip():
         raise RuntimeError(_MISSING_SSL_MESSAGE)
 else:
@@ -54,7 +47,6 @@ def version():
     """
     return _PIP_VERSION
 
-
 def _disable_pip_configuration_settings():
     # We deliberately ignore all pip environment variables
     # when invoking pip
@@ -67,8 +59,8 @@ def _disable_pip_configuration_settings():
     os.environ['PIP_CONFIG_FILE'] = os.devnull
 
 
-def bootstrap(root=None, upgrade=False, user=False,
-              altinstall=False, default_pip=True,
+def bootstrap(*, root=None, upgrade=False, user=False,
+              altinstall=False, default_pip=False,
               verbosity=0):
     """
     Bootstrap pip into the current Python installation (or the given root
@@ -95,8 +87,7 @@ def bootstrap(root=None, upgrade=False, user=False,
         # omit pip and easy_install
         os.environ["ENSUREPIP_OPTIONS"] = "install"
 
-    tmpdir = tempfile.mkdtemp()
-    try:
+    with tempfile.TemporaryDirectory() as tmpdir:
         # Put our bundled wheels into a temporary directory and construct the
         # additional paths that need added to sys.path
         additional_paths = []
@@ -113,8 +104,8 @@ def bootstrap(root=None, upgrade=False, user=False,
 
         # Construct the arguments to be passed to the pip command
         args = ["install", "--no-index", "--find-links", tmpdir]
-        if IRONPYTHON:
-            args.append("--no-compile")
+        if sys.implementation.name == "ironpython":
+            args += ["--no-compile"]
         if root:
             args += ["--root", root]
         if upgrade:
@@ -125,11 +116,8 @@ def bootstrap(root=None, upgrade=False, user=False,
             args += ["-" + "v" * verbosity]
 
         _run_pip(args + [p[0] for p in _PROJECTS], additional_paths)
-    finally:
-        shutil.rmtree(tmpdir, ignore_errors=True)
 
-
-def _uninstall_helper(verbosity=0):
+def _uninstall_helper(*, verbosity=0):
     """Helper to support a clean default uninstall process on Windows
 
     Note that calling this function may alter os.environ.
@@ -159,13 +147,6 @@ def _uninstall_helper(verbosity=0):
 
 
 def _main(argv=None):
-    if IRONPYTHON:
-        try:
-            sys._getframe()
-        except AttributeError:
-            print("ensurepip under IronPython requires -X:Frames parameter")
-            return
-
     if ssl is None:
         print("Ignoring ensurepip failure: {}".format(_MISSING_SSL_MESSAGE),
               file=sys.stderr)
@@ -214,16 +195,9 @@ def _main(argv=None):
     parser.add_argument(
         "--default-pip",
         action="store_true",
-        default=True,
-        dest="default_pip",
-        help=argparse.SUPPRESS,
-    )
-    parser.add_argument(
-        "--no-default-pip",
-        action="store_false",
-        dest="default_pip",
-        help=("Make a non default install, installing only the X and X.Y "
-              "versioned scripts."),
+        default=False,
+        help=("Make a default pip install, installing the unqualified pip "
+              "and easy_install in addition to the versioned scripts"),
     )
 
     args = parser.parse_args(argv)

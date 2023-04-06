@@ -2,9 +2,7 @@
 
 # Module and documentation by Eric S. Raymond, 21 Dec 1998
 
-import os, stat, shlex
-if os.name == 'posix':
-    import pwd
+import os, shlex, stat
 
 __all__ = ["netrc", "NetrcParseError"]
 
@@ -28,7 +26,7 @@ class netrc:
             try:
                 file = os.path.join(os.environ['HOME'], ".netrc")
             except KeyError:
-                raise IOError("Could not find .netrc: $HOME is not set")
+                raise OSError("Could not find .netrc: $HOME is not set")
         self.hosts = {}
         self.macros = {}
         with open(file) as fp:
@@ -40,15 +38,13 @@ class netrc:
         lexer.commenters = lexer.commenters.replace('#', '')
         while 1:
             # Look for a machine, default, or macdef top-level keyword
+            saved_lineno = lexer.lineno
             toplevel = tt = lexer.get_token()
             if not tt:
                 break
             elif tt[0] == '#':
-                # seek to beginning of comment, in case reading the token put
-                # us on a new line, and then skip the rest of the line.
-                pos = len(tt) + 1
-                lexer.instream.seek(-pos, 1)
-                lexer.instream.readline()
+                if lexer.lineno == saved_lineno and len(tt) == 1:
+                    lexer.instream.readline()
                 continue
             elif tt == 'machine':
                 entryname = lexer.get_token()
@@ -94,6 +90,7 @@ class netrc:
                     if os.name == 'posix' and default_netrc:
                         prop = os.fstat(fp.fileno())
                         if prop.st_uid != os.getuid():
+                            import pwd
                             try:
                                 fowner = pwd.getpwuid(prop.st_uid)[0]
                             except KeyError:
@@ -142,4 +139,4 @@ class netrc:
         return rep
 
 if __name__ == '__main__':
-    print netrc()
+    print(netrc())
