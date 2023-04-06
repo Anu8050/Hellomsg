@@ -84,8 +84,9 @@ namespace MergeFilesTool
                     var paths = engine.GetSearchPaths();
 
                     paths.Add(@"F:\C#Example\Hellomsg\Hellomsg\packages\DynamicLanguageRuntime.1.3.3");
-                    paths.Add(@"C:\Python27\include");
-                    paths.Add(@"C:\Python27\Lib");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Scripts");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\include");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib");
                     //paths.Add(@"F:\C#Example\Hellomsg\Hellomsg");
                     paths.Add(@"C:\Program Files\IronPython 2.7\Lib");
 
