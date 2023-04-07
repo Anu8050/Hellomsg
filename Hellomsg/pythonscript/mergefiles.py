@@ -4,9 +4,10 @@
 
 
 import sys
+import PyPDF2
 #path_to_PyPDF2 = r'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages' # replace with the actual path to PyPDF2
 #sys.path.append(path_to_PyPDF2)
-PyPDF2 = __import__('PyPDF2')
+#PyPDF2 = __import__('PyPDF2')
 print(sys.path)
 
 
