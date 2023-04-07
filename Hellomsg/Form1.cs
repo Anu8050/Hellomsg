@@ -81,8 +81,10 @@ namespace MergeFilesTool
                     ScriptScope scope = engine.CreateScope();
                     var paths = engine.GetSearchPaths();
                     paths.Add(@"c:\users\user\appdata\local\programs\python\python310\lib\site-packages");
-                    engine.SetSearchPaths(paths);
+                    paths.Add(@"C:\\Program Files\\IronPython 3.4\\Lib");
+                    
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+                    engine.SetSearchPaths(paths);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     var result = sumFunction(textboxs);
                     lblStatus.Text = result;
@@ -96,20 +98,47 @@ namespace MergeFilesTool
                     var p = Python.CreateEngine();
                     var scope = p.CreateScope();
                     var libs = new[] {
-                                        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\Extensions\\Microsoft\\Python Tools for Visual Studio\\2.2",
-                                        "C:\\Program Files\\IronPython 2.7\\Lib",
-                                        "C:\\Program Files\\IronPython 2.7\\DLLs",
-                                        "C:\\Program Files\\IronPython 2.7",
-                                        "C:\\Program Files\\IronPython 2.7\\Lib\\site-packages"
+                                        "C:\\Program Files\\IronPython 3.4\\Lib",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
+                                        "C:\\Program Files\\IronPython 3.4",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
 
                     p.SetSearchPaths(libs);
-                    p.ExecuteFile("F:\\C#trial\\Hellomsg\\Hellomsg\\pythonscript\\mergefiles.py", scope);
+                    //p.ExecuteFile(@"F:\C#trial\Hellomsg\Hellomsg\pythonscript\mergefiles.py", scope); 
+                    p.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+                    dynamic sumFunction = scope.GetVariable("merge");
+                    var result = sumFunction(textboxs);
+                    lblStatus.Text = result;
+
                 }
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
-                    textboxs.ElementAt(2).Length != 0))
-                {  
+                          textboxs.ElementAt(1).Length == 0 &&
+                          textboxs.ElementAt(2).Length != 0))
+                {
+                    ScriptEngine engine = Python.CreateEngine();
+                    ScriptScope scope = engine.CreateScope();
+                    var paths = engine.GetSearchPaths();
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\DLLs");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages");
+                    paths.Add(@"C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages\PyPDF2");
+                    paths.Add(@"C:\Program Files\IronPython 3.4\Lib");
+                    paths.Add(@"C:\Program Files\IronPython 3.4\Lib\DLLs");
+                    paths.Add(@"C:\Program Files\IronPython 3.4");
+                    paths.Add(@"C:\Program Files\IronPython 3.4\Lib\site-packages");
+                    engine.SetSearchPaths(paths);
+                    //engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+                    engine.ExecuteFile(@"F:\C#trial\Hellomsg\Hellomsg\pythonscript\mergefiles.py", scope);
+
+                    
+                    dynamic sumFunction = scope.GetVariable("merge1");
+                    var result = sumFunction(textboxs);
+                    lblStatus.Text = result;
+
                     MessageBox.Show("Sucessfuly merge"+ txtFirstFile.Text + " and"+ txtThirdFile.Text + " pdf files.");  
                 }
 
