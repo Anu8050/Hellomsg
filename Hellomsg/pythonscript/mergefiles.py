@@ -17,7 +17,7 @@ def merge(pdfiles):
 
 
 pdfMerge = PyPDF2.PdfMerger()
-pdfiles = []
+pdfiles = ['hhh']
 #pdfiles ={
  #       'C:/Users/User/Documents/pdf_files/a.pdf',
      #   'C:/Users/User/Documents/Anusha.pdf',
@@ -36,4 +36,4 @@ def merge1(pdfiles):
 
 
 if __name__ == "__main__":
-   merge1(pdfiles)
+   merge(pdfiles)
