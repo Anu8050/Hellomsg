@@ -86,7 +86,7 @@ namespace MergeFilesTool
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
                     engine.SetSearchPaths(libs);
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\hello.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
@@ -118,7 +118,7 @@ namespace MergeFilesTool
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
                     engine.SetSearchPaths(libs);
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\hello.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
@@ -151,7 +151,7 @@ namespace MergeFilesTool
                                      };
 
                     engine.SetSearchPaths(libs); 
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\hello.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
@@ -185,7 +185,7 @@ namespace MergeFilesTool
                                      };
 
                     engine.SetSearchPaths(libs); 
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\hello.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
