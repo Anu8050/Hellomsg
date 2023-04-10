@@ -76,8 +76,8 @@ namespace MergeFilesTool
                     (textboxs.ElementAt(2).Length != 0))
                 {
                     // Microsoft.Scripting.Hosting.ScriptEngine engine = Python.CreateEngine();
-                   var p = Python.CreateEngine();
-                    var scope = p.CreateScope();
+                   var engine = Python.CreateEngine();
+                    var scope = engine.CreateScope();
                     var libs = new[] {
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
@@ -108,8 +108,8 @@ namespace MergeFilesTool
                     textboxs.ElementAt(1).Length != 0 && 
                     textboxs.ElementAt(2).Length != 0))
                 {
-                    var p = Python.CreateEngine();
-                    var scope = p.CreateScope();
+                    var engine = Python.CreateEngine();
+                    var scope = engine.CreateScope();
                     var libs = new[] {
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
