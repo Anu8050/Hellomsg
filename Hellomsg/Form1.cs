@@ -76,7 +76,7 @@ namespace MergeFilesTool
                     (textboxs.ElementAt(2).Length != 0))
                 {
                     // Microsoft.Scripting.Hosting.ScriptEngine engine = Python.CreateEngine();
-                   var engine = Python.CreateEngine();
+                    var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
