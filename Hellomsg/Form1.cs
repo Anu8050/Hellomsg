@@ -75,18 +75,17 @@ namespace MergeFilesTool
                     (textboxs.ElementAt(1).Length != 0) && 
                     (textboxs.ElementAt(2).Length != 0))
                 {
-                    var engine = Python.CreateEngine();
-                    var scope = engine.CreateScope();
+                    // Microsoft.Scripting.Hosting.ScriptEngine engine = Python.CreateEngine();
+                   var p = Python.CreateEngine();
+                    var scope = p.CreateScope();
                     var libs = new[] {
-                                        "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
                                         "C:\\Program Files\\IronPython 3.4",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
-
-                    engine.SetSearchPaths(libs); 
+                    engine.SetSearchPaths(libs);
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\hello.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
@@ -100,7 +99,8 @@ namespace MergeFilesTool
 
                     var result = sumFunction(textboxs);
                     lblStatus.Text = result;
-                    MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
+                    MessageBox.Show("Sucessfuly merge "+ txtFirstFile.Text +" and"+ txtSecondFile.Text + " and"+ txtThirdFile.Text +" pdf files.");
+                    
 
                 }
 
@@ -108,17 +108,15 @@ namespace MergeFilesTool
                     textboxs.ElementAt(1).Length != 0 && 
                     textboxs.ElementAt(2).Length != 0))
                 {
-                    var engine = Python.CreateEngine();
-                    var scope = engine.CreateScope();
+                    var p = Python.CreateEngine();
+                    var scope = p.CreateScope();
                     var libs = new[] {
-                                        "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
                                         "C:\\Program Files\\IronPython 3.4",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
-
                     engine.SetSearchPaths(libs);
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\hello.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
@@ -133,47 +131,13 @@ namespace MergeFilesTool
 
                     var result = sumFunction(textboxs);
                     lblStatus.Text = result;
-                    MessageBox.Show("Sucessfuly merge" +txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
+                     MessageBox.Show("Sucessfuly merge "+  txtSecondFile.Text + " and"+ txtThirdFile.Text +" pdf files.");
 
                 }
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
                           textboxs.ElementAt(1).Length == 0 &&
                           textboxs.ElementAt(2).Length != 0))
-                {
-                    var engine = Python.CreateEngine();
-                    var scope = engine.CreateScope();
-                    var libs = new[] {
-                                        "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
-                                        "C:\\Program Files\\IronPython 3.4",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
-                                     };
-
-                    engine.SetSearchPaths(libs);
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\hello.py", scope);
-                    dynamic sumFunction = scope.GetVariable("merge1");
-                    for (int i = textboxs.Count - 1; i >= 0; i--)
-                    {
-                        if (textboxs[i].Trim() == "")
-                        {
-                            textboxs.RemoveAt(i);
-                        }
-                        textboxs[i] = textboxs[i].Replace(@"\", "/");
-                    }
-
-                    var result = sumFunction(textboxs);
-                    lblStatus.Text = result;
-
-                    MessageBox.Show("Sucessfuly merge"+ txtFirstFile.Text + " and"+ txtThirdFile.Text + " pdf files.");  
-                }
-
-                else if ((textboxs.ElementAt(0).Length != 0 && 
-                    textboxs.ElementAt(1).Length != 0 &&
-                    textboxs.ElementAt(2).Length == 0
-                    ))
                 {
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -202,6 +166,39 @@ namespace MergeFilesTool
                     var result = sumFunction(textboxs);
                     lblStatus.Text = result;
 
+                    MessageBox.Show("Sucessfuly merge"+ txtFirstFile.Text + " and"+ txtThirdFile.Text + " pdf files.");  
+                }
+
+                else if ((textboxs.ElementAt(0).Length != 0 && 
+                    textboxs.ElementAt(1).Length != 0 && 
+                    textboxs.ElementAt(2).Length == 0))
+                {
+                    var engine = Python.CreateEngine();
+                    var scope = engine.CreateScope();
+                    var libs = new[] {
+                                        "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
+                                        "C:\\Program Files\\IronPython 3.4",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
+                                     };
+
+                    engine.SetSearchPaths(libs); 
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\hello.py", scope);
+                    dynamic sumFunction = scope.GetVariable("merge1");
+                    for (int i = textboxs.Count - 1; i >= 0; i--)
+                    {
+                        textboxs[i] = textboxs[i].Replace(@"\", "/");
+                        if (textboxs[i].Trim() == "")
+                        {
+                            textboxs.RemoveAt(i);
+                        }
+                        
+                    }
+
+                    var result = sumFunction(textboxs);
+                    lblStatus.Text = result;
                     MessageBox.Show("Sucessfuly merge "+ txtFirstFile.Text +" and"+ txtSecondFile.Text + " pdf files.");
                     
                 }
