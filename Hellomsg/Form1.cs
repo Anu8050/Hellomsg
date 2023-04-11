@@ -150,7 +150,6 @@ namespace MergeFilesTool
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
 
-<<<<<<< HEAD
                     engine.SetSearchPaths(libs);
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
