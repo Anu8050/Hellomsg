@@ -15,7 +15,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\User\Desktop\newapp\</PublishUrl>
+    <PublishUrl>C:\Users\User\Documents\MergePdfFileApp\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -990,7 +990,7 @@
     <Content Include="lib\_weakrefset.py" />
     <Content Include="lib\__future__.py" />
     <Content Include="lib\__phello__.foo.py" />
-    <Content Include="pythonscript\hello.py" />
+    <Content Include="pythonscript\merge.py" />
     <Content Include="pythonscript\Lib\site-packages\pip-22.0.3.dist-info\entry_points.txt" />
     <Content Include="pythonscript\Lib\site-packages\pip-22.0.3.dist-info\LICENSE.txt" />
     <Content Include="pythonscript\Lib\site-packages\pip-22.0.3.dist-info\top_level.txt" />
