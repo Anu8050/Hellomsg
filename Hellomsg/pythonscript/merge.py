@@ -18,8 +18,9 @@ def merge1(pdfiles, mergepdf_filename):
 
 directory = "C://Users//User//Documents//"
 pdfiles=[]
-mergepdf_filename='anu.pdf'
-pdfiles=['C:/Users/User/Documents/Anusha.pdf','C:/Users/User/Documents/Anusha.pdf']
+mergepdf_filename = ''
+#mergepdf_filename='anu.pdf'
+#pdfiles=['C:/Users/User/Documents/Anusha.pdf','C:/Users/User/Documents/Anusha.pdf']
 if __name__ == "__main__":
    merge1(pdfiles, mergepdf_filename)
 

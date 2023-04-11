@@ -66,7 +66,7 @@ namespace MergeFilesTool
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
-            textboxs.Add(txtmergefilename.Text);
+            
 
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
@@ -88,7 +88,7 @@ namespace MergeFilesTool
                                      };
 
                     engine.SetSearchPaths(libs); 
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\merge.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
@@ -99,7 +99,7 @@ namespace MergeFilesTool
                         textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
 
-                    var result = sumFunction(textboxs);
+                    var result = sumFunction(textboxs, txtmergefilename.Text);
                     lblStatus.Text = result;
                     MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
 
@@ -121,7 +121,7 @@ namespace MergeFilesTool
                                      };
 
                     engine.SetSearchPaths(libs);
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\merge.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
@@ -132,7 +132,7 @@ namespace MergeFilesTool
                         textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
 
-                    var result = sumFunction(textboxs);
+                    var result = sumFunction(textboxs, txtmergefilename.Text);
                     lblStatus.Text = result;
                     MessageBox.Show("Sucessfuly merge" +txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
 
@@ -154,7 +154,7 @@ namespace MergeFilesTool
                                      };
 
                     engine.SetSearchPaths(libs);
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\merge.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
@@ -165,7 +165,7 @@ namespace MergeFilesTool
                         textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
 
-                    var result = sumFunction(textboxs);
+                    var result = sumFunction(textboxs, txtmergefilename.Text);
                     lblStatus.Text = result;
 
                     MessageBox.Show("Sucessfuly merge"+ txtFirstFile.Text + " and"+ txtThirdFile.Text + " pdf files.");  
@@ -188,7 +188,7 @@ namespace MergeFilesTool
                                      };
 
                     engine.SetSearchPaths(libs); 
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\merge.py", scope);
+                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
@@ -200,7 +200,7 @@ namespace MergeFilesTool
                         
                     }
 
-                    var result = sumFunction(textboxs);
+                    var result = sumFunction(textboxs, txtmergefilename.Text);
                     lblStatus.Text = result;
 
                     MessageBox.Show("Sucessfuly merge "+ txtFirstFile.Text +" and"+ txtSecondFile.Text + " pdf files.");
