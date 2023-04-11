@@ -26,6 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -275,6 +276,7 @@
     <None Include="lib\venv\scripts\nt\deactivate.bat" />
     <None Include="lib\venv\scripts\posix\activate" />
     <None Include="lib\venv\scripts\posix\activate.fish" />
+    <None Include="MergeFilesTool_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
