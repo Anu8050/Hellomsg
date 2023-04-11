@@ -85,8 +85,10 @@ namespace MergeFilesTool
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
+<<<<<<< HEAD
                     engine.SetSearchPaths(libs);
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+=======
 
                     engine.SetSearchPaths(libs); 
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\merge.py", scope);
@@ -122,7 +124,9 @@ namespace MergeFilesTool
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
                     engine.SetSearchPaths(libs);
+<<<<<<< HEAD
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+=======
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\merge.py", scope);
 >>>>>>> AnushaMS123
                     dynamic sumFunction = scope.GetVariable("merge1");
@@ -159,6 +163,7 @@ namespace MergeFilesTool
 <<<<<<< HEAD
 =======
                     engine.SetSearchPaths(libs);
+<<<<<<< HEAD
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
 =======
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\merge.py", scope);
@@ -197,8 +202,11 @@ namespace MergeFilesTool
 
 >>>>>>> parent of afdb1c1 (Final working copy(deployment).)
                     engine.SetSearchPaths(libs); 
+<<<<<<< HEAD
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+=======
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\merge.py", scope);
+>>>>>>> AnushaMS123
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
