@@ -162,6 +162,7 @@ namespace MergeFilesTool
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
 =======
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\merge.py", scope);
+>>>>>>> AnushaMS123
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
