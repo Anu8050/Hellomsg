@@ -24,12 +24,3 @@ mergepdf_filename = ''
 if __name__ == "__main__":
    merge1(pdfiles, mergepdf_filename)
 
-
-
-
-
-
-
-
-
-
