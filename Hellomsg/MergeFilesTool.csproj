@@ -29,6 +29,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ApplicationRevision>7</ApplicationRevision>
     <ApplicationRevision>2</ApplicationRevision>
 =======
@@ -38,6 +39,9 @@
     <ApplicationRevision>2</ApplicationRevision>
 >>>>>>> parent of afdb1c1 (Final working copy(deployment).)
 =======
+=======
+    <ApplicationRevision>7</ApplicationRevision>
+>>>>>>> parent of 762de7f (testing code11(9am))
     <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
