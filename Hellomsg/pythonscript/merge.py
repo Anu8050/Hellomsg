@@ -10,17 +10,17 @@ def merge1(pdfiles, mergepdf_filename):
         pdfMerge.append(pdf_reader)
         pdfFile.close()
 
-    with open(directory + mergepdf_filename, 'wb') as mergedFile:
+    with open(directory + mergepdf_filename + '.pdf', 'wb') as mergedFile:
         pdfMerge.write(mergedFile)
 #C://Users//User//Documents// +{mergepdf_filename} +.pdf
     print("Successfully merged pdf files.")
     return "Successfully merged pdf files."
 
 directory = "C://Users//User//Documents//"
-pdfiles=[]
-mergepdf_filename = ''
-#mergepdf_filename='anu.pdf'
-#pdfiles=['C:/Users/User/Documents/Anusha.pdf','C:/Users/User/Documents/Anusha.pdf']
+#pdfiles=[]
+#mergepdf_filename = ''
+mergepdf_filename='anu1'
+pdfiles=['C:/Users/User/Documents/Anusha.pdf','C:/Users/User/Documents/Anusha.pdf']
 if __name__ == "__main__":
    merge1(pdfiles, mergepdf_filename)
 

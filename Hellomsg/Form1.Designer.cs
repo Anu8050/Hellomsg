@@ -180,7 +180,7 @@ namespace MergeFilesTool
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(60, 344);
+            this.label5.Location = new System.Drawing.Point(60, 342);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 22);
             this.label5.TabIndex = 18;
@@ -188,7 +188,7 @@ namespace MergeFilesTool
             // 
             // txtmergefilename
             // 
-            this.txtmergefilename.Location = new System.Drawing.Point(257, 344);
+            this.txtmergefilename.Location = new System.Drawing.Point(257, 338);
             this.txtmergefilename.Name = "txtmergefilename";
             this.txtmergefilename.Size = new System.Drawing.Size(273, 26);
             this.txtmergefilename.TabIndex = 19;
