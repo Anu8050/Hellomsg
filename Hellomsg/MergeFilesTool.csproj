@@ -15,7 +15,11 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+<<<<<<< HEAD
     <PublishUrl>C:\Users\User\Desktop\newapp\</PublishUrl>
+=======
+    <PublishUrl>C:\Users\User\Documents\MergePdfFileApp\</PublishUrl>
+>>>>>>> AnushaMS123
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,6 +29,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -40,6 +45,9 @@
 =======
     <ApplicationRevision>2</ApplicationRevision>
 >>>>>>> parent of afdb1c1 (Final working copy(deployment).)
+=======
+    <ApplicationRevision>6</ApplicationRevision>
+>>>>>>> AnushaMS123
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1744,6 +1752,10 @@
     <Content Include="lib\_weakrefset.py" />
     <Content Include="lib\__future__.py" />
     <Content Include="lib\__phello__.foo.py" />
+<<<<<<< HEAD
+=======
+    <Content Include="pythonscript\merge.py" />
+>>>>>>> AnushaMS123
     <Content Include="pythonscript\Lib\site-packages\pip-22.0.3.dist-info\entry_points.txt" />
     <Content Include="pythonscript\Lib\site-packages\pip-22.0.3.dist-info\LICENSE.txt" />
     <Content Include="pythonscript\Lib\site-packages\pip-22.0.3.dist-info\top_level.txt" />
