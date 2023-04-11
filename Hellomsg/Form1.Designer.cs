@@ -105,7 +105,7 @@ namespace MergeFilesTool
             // btnMergePdfFiles
             // 
             this.btnMergePdfFiles.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnMergePdfFiles.Location = new System.Drawing.Point(631, 327);
+            this.btnMergePdfFiles.Location = new System.Drawing.Point(631, 341);
             this.btnMergePdfFiles.Name = "btnMergePdfFiles";
             this.btnMergePdfFiles.Size = new System.Drawing.Size(122, 54);
             this.btnMergePdfFiles.TabIndex = 11;
@@ -179,16 +179,16 @@ namespace MergeFilesTool
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(60, 342);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(64, 327);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 22);
+            this.label5.Size = new System.Drawing.Size(138, 20);
             this.label5.TabIndex = 18;
             this.label5.Text = "Merged File Name";
             // 
             // txtmergefilename
             // 
-            this.txtmergefilename.Location = new System.Drawing.Point(257, 338);
+            this.txtmergefilename.Location = new System.Drawing.Point(64, 355);
             this.txtmergefilename.Name = "txtmergefilename";
             this.txtmergefilename.Size = new System.Drawing.Size(273, 26);
             this.txtmergefilename.TabIndex = 19;
@@ -197,7 +197,7 @@ namespace MergeFilesTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 450);
+            this.ClientSize = new System.Drawing.Size(1051, 521);
             this.Controls.Add(this.txtmergefilename);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblStatus);
