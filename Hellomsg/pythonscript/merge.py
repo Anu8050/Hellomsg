@@ -1,8 +1,8 @@
 import PyPDF2
 
-def merge1(pdfiles):
+def merge1(pdfiles, mergepdf_filename):
     pdfMerge = PyPDF2.PdfMerger()
-
+    
     for filename in pdfiles:
         print(filename)
         pdfFile = open(filename,'rb')
@@ -10,17 +10,18 @@ def merge1(pdfiles):
         pdfMerge.append(pdf_reader)
         pdfFile.close()
 
-    with open('C://Users//User//Documents//merged2.pdf', 'wb') as mergedFile:
+    with open(directory + mergepdf_filename, 'wb') as mergedFile:
         pdfMerge.write(mergedFile)
-
+#C://Users//User//Documents// +{mergepdf_filename} +.pdf
     print("Successfully merged pdf files.")
     return "Successfully merged pdf files."
 
-
+directory = "C://Users//User//Documents//"
 pdfiles=[]
-#pdfiles=['C:/Users/User/Documents/Anusha.pdf','C:/Users/User/Documents/Anusha.pdf',]
+mergepdf_filename='anu.pdf'
+pdfiles=['C:/Users/User/Documents/Anusha.pdf','C:/Users/User/Documents/Anusha.pdf']
 if __name__ == "__main__":
-   merge1(pdfiles)
+   merge1(pdfiles, mergepdf_filename)
 
 
 

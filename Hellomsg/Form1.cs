@@ -66,6 +66,7 @@ namespace MergeFilesTool
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
+            textboxs.Add(txtmergefilename.Text);
 
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
