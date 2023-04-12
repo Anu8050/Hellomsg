@@ -1,4 +1,4 @@
-import PyPDF2
+import PyPDF2 
 
 def merge1(pdfiles, mergepdf_filename):
     pdfMerge = PyPDF2.PdfMerger()

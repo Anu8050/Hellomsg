@@ -3,8 +3,6 @@ using System.Linq;
 using System;
 using System.Windows.Forms;
 using IronPython.Hosting;
-using Microsoft.Scripting.Hosting;
-using java.nio.file;
 
 namespace MergeFilesTool
 {
@@ -79,7 +77,7 @@ namespace MergeFilesTool
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
-                                        "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
+                                        //"F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
                                         "C:\\Program Files\\IronPython 3.4",
@@ -112,7 +110,7 @@ namespace MergeFilesTool
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
-                                        "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
+                                       // "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
                                         "C:\\Program Files\\IronPython 3.4",
@@ -145,7 +143,7 @@ namespace MergeFilesTool
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
-                                        "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
+                                        //"F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
                                         "C:\\Program Files\\IronPython 3.4",
@@ -179,7 +177,7 @@ namespace MergeFilesTool
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
-                                        "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
+                                        //"F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
                                         "C:\\Program Files\\IronPython 3.4",
