@@ -213,6 +213,15 @@ namespace phy_merge_pdf_tool
 
             }
 
+            else if(((textboxs.ElementAt(0).Length == 0) ||
+                (textboxs.ElementAt(1).Length == 0) ||
+                (textboxs.ElementAt(2).Length == 0)))
+            {
+
+                MessageBox.Show("Select pdf files");
+            }
+
+
             Cursor = Cursors.Arrow;
    
         }
@@ -220,6 +229,14 @@ namespace phy_merge_pdf_tool
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var directory = "C:\\Users\\User\\Documents\\";
+            string filename = directory + txtmergefilename.Text;
+            //System.Diagnostics.Process.Start(filename);
+            System.Diagnostics.Process.Start(filename);
         }
     }
 };
