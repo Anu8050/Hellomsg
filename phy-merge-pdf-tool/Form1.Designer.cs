@@ -131,18 +131,18 @@ namespace phy_merge_pdf_tool
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(46, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 20);
+            this.label2.Size = new System.Drawing.Size(220, 20);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Select first pdf file";
+            this.label2.Text = "Select first pdf file(Mendatory)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(46, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 24);
+            this.label3.Size = new System.Drawing.Size(251, 24);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Select second pdf file";
+            this.label3.Text = "Select second pdf file(Mendatory)";
             this.label3.UseCompatibleTextRendering = true;
             // 
             // label4
