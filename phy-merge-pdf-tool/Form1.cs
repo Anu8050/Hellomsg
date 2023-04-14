@@ -180,7 +180,7 @@ namespace phy_merge_pdf_tool
                 (textboxs.ElementAt(2).Length == 0)))
             {
 
-                MessageBox.Show("Select pdf files");
+                MessageBox.Show("Select pdf files ");
                 txtFirstFile.Focus();
 
             }
