@@ -67,6 +67,7 @@ namespace phy_merge_pdf_tool
             // 
             // txtFirstFile
             // 
+            this.txtFirstFile.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtFirstFile.Location = new System.Drawing.Point(46, 63);
             this.txtFirstFile.Name = "txtFirstFile";
             this.txtFirstFile.Size = new System.Drawing.Size(506, 26);
@@ -134,18 +135,19 @@ namespace phy_merge_pdf_tool
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(46, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 20);
+            this.label2.Size = new System.Drawing.Size(135, 20);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Select first pdf file(Mendatory)";
+            this.label2.Text = "Select first pdf file";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 105);
+            this.label3.Location = new System.Drawing.Point(46, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(246, 20);
+            this.label3.Size = new System.Drawing.Size(162, 24);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Select second pdf file(Mendatory)";
+            this.label3.Text = "Select second pdf file";
+            this.label3.UseCompatibleTextRendering = true;
             // 
             // label4
             // 
@@ -192,7 +194,6 @@ namespace phy_merge_pdf_tool
             this.label5.Size = new System.Drawing.Size(216, 20);
             this.label5.TabIndex = 18;
             this.label5.Text = "Merged file name(Mendatory)";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // lblStatus
             // 

@@ -6,11 +6,13 @@ using IronPython.Hosting;
 using System.Xml.Linq;
 using System.Collections.ObjectModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Drawing;
 
 namespace phy_merge_pdf_tool
 {
     public partial class Form1 : Form
     {
+        
         List<string> textboxs = new List<string>();
         public Form1()
         {
@@ -69,6 +71,7 @@ namespace phy_merge_pdf_tool
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
 
+
             if ((textboxs.ElementAt(0).Length != 0) ||
                (textboxs.ElementAt(1).Length != 0))
             {
@@ -77,14 +80,13 @@ namespace phy_merge_pdf_tool
                     MessageBox.Show("Please enetr First text File.");
                     txtFirstFile.Focus();
                     return;
-
                 }
                 
                 else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
                 {
                     MessageBox.Show("Please enter Second text File.");
                     txtSecondFile.Focus();
-                    return;
+                   
                 }
 
                 else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
@@ -120,11 +122,12 @@ namespace phy_merge_pdf_tool
                     dynamic sumFunction = scope.GetVariable("merge1");
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
+                        textboxs[i] = textboxs[i].Replace(@"\", "/");
                         if (textboxs[i].Trim() == "")
                         {
                             textboxs.RemoveAt(i);
                         }
-                        textboxs[i] = textboxs[i].Replace(@"\", "/");
+                        //textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
 
                     var result = sumFunction(textboxs, txtmergefilename.Text);
@@ -158,8 +161,7 @@ namespace phy_merge_pdf_tool
                         if (textboxs[i].Trim() == "")
                         {
                             textboxs.RemoveAt(i);
-                        }
-                        
+                        }                        
                     }
 
                     var result = sumFunction(textboxs, txtmergefilename.Text);
@@ -169,10 +171,10 @@ namespace phy_merge_pdf_tool
                     
                 }
 
-                else
-                { 
-                    MessageBox.Show("Select minimum two pdf files");
-                }
+                //else
+                //{ 
+                //    MessageBox.Show("Select minimum two pdf files");
+                //}
 
             }
 
@@ -187,11 +189,6 @@ namespace phy_merge_pdf_tool
 
             Cursor = Cursors.Arrow;
    
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -215,5 +212,6 @@ namespace phy_merge_pdf_tool
             string filePath = directory + txtmergefilename.Text + ".pdf";
             System.Diagnostics.Process.Start(filePath);
         }
+
     }
 };
