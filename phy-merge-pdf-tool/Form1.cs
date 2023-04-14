@@ -74,14 +74,22 @@ namespace phy_merge_pdf_tool
             {
                 if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
                 {
-                    MessageBox.Show("Please enter a value for First text File.");
+                    MessageBox.Show("Please enetr First text File.");
                     txtFirstFile.Focus();
                     return;
                 }
+
                 else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
                 {
-                    MessageBox.Show("Please enter a value for Second text File");
+                    MessageBox.Show("Please enter Second text File.");
                     txtSecondFile.Focus();
+                    return;
+                }
+
+                else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
+                {
+                    MessageBox.Show("Please enter the mergepdf file name to proceed.");
+                    txtmergefilename.Focus();
                     return;
                 }
             }
