@@ -45,13 +45,9 @@ namespace phy_merge_pdf_tool
             this.txtmergefilename = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.eventLog1 = new System.Diagnostics.EventLog();
-            this.eventLog2 = new System.Diagnostics.EventLog();
             this.reset_btn = new System.Windows.Forms.Button();
             this.preview_btn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog2)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -203,14 +199,6 @@ namespace phy_merge_pdf_tool
             this.lblStatus.Size = new System.Drawing.Size(0, 20);
             this.lblStatus.TabIndex = 17;
             // 
-            // eventLog1
-            // 
-            this.eventLog1.SynchronizingObject = this;
-            // 
-            // eventLog2
-            // 
-            this.eventLog2.SynchronizingObject = this;
-            // 
             // reset_btn
             // 
             this.reset_btn.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -249,8 +237,6 @@ namespace phy_merge_pdf_tool
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,8 +273,6 @@ namespace phy_merge_pdf_tool
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtmergefilename;
-        private System.Diagnostics.EventLog eventLog1;
-        private System.Diagnostics.EventLog eventLog2;
         private System.Windows.Forms.Button reset_btn;
         private System.Windows.Forms.Button preview_btn;
     }
