@@ -3,6 +3,9 @@ using System.Linq;
 using System;
 using System.Windows.Forms;
 using IronPython.Hosting;
+using System.Xml.Linq;
+using System.Collections.ObjectModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace phy_merge_pdf_tool
 {
@@ -65,7 +68,24 @@ namespace phy_merge_pdf_tool
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
-            
+
+            if((textboxs.ElementAt(0).Length != 0) ||
+               (textboxs.ElementAt(1).Length != 0))
+            {
+                if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
+                {
+                    MessageBox.Show("Please enter a value for First text File.");
+                    txtFirstFile.Focus();
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
+                {
+                    MessageBox.Show("Please enter a value for Second text File");
+                    txtSecondFile.Focus();
+                    return;
+                }
+            }
+
 
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
@@ -104,71 +124,71 @@ namespace phy_merge_pdf_tool
 
                 }
 
-                else if ((textboxs.ElementAt(0).Length == 0 && 
-                    textboxs.ElementAt(1).Length != 0 && 
-                    textboxs.ElementAt(2).Length != 0))
-                {
-                    var engine = Python.CreateEngine();
-                    var scope = engine.CreateScope();
-                    var libs = new[] {
-                                       // "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
-                                        "C:\\Program Files\\IronPython 3.4",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
-                                     };
+                //else if ((textboxs.ElementAt(0).Length == 0 && 
+                //    textboxs.ElementAt(1).Length != 0 && 
+                //    textboxs.ElementAt(2).Length != 0))
+                //{
+                //    var engine = Python.CreateEngine();
+                //    var scope = engine.CreateScope();
+                //    var libs = new[] {
+                //                       // "F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
+                //                        "C:\\Program Files\\IronPython 3.4\\Lib",
+                //                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
+                //                        "C:\\Program Files\\IronPython 3.4",
+                //                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
+                //                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
+                //                     };
 
-                    engine.SetSearchPaths(libs);
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
-                    dynamic sumFunction = scope.GetVariable("merge1");
-                    for (int i = textboxs.Count - 1; i >= 0; i--)
-                    {
-                        if (textboxs[i].Trim() == "")
-                        {
-                            textboxs.RemoveAt(i);
-                        }
-                        textboxs[i] = textboxs[i].Replace(@"\", "/");
-                    }
+                //    engine.SetSearchPaths(libs);
+                //    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+                //    dynamic sumFunction = scope.GetVariable("merge1");
+                //    for (int i = textboxs.Count - 1; i >= 0; i--)
+                //    {
+                //        if (textboxs[i].Trim() == "")
+                //        {
+                //            textboxs.RemoveAt(i);
+                //        }
+                //        textboxs[i] = textboxs[i].Replace(@"\", "/");
+                //    }
 
-                    var result = sumFunction(textboxs, txtmergefilename.Text);
-                    lblStatus.Text = result;
-                    MessageBox.Show("Sucessfuly merge" +txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
+                //    var result = sumFunction(textboxs, txtmergefilename.Text);
+                //    lblStatus.Text = result;
+                //    MessageBox.Show("Sucessfuly merge" +txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
 
-                }
+                //}
 
-                else if ((textboxs.ElementAt(0).Length != 0 && 
-                          textboxs.ElementAt(1).Length == 0 &&
-                          textboxs.ElementAt(2).Length != 0))
-                {
-                    var engine = Python.CreateEngine();
-                    var scope = engine.CreateScope();
-                    var libs = new[] {
-                                        //"F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
-                                        "C:\\Program Files\\IronPython 3.4",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
-                                     };
+                //else if ((textboxs.ElementAt(0).Length != 0 && 
+                //          textboxs.ElementAt(1).Length == 0 &&
+                //          textboxs.ElementAt(2).Length != 0))
+                //{
+                //    var engine = Python.CreateEngine();
+                //    var scope = engine.CreateScope();
+                //    var libs = new[] {
+                //                        //"F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
+                //                        "C:\\Program Files\\IronPython 3.4\\Lib",
+                //                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
+                //                        "C:\\Program Files\\IronPython 3.4",
+                //                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
+                //                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
+                //                     };
 
-                    engine.SetSearchPaths(libs);
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
-                    dynamic sumFunction = scope.GetVariable("merge1");
-                    for (int i = textboxs.Count - 1; i >= 0; i--)
-                    {
-                        if (textboxs[i].Trim() == "")
-                        {
-                            textboxs.RemoveAt(i);
-                        }
-                        textboxs[i] = textboxs[i].Replace(@"\", "/");
-                    }
+                //    engine.SetSearchPaths(libs);
+                //    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+                //    dynamic sumFunction = scope.GetVariable("merge1");
+                //    for (int i = textboxs.Count - 1; i >= 0; i--)
+                //    {
+                //        if (textboxs[i].Trim() == "")
+                //        {
+                //            textboxs.RemoveAt(i);
+                //        }
+                //        textboxs[i] = textboxs[i].Replace(@"\", "/");
+                //    }
 
-                    var result = sumFunction(textboxs, txtmergefilename.Text);
-                    lblStatus.Text = result;
+                //    var result = sumFunction(textboxs, txtmergefilename.Text);
+                //    lblStatus.Text = result;
 
-                    MessageBox.Show("Sucessfuly merge"+ txtFirstFile.Text + " and"+ txtThirdFile.Text + " pdf files.");  
-                }
+                //    MessageBox.Show("Sucessfuly merge"+ txtFirstFile.Text + " and"+ txtThirdFile.Text + " pdf files.");  
+                //}
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
                     textboxs.ElementAt(1).Length != 0 &&
@@ -233,10 +253,21 @@ namespace phy_merge_pdf_tool
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var directory = "C:\\Users\\User\\Documents\\";
-            string filename = directory + txtmergefilename.Text;
+            var directory = "C:/Users/User/Documents/";
+            string filePath = directory+txtmergefilename.Text+ ".pdf";
+            //string filePath = "C:/Users/User/Documents/Anusha.pdf";
             //System.Diagnostics.Process.Start(filename);
-            System.Diagnostics.Process.Start(filename);
+            System.Diagnostics.Process.Start(filePath);
         }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            txtFirstFile.Text = "";
+            txtSecondFile.Text = "";
+            txtThirdFile.Text = "";
+            txtmergefilename.Text = "";
+        }
+
+
     }
 };
