@@ -69,7 +69,7 @@ namespace phy_merge_pdf_tool
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
 
-            if((textboxs.ElementAt(0).Length != 0) ||
+            if ((textboxs.ElementAt(0).Length != 0) ||
                (textboxs.ElementAt(1).Length != 0))
             {
                 if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
@@ -77,6 +77,7 @@ namespace phy_merge_pdf_tool
                     MessageBox.Show("Please enetr First text File.");
                     txtFirstFile.Focus();
                     return;
+
                 }
                 
                 else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
@@ -195,14 +196,12 @@ namespace phy_merge_pdf_tool
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var directory = "C:/Users/User/Documents/";
+            var directory = @"C:/Users/User/Documents/";
             string filePath = directory+txtmergefilename.Text+ ".pdf";
-            //string filePath = "C:/Users/User/Documents/Anusha.pdf";
-            //System.Diagnostics.Process.Start(filename);
             System.Diagnostics.Process.Start(filePath);
         }
 
-        private void button5_Click_1(object sender, EventArgs e)
+        private void reset_btn_Click(object sender, EventArgs e)
         {
             txtFirstFile.Text = "";
             txtSecondFile.Text = "";
@@ -210,6 +209,11 @@ namespace phy_merge_pdf_tool
             txtmergefilename.Text = "";
         }
 
-
+        private void preview_btn_Click(object sender, EventArgs e)
+        {
+            var directory = @"C:/Users/User/Documents/";
+            string filePath = directory + txtmergefilename.Text + ".pdf";
+            System.Diagnostics.Process.Start(filePath);
+        }
     }
 };

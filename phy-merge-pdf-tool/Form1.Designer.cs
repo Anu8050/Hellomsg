@@ -45,10 +45,10 @@ namespace phy_merge_pdf_tool
             this.txtmergefilename = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.eventLog2 = new System.Diagnostics.EventLog();
+            this.reset_btn = new System.Windows.Forms.Button();
+            this.preview_btn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog2)).BeginInit();
@@ -134,27 +134,27 @@ namespace phy_merge_pdf_tool
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(46, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 20);
+            this.label2.Size = new System.Drawing.Size(220, 20);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Select first pdf file";
+            this.label2.Text = "Select first pdf file(Mendatory)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(46, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 20);
+            this.label3.Size = new System.Drawing.Size(246, 20);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Select second pdf file";
+            this.label3.Text = "Select second pdf file(Mendatory)";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(46, 168);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 20);
+            this.label4.Size = new System.Drawing.Size(209, 20);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Select third pdf file";
+            this.label4.Text = "Select third pdf file(Optional)";
             // 
             // groupBox1
             // 
@@ -189,9 +189,9 @@ namespace phy_merge_pdf_tool
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(46, 225);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 20);
+            this.label5.Size = new System.Drawing.Size(216, 20);
             this.label5.TabIndex = 18;
-            this.label5.Text = "Merged file name";
+            this.label5.Text = "Merged file name(Mendatory)";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // lblStatus
@@ -202,28 +202,6 @@ namespace phy_merge_pdf_tool
             this.lblStatus.Size = new System.Drawing.Size(0, 20);
             this.lblStatus.TabIndex = 17;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button1.Location = new System.Drawing.Point(301, 431);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 60);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Preview merged file";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.button5.Location = new System.Drawing.Point(18, 431);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(142, 60);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Reset";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
             // eventLog1
             // 
             this.eventLog1.SynchronizingObject = this;
@@ -232,13 +210,35 @@ namespace phy_merge_pdf_tool
             // 
             this.eventLog2.SynchronizingObject = this;
             // 
+            // reset_btn
+            // 
+            this.reset_btn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.reset_btn.Location = new System.Drawing.Point(18, 431);
+            this.reset_btn.Name = "reset_btn";
+            this.reset_btn.Size = new System.Drawing.Size(137, 60);
+            this.reset_btn.TabIndex = 19;
+            this.reset_btn.Text = "Reset";
+            this.reset_btn.UseVisualStyleBackColor = false;
+            this.reset_btn.Click += new System.EventHandler(this.reset_btn_Click);
+            // 
+            // preview_btn
+            // 
+            this.preview_btn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.preview_btn.Location = new System.Drawing.Point(325, 431);
+            this.preview_btn.Name = "preview_btn";
+            this.preview_btn.Size = new System.Drawing.Size(163, 60);
+            this.preview_btn.TabIndex = 20;
+            this.preview_btn.Text = "Preview merged file";
+            this.preview_btn.UseVisualStyleBackColor = false;
+            this.preview_btn.Click += new System.EventHandler(this.preview_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1052, 522);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.preview_btn);
+            this.Controls.Add(this.reset_btn);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnMergePdfFiles);
@@ -286,10 +286,10 @@ namespace phy_merge_pdf_tool
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtmergefilename;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
         private System.Diagnostics.EventLog eventLog1;
         private System.Diagnostics.EventLog eventLog2;
+        private System.Windows.Forms.Button reset_btn;
+        private System.Windows.Forms.Button preview_btn;
     }
 }
 
