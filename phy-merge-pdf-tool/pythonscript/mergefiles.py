@@ -14,7 +14,7 @@ def merge1(pdfiles, mergepdf_filename):
         pdfMerge.write(mergedFile)
 #C://Users//User//Documents// +{mergepdf_filename} +.pdf
     print("Successfully merged pdf files.")
-    return "Merged file is created in " + directory + mergepdf_filename +'.pdf';
+    #return "Merged file is created in " + directory + mergepdf_filename +'.pdf';
 
 directory = "C://Users//User//Documents//"
 pdfiles=[]

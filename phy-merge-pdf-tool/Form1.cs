@@ -168,10 +168,10 @@ namespace phy_merge_pdf_tool
                     
                 }
 
-                else
-                {
-                    MessageBox.Show("Select minimum two pdf files");
-                }
+                //else
+                //{
+                //    MessageBox.Show("Select minimum two pdf files");
+                //}
 
             }
 
@@ -211,6 +211,7 @@ namespace phy_merge_pdf_tool
             string filePath = directory + txtmergefilename.Text + ".pdf";
             System.Diagnostics.Process.Start(filePath);
             Cursor = Cursors.Arrow;
+            MessageBox.Show("Merged file path is"+filePath);
         }
 
     }
