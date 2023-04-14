@@ -78,7 +78,7 @@ namespace phy_merge_pdf_tool
                     txtFirstFile.Focus();
                     return;
                 }
-
+                
                 else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
                 {
                     MessageBox.Show("Please enter Second text File.");

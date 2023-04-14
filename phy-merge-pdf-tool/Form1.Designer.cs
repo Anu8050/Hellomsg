@@ -47,7 +47,11 @@ namespace phy_merge_pdf_tool
             this.lblStatus = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.eventLog1 = new System.Diagnostics.EventLog();
+            this.eventLog2 = new System.Diagnostics.EventLog();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog2)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -220,6 +224,14 @@ namespace phy_merge_pdf_tool
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
+            // 
+            // eventLog2
+            // 
+            this.eventLog2.SynchronizingObject = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -236,6 +248,8 @@ namespace phy_merge_pdf_tool
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,6 +288,8 @@ namespace phy_merge_pdf_tool
         private System.Windows.Forms.TextBox txtmergefilename;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
+        private System.Diagnostics.EventLog eventLog1;
+        private System.Diagnostics.EventLog eventLog2;
     }
 }
 
