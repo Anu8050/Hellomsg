@@ -3,10 +3,7 @@ using System.Linq;
 using System;
 using System.Windows.Forms;
 using IronPython.Hosting;
-using System.Xml.Linq;
-using System.Collections.ObjectModel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Drawing;
+using System.Diagnostics;
 
 namespace phy_merge_pdf_tool
 {
@@ -171,10 +168,10 @@ namespace phy_merge_pdf_tool
                     
                 }
 
-                //else
-                //{ 
-                //    MessageBox.Show("Select minimum two pdf files");
-                //}
+                else
+                {
+                    MessageBox.Show("Select minimum two pdf files");
+                }
 
             }
 
@@ -184,8 +181,9 @@ namespace phy_merge_pdf_tool
             {
 
                 MessageBox.Show("Select pdf files");
-            }
+                txtFirstFile.Focus();
 
+            }
 
             Cursor = Cursors.Arrow;
    
@@ -208,9 +206,11 @@ namespace phy_merge_pdf_tool
 
         private void preview_btn_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             var directory = @"C:/Users/User/Documents/";
             string filePath = directory + txtmergefilename.Text + ".pdf";
             System.Diagnostics.Process.Start(filePath);
+            Cursor = Cursors.Arrow;
         }
 
     }
