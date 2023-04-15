@@ -4,6 +4,8 @@ using System;
 using System.Windows.Forms;
 using IronPython.Hosting;
 using System.Diagnostics;
+using System.IO;
+using static IronPython.Modules.PythonNT;
 
 namespace phy_merge_pdf_tool
 {
@@ -127,9 +129,19 @@ namespace phy_merge_pdf_tool
                         //textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
 
-                    var result = sumFunction(textboxs, txtmergefilename.Text);
-                    lblStatus.Text = result;
-                    MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
+                    var path = @"C://Users//User//Documents//" + txtmergefilename.Text;
+                    if (!File.Exists(path))
+                    {
+                        MessageBox.Show("File is already present in " + path + "please enetr another name.");
+                    }
+                    else
+                    {
+                        var result = sumFunction(textboxs, txtmergefilename.Text);
+                        lblStatus.Text = result;
+                        MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
+                    }
+
+                    
 
                 }
 
