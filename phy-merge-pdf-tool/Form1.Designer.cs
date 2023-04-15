@@ -133,7 +133,7 @@ namespace phy_merge_pdf_tool
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(220, 20);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Select first pdf file(Mendatory)";
+            this.label2.Text = "Select first pdf file(Mandatory)";
             // 
             // label3
             // 
@@ -142,7 +142,7 @@ namespace phy_merge_pdf_tool
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(251, 24);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Select second pdf file(Mendatory)";
+            this.label3.Text = "Select second pdf file(Mandatory)";
             this.label3.UseCompatibleTextRendering = true;
             // 
             // label4
@@ -189,7 +189,7 @@ namespace phy_merge_pdf_tool
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(216, 20);
             this.label5.TabIndex = 18;
-            this.label5.Text = "Merged file name(Mendatory)";
+            this.label5.Text = "Merged file name(Mandatory)";
             // 
             // lblStatus
             // 

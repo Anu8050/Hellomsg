@@ -65,7 +65,7 @@ namespace phy_merge_pdf_tool
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
+            //Cursor = Cursors.WaitCursor;
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
@@ -76,7 +76,7 @@ namespace phy_merge_pdf_tool
             {
                 if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
                 {
-                    MessageBox.Show("Please enetr First text File.");
+                    MessageBox.Show("Please enter First text File.");
                     txtFirstFile.Focus();
                     return;
                 }
@@ -105,6 +105,7 @@ namespace phy_merge_pdf_tool
                     (textboxs.ElementAt(1).Length != 0) && 
                     (textboxs.ElementAt(2).Length != 0))
                 {
+                    Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
@@ -119,6 +120,7 @@ namespace phy_merge_pdf_tool
                     engine.SetSearchPaths(libs); 
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
+
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
                         textboxs[i] = textboxs[i].Replace(@"\", "/");
@@ -128,28 +130,31 @@ namespace phy_merge_pdf_tool
                         }
                         //textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
-
-                    var path = @"C://Users//User//Documents//" + txtmergefilename.Text;
+                 
+                    var path = @"C://Users//User//Documents//" + txtmergefilename.Text + ".pdf";
                     if (!File.Exists(path))
-                    {
-                        MessageBox.Show("File is already present in " + path + "please enetr another name.");
-                    }
-                    else
                     {
                         var result = sumFunction(textboxs, txtmergefilename.Text);
                         lblStatus.Text = result;
                         MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
                     }
 
-                    
+                    else
+                    {
+                        MessageBox.Show("File is already present in " + path + " please enter another name.");
+                    }
+
+                    Cursor = Cursors.Arrow;
 
                 }
+
 
                 else if ((textboxs.ElementAt(0).Length != 0 && 
                     textboxs.ElementAt(1).Length != 0 &&
                     textboxs.ElementAt(2).Length == 0
                     ))
                 {
+                    Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
@@ -164,6 +169,7 @@ namespace phy_merge_pdf_tool
                     engine.SetSearchPaths(libs); 
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
+
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
                         textboxs[i] = textboxs[i].Replace(@"\", "/");
@@ -173,23 +179,34 @@ namespace phy_merge_pdf_tool
                         }                        
                     }
 
-                    var result = sumFunction(textboxs, txtmergefilename.Text);
-                    lblStatus.Text = result;
+                    var path = @"C://Users//User//Documents//" + txtmergefilename.Text + ".pdf";
+                    if (!File.Exists(path))
+                    {
+                        var result = sumFunction(textboxs, txtmergefilename.Text);
+                        lblStatus.Text = result;
+                        MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " pdf files.");  
+                    }
 
-                    MessageBox.Show("Sucessfuly merge "+ txtFirstFile.Text +" and"+ txtSecondFile.Text + " pdf files.");
-                    
+                    else
+                    {
+                        MessageBox.Show("File is already present in " + path + " please enter another name.");
+                    }
+
+                    Cursor = Cursors.Arrow;
+
+
                 }
 
-                //else
-                //{
-                //    MessageBox.Show("Select minimum two pdf files");
-                //}
+                else
+                {
+                    MessageBox.Show("Select minimum two pdf files");
+                }
 
             }
 
-            else if(((textboxs.ElementAt(0).Length == 0) ||
-                (textboxs.ElementAt(1).Length == 0) ||
-                (textboxs.ElementAt(2).Length == 0)))
+            else //if(((textboxs.ElementAt(0).Length == 0) ||
+                 //(textboxs.ElementAt(1).Length == 0) ||
+                 //(textboxs.ElementAt(2).Length == 0)))
             {
 
                 MessageBox.Show("Select pdf files ");
@@ -197,14 +214,14 @@ namespace phy_merge_pdf_tool
 
             }
 
-            Cursor = Cursors.Arrow;
-   
+            //Cursor = Cursors.Arrow;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var directory = @"C:/Users/User/Documents/";
-            string filePath = directory+txtmergefilename.Text+ ".pdf";
+            string filePath = directory + txtmergefilename.Text + ".pdf";
             System.Diagnostics.Process.Start(filePath);
         }
 
@@ -222,8 +239,9 @@ namespace phy_merge_pdf_tool
             var directory = @"C:/Users/User/Documents/";
             string filePath = directory + txtmergefilename.Text + ".pdf";
             System.Diagnostics.Process.Start(filePath);
+            MessageBox.Show("Merged file path is" + filePath);
             Cursor = Cursors.Arrow;
-            MessageBox.Show("Merged file path is"+filePath);
+            
         }
 
     }
