@@ -6,6 +6,7 @@ using IronPython.Hosting;
 using System.Diagnostics;
 using System.IO;
 using static IronPython.Modules.PythonNT;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace phy_merge_pdf_tool
 {
@@ -80,12 +81,12 @@ namespace phy_merge_pdf_tool
                     txtFirstFile.Focus();
                     return;
                 }
-                
+
                 else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
                 {
                     MessageBox.Show("Please enter Second text File.");
                     txtSecondFile.Focus();
-                   
+
                 }
 
                 else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
@@ -101,8 +102,8 @@ namespace phy_merge_pdf_tool
                 (textboxs.ElementAt(1).Length != 0) ||
                 (textboxs.ElementAt(2).Length != 0)))
             {
-                if ((textboxs.ElementAt(0).Length != 0) && 
-                    (textboxs.ElementAt(1).Length != 0) && 
+                if ((textboxs.ElementAt(0).Length != 0) &&
+                    (textboxs.ElementAt(1).Length != 0) &&
                     (textboxs.ElementAt(2).Length != 0))
                 {
                     Cursor = Cursors.WaitCursor;
@@ -117,7 +118,7 @@ namespace phy_merge_pdf_tool
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
 
-                    engine.SetSearchPaths(libs); 
+                    engine.SetSearchPaths(libs);
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
 
@@ -130,7 +131,7 @@ namespace phy_merge_pdf_tool
                         }
                         //textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
-                 
+
                     var path = @"C://Users//User//Documents//" + txtmergefilename.Text + ".pdf";
                     if (!File.Exists(path))
                     {
@@ -149,7 +150,7 @@ namespace phy_merge_pdf_tool
                 }
 
 
-                else if ((textboxs.ElementAt(0).Length != 0 && 
+                else if ((textboxs.ElementAt(0).Length != 0 &&
                     textboxs.ElementAt(1).Length != 0 &&
                     textboxs.ElementAt(2).Length == 0
                     ))
@@ -166,7 +167,7 @@ namespace phy_merge_pdf_tool
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
                                      };
 
-                    engine.SetSearchPaths(libs); 
+                    engine.SetSearchPaths(libs);
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("merge1");
 
@@ -176,7 +177,7 @@ namespace phy_merge_pdf_tool
                         if (textboxs[i].Trim() == "")
                         {
                             textboxs.RemoveAt(i);
-                        }                        
+                        }
                     }
 
                     var path = @"C://Users//User//Documents//" + txtmergefilename.Text + ".pdf";
@@ -184,7 +185,7 @@ namespace phy_merge_pdf_tool
                     {
                         var result = sumFunction(textboxs, txtmergefilename.Text);
                         lblStatus.Text = result;
-                        MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " pdf files.");  
+                        MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " pdf files.");
                     }
 
                     else
@@ -210,13 +211,16 @@ namespace phy_merge_pdf_tool
             {
 
                 MessageBox.Show("Select pdf files ");
-                txtFirstFile.Focus();
+                //txtFirstFile.Focus();
 
             }
 
             //Cursor = Cursors.Arrow;
 
+
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
