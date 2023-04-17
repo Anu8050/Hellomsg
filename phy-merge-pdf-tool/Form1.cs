@@ -71,37 +71,66 @@ namespace phy_merge_pdf_tool
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
 
+            //if ((txtFirstFile.Text == "") ||
+            //   (txtSecondFile.Text == "") ||
+            //   (txtmergefilename.Text == ""))
+            //{
+            //    if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
+            //    {
+            //        MessageBox.Show("Please enter First text File.");
+            //        txtFirstFile.Focus();
+            //        return;
+            //    }
 
-            if ((textboxs.ElementAt(0).Length != 0) ||
-               (textboxs.ElementAt(1).Length != 0))
-            {
-                if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
-                {
-                    MessageBox.Show("Please enter First text File.");
-                    txtFirstFile.Focus();
-                    return;
-                }
+            //    else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
+            //    {
+            //        MessageBox.Show("Please enter Second text File.");
+            //        txtSecondFile.Focus();
 
-                else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
-                {
-                    MessageBox.Show("Please enter Second text File.");
-                    txtSecondFile.Focus();
+            //    }
 
-                }
+            //    else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
+            //    {
+            //        MessageBox.Show("Please enter the mergepdf file name to proceed.");
+            //        txtmergefilename.Focus();
+            //        return;
+            //    }
+            //}
 
-                else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
-                {
-                    MessageBox.Show("Please enter the mergepdf file name to proceed.");
-                    txtmergefilename.Focus();
-                    return;
-                }
-            }
 
 
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
                 (textboxs.ElementAt(2).Length != 0)))
             {
+                if ((txtFirstFile.Text == "") ||
+                   (txtSecondFile.Text == "") ||
+                   (txtmergefilename.Text == ""))
+                {
+                   
+                    if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
+                    {
+                        MessageBox.Show("Please enter First text File.");
+                        txtFirstFile.Focus();
+                        return;
+                    }
+
+                    else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
+                    {
+                        MessageBox.Show("Please enter Second text File.");
+                        txtSecondFile.Focus();
+
+                    }
+
+                    else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
+                    {
+                        MessageBox.Show("Please enter the mergepdf file name to proceed.");
+                        txtmergefilename.Focus();
+                        return;
+                    }
+                }
+
+
                 if ((textboxs.ElementAt(0).Length != 0) &&
                     (textboxs.ElementAt(1).Length != 0) &&
                     (textboxs.ElementAt(2).Length != 0))
@@ -124,18 +153,17 @@ namespace phy_merge_pdf_tool
 
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
-                        textboxs[i] = textboxs[i].Replace(@"\", "/");
+                        //textboxs[i] = textboxs[i].Replace(@"\", "/");
                         if (textboxs[i].Trim() == "")
                         {
                             textboxs.RemoveAt(i);
                         }
-                        //textboxs[i] = textboxs[i].Replace(@"\", "/");
+                        textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
-
                     var path = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
                     if (!File.Exists(path))
                     {
-                        var result = sumFunction(textboxs, path);
+                        var result = sumFunction(textboxs, txtmergefilename.Text);
                         lblStatus.Text = result;
                         MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
                     }
@@ -205,21 +233,9 @@ namespace phy_merge_pdf_tool
 
             }
 
-            else //if(((textboxs.ElementAt(0).Length == 0) ||
-                 //(textboxs.ElementAt(1).Length == 0) ||
-                 //(textboxs.ElementAt(2).Length == 0)))
-            {
-
-                MessageBox.Show("Select pdf files ");
-                //txtFirstFile.Focus();
-
-            }
-
             //Cursor = Cursors.Arrow;
 
-
         }
-
 
 
         private void button1_Click(object sender, EventArgs e)
