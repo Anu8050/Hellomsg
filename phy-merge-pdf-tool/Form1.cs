@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using static IronPython.Modules.PythonNT;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace phy_merge_pdf_tool
 {
@@ -14,6 +15,7 @@ namespace phy_merge_pdf_tool
     {
         
         List<string> textboxs = new List<string>();
+        
         public Form1()
         {
             InitializeComponent();
@@ -64,7 +66,37 @@ namespace phy_merge_pdf_tool
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var directory = @"C:/Users/User/Documents/";
+            string filePath = directory + txtmergefilename.Text + ".pdf";
+            System.Diagnostics.Process.Start(filePath);
+        }
+
+        private void reset_btn_Click(object sender, EventArgs e)
+        {
+            //Cursor = Cursors.WaitCursor;
+            txtFirstFile.Text = "";
+            txtSecondFile.Text = "";
+            txtThirdFile.Text = "";
+            txtmergefilename.Text = "";
+            //mergebtn.Enabled = true;
+            MessageBox.Show("reset all data.");
+            //Cursor = Cursors.Arrow;
+        }
+
+        private void preview_btn_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            var directory = @"C:/Users/User/Documents/";
+            string filePath = directory + txtmergefilename.Text + ".pdf";
+            System.Diagnostics.Process.Start(filePath);
+            MessageBox.Show("Merged file path is" + filePath);
+            Cursor = Cursors.Arrow;
+            
+        }
+
+        private void mergebtn_Click(object sender, EventArgs e)
         {
             //Cursor = Cursors.WaitCursor;
             textboxs.Add(txtFirstFile.Text);
@@ -72,40 +104,72 @@ namespace phy_merge_pdf_tool
             textboxs.Add(txtThirdFile.Text);
 
 
-            if ((textboxs.ElementAt(0).Length != 0) ||
-               (textboxs.ElementAt(1).Length != 0))
-            {
-                if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
-                {
-                    MessageBox.Show("Please enter First text File.");
-                    txtFirstFile.Focus();
-                    return;
-                }
 
-                else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
-                {
-                    MessageBox.Show("Please enter Second text File.");
-                    txtSecondFile.Focus();
+            //if ((txtFirstFile.Text == "") ||
+            //   (txtSecondFile.Text == "") ||
+            //   (txtmergefilename.Text == ""))
+            //{
+            //    if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
+            //    {
+            //        MessageBox.Show("Please enter First text File.");
+            //        txtFirstFile.Focus();
+            //        return;
+            //    }
 
-                }
+            //    else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
+            //    {
+            //        MessageBox.Show("Please enter Second text File.");
+            //        txtSecondFile.Focus();
+            //        return;
 
-                else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
-                {
-                    MessageBox.Show("Please enter the mergepdf file name to proceed.");
-                    txtmergefilename.Focus();
-                    return;
-                }
-            }
+            //    }
+
+            //    else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
+            //    {
+            //        MessageBox.Show("Please enter the mergepdf file name to proceed.");
+            //        txtmergefilename.Focus();
+            //        return;
+            //    }
+            //}
 
 
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
                 (textboxs.ElementAt(2).Length != 0)))
             {
+                if ((txtFirstFile.Text == "") ||
+                   (txtSecondFile.Text == "") ||
+                   (txtmergefilename.Text == ""))
+                {
+                    if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
+                    {
+                        MessageBox.Show("Please enter First text File.");
+                        txtFirstFile.Focus();
+                        return;
+                    }
+
+                    else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
+                    {
+                        MessageBox.Show("Please enter Second text File.");
+                        txtSecondFile.Focus();
+                        return;
+
+                    }
+
+                    else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
+                    {
+                        MessageBox.Show("Please enter the mergepdf file name to proceed.");
+                        txtmergefilename.Focus();
+                        return;
+                    }
+                }
+
                 if ((textboxs.ElementAt(0).Length != 0) &&
                     (textboxs.ElementAt(1).Length != 0) &&
                     (textboxs.ElementAt(2).Length != 0))
                 {
+
+
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -155,6 +219,35 @@ namespace phy_merge_pdf_tool
                     textboxs.ElementAt(2).Length == 0
                     ))
                 {
+
+                    if ((txtFirstFile.Text == "") ||
+                        (txtSecondFile.Text == "") ||
+                        (txtmergefilename.Text == ""))
+                    {
+                        if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
+                        {
+                            MessageBox.Show("Please enter First text File.");
+                            txtFirstFile.Focus();
+                            return;
+                        }
+
+                        else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
+                        {
+                            MessageBox.Show("Please enter Second text File.");
+                            txtSecondFile.Focus();
+                            return;
+
+                        }
+
+                        else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
+                        {
+                            MessageBox.Show("Please enter the mergepdf file name to proceed.");
+                            txtmergefilename.Focus();
+                            return;
+                        }
+                    }
+
+
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -198,55 +291,23 @@ namespace phy_merge_pdf_tool
 
                 }
 
-                else
-                {
-                    MessageBox.Show("Select minimum two pdf files");
-                }
+                //else
+                //{
+                //    MessageBox.Show("Select minimum two pdf files");
+                //}
 
             }
 
-            else //if(((textboxs.ElementAt(0).Length == 0) ||
-                 //(textboxs.ElementAt(1).Length == 0) ||
-                 //(textboxs.ElementAt(2).Length == 0)))
+            else
             {
-
-                MessageBox.Show("Select pdf files ");
-                //txtFirstFile.Focus();
-
+                MessageBox.Show("Please enter files.");  
             }
 
             //Cursor = Cursors.Arrow;
 
-
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var directory = @"C:/Users/User/Documents/";
-            string filePath = directory + txtmergefilename.Text + ".pdf";
-            System.Diagnostics.Process.Start(filePath);
-        }
-
-        private void reset_btn_Click(object sender, EventArgs e)
-        {
-            txtFirstFile.Text = "";
-            txtSecondFile.Text = "";
-            txtThirdFile.Text = "";
-            txtmergefilename.Text = "";
-        }
-
-        private void preview_btn_Click(object sender, EventArgs e)
-        {
-            Cursor = Cursors.WaitCursor;
-            var directory = @"C:/Users/User/Documents/";
-            string filePath = directory + txtmergefilename.Text + ".pdf";
-            System.Diagnostics.Process.Start(filePath);
-            MessageBox.Show("Merged file path is" + filePath);
-            Cursor = Cursors.Arrow;
-            
-        }
-
+ 
     }
-};
+  
+}
