@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using static IronPython.Modules.PythonNT;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace phy_merge_pdf_tool
 {
@@ -160,6 +161,7 @@ namespace phy_merge_pdf_tool
                         }
                         textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
+
                     var path = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
                     if (!File.Exists(path))
                     {
@@ -226,13 +228,14 @@ namespace phy_merge_pdf_tool
 
                 }
 
-                else
-                {
-                    MessageBox.Show("Select minimum two pdf files");
-                }
+                //else
+                //{
+                //    MessageBox.Show("Select minimum two pdf files");
+                //}
 
             }
-
+            
+ 
             //Cursor = Cursors.Arrow;
 
         }
@@ -251,6 +254,7 @@ namespace phy_merge_pdf_tool
             txtSecondFile.Text = "";
             txtThirdFile.Text = "";
             txtmergefilename.Text = "";
+            btnMergePdfFiles.Invalidate();
         }
 
         private void preview_btn_Click(object sender, EventArgs e)
