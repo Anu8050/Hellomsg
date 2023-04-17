@@ -132,10 +132,10 @@ namespace phy_merge_pdf_tool
                         //textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
 
-                    var path = @"C://Users//User//Documents//" + txtmergefilename.Text + ".pdf";
+                    var path = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
                     if (!File.Exists(path))
                     {
-                        var result = sumFunction(textboxs, txtmergefilename.Text);
+                        var result = sumFunction(textboxs, path);
                         lblStatus.Text = result;
                         MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
                     }
