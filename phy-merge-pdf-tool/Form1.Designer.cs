@@ -212,12 +212,13 @@ namespace phy_merge_pdf_tool
             // 
             // mergebtn
             // 
+            this.mergebtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.mergebtn.Location = new System.Drawing.Point(642, 431);
             this.mergebtn.Name = "mergebtn";
             this.mergebtn.Size = new System.Drawing.Size(136, 60);
             this.mergebtn.TabIndex = 21;
             this.mergebtn.Text = "merge pdf files";
-            this.mergebtn.UseVisualStyleBackColor = true;
+            this.mergebtn.UseVisualStyleBackColor = false;
             this.mergebtn.Click += new System.EventHandler(this.mergebtn_Click);
             // 
             // Form1

@@ -146,7 +146,6 @@ namespace phy_merge_pdf_tool
                     (textboxs.ElementAt(2).Length != 0))
                 {
 
-
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -197,34 +196,6 @@ namespace phy_merge_pdf_tool
                     ))
                 {
 
-                    if ((txtFirstFile.Text == "") ||
-                        (txtSecondFile.Text == "") ||
-                        (txtmergefilename.Text == ""))
-                    {
-                        if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
-                        {
-                            MessageBox.Show("Please enter First text File.");
-                            txtFirstFile.Focus();
-                            return;
-                        }
-
-                        else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
-                        {
-                            MessageBox.Show("Please enter Second text File.");
-                            txtSecondFile.Focus();
-                            return;
-
-                        }
-
-                        else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
-                        {
-                            MessageBox.Show("Please enter the mergepdf file name to proceed.");
-                            txtmergefilename.Focus();
-                            return;
-                        }
-                    }
-
-
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -269,10 +240,6 @@ namespace phy_merge_pdf_tool
                 }
 
             }
-
-
-
-
 
         }
 
