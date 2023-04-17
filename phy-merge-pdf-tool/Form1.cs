@@ -103,36 +103,6 @@ namespace phy_merge_pdf_tool
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
 
-
-
-            //if ((txtFirstFile.Text == "") ||
-            //   (txtSecondFile.Text == "") ||
-            //   (txtmergefilename.Text == ""))
-            //{
-            //    if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
-            //    {
-            //        MessageBox.Show("Please enter First text File.");
-            //        txtFirstFile.Focus();
-            //        return;
-            //    }
-
-            //    else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
-            //    {
-            //        MessageBox.Show("Please enter Second text File.");
-            //        txtSecondFile.Focus();
-            //        return;
-
-            //    }
-
-            //    else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
-            //    {
-            //        MessageBox.Show("Please enter the mergepdf file name to proceed.");
-            //        txtmergefilename.Focus();
-            //        return;
-            //    }
-            //}
-
-
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
                 (textboxs.ElementAt(2).Length != 0)))
@@ -141,6 +111,12 @@ namespace phy_merge_pdf_tool
                    (txtSecondFile.Text == "") ||
                    (txtmergefilename.Text == ""))
                 {
+                    if ((txtFirstFile.Text == "") ||
+                        (txtSecondFile.Text == ""))
+                    {
+                        MessageBox.Show("Please enter pdf File.");
+                    }
+
                     if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
                     {
                         MessageBox.Show("Please enter First text File.");
@@ -162,6 +138,7 @@ namespace phy_merge_pdf_tool
                         txtmergefilename.Focus();
                         return;
                     }
+
                 }
 
                 if ((textboxs.ElementAt(0).Length != 0) &&
@@ -291,23 +268,14 @@ namespace phy_merge_pdf_tool
 
                 }
 
-                //else
-                //{
-                //    MessageBox.Show("Select minimum two pdf files");
-                //}
-
             }
 
-            else
-            {
-                MessageBox.Show("Please enter files.");  
-            }
 
-            //Cursor = Cursors.Arrow;
+
+
 
         }
 
- 
     }
   
 }
