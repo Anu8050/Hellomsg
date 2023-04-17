@@ -36,6 +36,7 @@ namespace phy_merge_pdf_tool
             this.txtSecondFile = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.txtThirdFile = new System.Windows.Forms.TextBox();
+            this.btnMergePdfFiles = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@ namespace phy_merge_pdf_tool
             this.lblStatus = new System.Windows.Forms.Label();
             this.reset_btn = new System.Windows.Forms.Button();
             this.preview_btn = new System.Windows.Forms.Button();
-            this.mergebtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +64,7 @@ namespace phy_merge_pdf_tool
             // txtFirstFile
             // 
             this.txtFirstFile.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.txtFirstFile.Location = new System.Drawing.Point(50, 63);
+            this.txtFirstFile.Location = new System.Drawing.Point(46, 63);
             this.txtFirstFile.Name = "txtFirstFile";
             this.txtFirstFile.Size = new System.Drawing.Size(506, 26);
             this.txtFirstFile.TabIndex = 6;
@@ -104,6 +104,17 @@ namespace phy_merge_pdf_tool
             this.txtThirdFile.Name = "txtThirdFile";
             this.txtThirdFile.Size = new System.Drawing.Size(506, 26);
             this.txtThirdFile.TabIndex = 10;
+            // 
+            // btnMergePdfFiles
+            // 
+            this.btnMergePdfFiles.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnMergePdfFiles.Location = new System.Drawing.Point(644, 431);
+            this.btnMergePdfFiles.Name = "btnMergePdfFiles";
+            this.btnMergePdfFiles.Size = new System.Drawing.Size(134, 60);
+            this.btnMergePdfFiles.TabIndex = 11;
+            this.btnMergePdfFiles.Text = "Merge pdf files";
+            this.btnMergePdfFiles.UseVisualStyleBackColor = false;
+            this.btnMergePdfFiles.Click += new System.EventHandler(this.button5_Click);
             // 
             // label1
             // 
@@ -210,26 +221,16 @@ namespace phy_merge_pdf_tool
             this.preview_btn.UseVisualStyleBackColor = false;
             this.preview_btn.Click += new System.EventHandler(this.preview_btn_Click);
             // 
-            // mergebtn
-            // 
-            this.mergebtn.Location = new System.Drawing.Point(642, 431);
-            this.mergebtn.Name = "mergebtn";
-            this.mergebtn.Size = new System.Drawing.Size(136, 60);
-            this.mergebtn.TabIndex = 21;
-            this.mergebtn.Text = "merge pdf files";
-            this.mergebtn.UseVisualStyleBackColor = true;
-            this.mergebtn.Click += new System.EventHandler(this.mergebtn_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1052, 522);
-            this.Controls.Add(this.mergebtn);
             this.Controls.Add(this.preview_btn);
             this.Controls.Add(this.reset_btn);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnMergePdfFiles);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "phyelements pdf merge tool";
@@ -263,6 +264,7 @@ namespace phy_merge_pdf_tool
         private System.Windows.Forms.TextBox txtSecondFile;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox txtThirdFile;
+        private System.Windows.Forms.Button btnMergePdfFiles;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -273,7 +275,6 @@ namespace phy_merge_pdf_tool
         private System.Windows.Forms.TextBox txtmergefilename;
         private System.Windows.Forms.Button reset_btn;
         private System.Windows.Forms.Button preview_btn;
-        private System.Windows.Forms.Button mergebtn;
     }
 }
 
