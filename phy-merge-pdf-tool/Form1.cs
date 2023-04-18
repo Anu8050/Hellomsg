@@ -241,7 +241,7 @@ namespace phy_merge_pdf_tool
                 //this.Controls.Clear();
                 //InitializeComponent();
                 //this.Refresh();
-                //Application.Restart();
+                Application.Restart();
                 
                 //this.Controls.Clear();
                 //this.InitializeComponent();
