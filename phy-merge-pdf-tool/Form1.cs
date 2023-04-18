@@ -15,6 +15,7 @@ namespace phy_merge_pdf_tool
     {
         
         List<string> textboxs = new List<string>();
+
         public Form1()
         {
             InitializeComponent();
@@ -87,6 +88,7 @@ namespace phy_merge_pdf_tool
             //    {
             //        MessageBox.Show("Please enter Second text File.");
             //        txtSecondFile.Focus();
+            //        return;
 
             //    }
 
@@ -104,11 +106,12 @@ namespace phy_merge_pdf_tool
                 (textboxs.ElementAt(1).Length != 0) ||
                 (textboxs.ElementAt(2).Length != 0)))
             {
+
                 if ((txtFirstFile.Text == "") ||
-                   (txtSecondFile.Text == "") ||
-                   (txtmergefilename.Text == ""))
+                    (txtSecondFile.Text == "") ||
+                    (txtmergefilename.Text == ""))
                 {
-                   
+
                     if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
                     {
                         MessageBox.Show("Please enter First text File.");
@@ -120,6 +123,7 @@ namespace phy_merge_pdf_tool
                     {
                         MessageBox.Show("Please enter Second text File.");
                         txtSecondFile.Focus();
+                        return;
 
                     }
 
@@ -130,6 +134,8 @@ namespace phy_merge_pdf_tool
                         return;
                     }
                 }
+
+
 
 
                 if ((textboxs.ElementAt(0).Length != 0) &&
@@ -154,18 +160,19 @@ namespace phy_merge_pdf_tool
 
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
-                        //textboxs[i] = textboxs[i].Replace(@"\", "/");
+                        textboxs[i] = textboxs[i].Replace(@"\", "/");
                         if (textboxs[i].Trim() == "")
                         {
                             textboxs.RemoveAt(i);
                         }
-                        textboxs[i] = textboxs[i].Replace(@"\", "/");
+                        //textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
 
                     string inputFilePath = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
+                        txtmergefilename.Focus();
                     }
                     else
                     {
@@ -177,6 +184,7 @@ namespace phy_merge_pdf_tool
                     
 
                     Cursor = Cursors.Arrow;
+                    
 
                 }
 
@@ -215,6 +223,7 @@ namespace phy_merge_pdf_tool
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
+                        txtmergefilename.Focus();
                     }
                     else
                     {
@@ -225,19 +234,26 @@ namespace phy_merge_pdf_tool
 
                     Cursor = Cursors.Arrow;
 
-
                 }
-
-                //else
-                //{
-                //    MessageBox.Show("Select minimum two pdf files");
-                //}
+   
 
             }
-            
- 
-            //Cursor = Cursors.Arrow;
 
+            else
+            {
+                MessageBox.Show("pls enter the files.");
+                //this.Controls.Clear();
+                //InitializeComponent();
+                //this.Refresh();
+                Application.Restart();
+                
+                //Environment.Exit(0);
+
+            }
+
+            //Cursor = Cursors.Arrow;
+            //this.Refresh();
+            
         }
 
 
@@ -254,7 +270,7 @@ namespace phy_merge_pdf_tool
             txtSecondFile.Text = "";
             txtThirdFile.Text = "";
             txtmergefilename.Text = "";
-            btnMergePdfFiles.Invalidate();
+            
         }
 
         private void preview_btn_Click(object sender, EventArgs e)
@@ -268,5 +284,6 @@ namespace phy_merge_pdf_tool
             
         }
 
+       
     }
 };
