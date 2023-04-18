@@ -135,9 +135,6 @@ namespace phy_merge_pdf_tool
                     }
                 }
 
-
-
-
                 if ((textboxs.ElementAt(0).Length != 0) &&
                     (textboxs.ElementAt(1).Length != 0) &&
                     (textboxs.ElementAt(2).Length != 0))
@@ -187,7 +184,6 @@ namespace phy_merge_pdf_tool
                     
 
                 }
-
 
                 else if ((textboxs.ElementAt(0).Length != 0 &&
                     textboxs.ElementAt(1).Length != 0 &&
@@ -245,15 +241,18 @@ namespace phy_merge_pdf_tool
                 //this.Controls.Clear();
                 //InitializeComponent();
                 //this.Refresh();
-                Application.Restart();
+                //Application.Restart();
                 
+                //this.Controls.Clear();
+                //this.InitializeComponent();
+
                 //Environment.Exit(0);
 
             }
-
+            
             //Cursor = Cursors.Arrow;
             //this.Refresh();
-            
+
         }
 
 
@@ -264,6 +263,8 @@ namespace phy_merge_pdf_tool
             System.Diagnostics.Process.Start(filePath);
         }
 
+
+        
         private void reset_btn_Click(object sender, EventArgs e)
         {
             txtFirstFile.Text = "";
