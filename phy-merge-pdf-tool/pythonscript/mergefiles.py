@@ -17,7 +17,7 @@ def merge1(pdfiles,mergefile):
         pdfMerge.write(mergedFile)
 
     print("Successfully merged pdf files.")
-    return "Successfully merged pdf files."
+    #return "Successfully merged pdf files."
 
 #dirc = "C:/Users/User/Documents/"
 pdfiles = []

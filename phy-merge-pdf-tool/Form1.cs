@@ -72,36 +72,7 @@ namespace phy_merge_pdf_tool
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
-
-            //if ((txtFirstFile.Text == "") ||
-            //   (txtSecondFile.Text == "") ||
-            //   (txtmergefilename.Text == ""))
-            //{
-            //    if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
-            //    {
-            //        MessageBox.Show("Please enter First text File.");
-            //        txtFirstFile.Focus();
-            //        return;
-            //    }
-
-            //    else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
-            //    {
-            //        MessageBox.Show("Please enter Second text File.");
-            //        txtSecondFile.Focus();
-            //        return;
-
-            //    }
-
-            //    else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
-            //    {
-            //        MessageBox.Show("Please enter the mergepdf file name to proceed.");
-            //        txtmergefilename.Focus();
-            //        return;
-            //    }
-            //}
-
-
-
+  
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
                 (textboxs.ElementAt(2).Length != 0)))
@@ -135,9 +106,9 @@ namespace phy_merge_pdf_tool
                     }
                 }
 
-                if ((textboxs.ElementAt(0).Length != 0) &&
-                    (textboxs.ElementAt(1).Length != 0) &&
-                    (textboxs.ElementAt(2).Length != 0))
+                if ((txtFirstFile.Text != "") &&
+                    (txtSecondFile.Text != "") &&
+                    (txtThirdFile.Text != ""))
                 {
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
@@ -178,17 +149,13 @@ namespace phy_merge_pdf_tool
                         MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
                     }
 
-                    
-
                     Cursor = Cursors.Arrow;
-                    
-
                 }
 
-                else if ((textboxs.ElementAt(0).Length != 0 &&
-                    textboxs.ElementAt(1).Length != 0 &&
-                    textboxs.ElementAt(2).Length == 0
-                    ))
+                
+                else if ((txtFirstFile.Text != "") &&
+                    (txtSecondFile.Text != "") &&
+                    (txtThirdFile.Text == ""))
                 {
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
@@ -229,29 +196,18 @@ namespace phy_merge_pdf_tool
                     }
 
                     Cursor = Cursors.Arrow;
-
                 }
    
-
             }
 
             else
             {
                 MessageBox.Show("pls enter the files.");
-                //this.Controls.Clear();
-                //InitializeComponent();
-                //this.Refresh();
                 Application.Restart();
-                
-                //this.Controls.Clear();
-                //this.InitializeComponent();
-
-                //Environment.Exit(0);
-
             }
             
             //Cursor = Cursors.Arrow;
-            //this.Refresh();
+            this.Refresh();
 
         }
 
