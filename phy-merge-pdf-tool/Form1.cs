@@ -162,18 +162,19 @@ namespace phy_merge_pdf_tool
                         textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
 
-                    var path = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
-                    if (!File.Exists(path))
+                    string inputFilePath = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
+                    if (File.Exists(inputFilePath))
                     {
-                        var result = sumFunction(textboxs, txtmergefilename.Text);
+                        MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
+                    }
+                    else
+                    {
+                        var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
                         MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
                     }
 
-                    else
-                    {
-                        MessageBox.Show("File is already present in " + path + " please enter another name.");
-                    }
+                    
 
                     Cursor = Cursors.Arrow;
 
@@ -210,17 +211,16 @@ namespace phy_merge_pdf_tool
                         }
                     }
 
-                    var path = @"C://Users//User//Documents//" + txtmergefilename.Text + ".pdf";
-                    if (!File.Exists(path))
+                    string inputFilePath = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
+                    if (File.Exists(inputFilePath))
                     {
-                        var result = sumFunction(textboxs, txtmergefilename.Text);
-                        lblStatus.Text = result;
-                        MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " pdf files.");
+                        MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
                     }
-
                     else
                     {
-                        MessageBox.Show("File is already present in " + path + " please enter another name.");
+                        var result = sumFunction(textboxs, inputFilePath);
+                        lblStatus.Text = result;
+                        MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " pdf files.");
                     }
 
                     Cursor = Cursors.Arrow;
