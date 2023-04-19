@@ -5,7 +5,7 @@ def merge1(pdfiles,mergefile):
     pdfMerge = PyPDF2.PdfMerger()
 
     for filename in pdfiles:
-        print(filename)
+        #print(filename)
         if os.path.exists(filename) and os.path.getsize(filename) > 0:
             with open(filename, 'rb') as input_file:
                 pdf_reader = PyPDF2.PdfReader(input_file)
@@ -16,7 +16,7 @@ def merge1(pdfiles,mergefile):
     with open(mergefile, 'wb') as mergedFile:
         pdfMerge.write(mergedFile)
 
-    print("Successfully merged pdf files.")
+    #print("Successfully merged pdf files.")
     #return "Successfully merged pdf files."
 
 #dirc = "C:/Users/User/Documents/"

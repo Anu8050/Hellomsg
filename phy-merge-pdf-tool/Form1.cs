@@ -135,7 +135,6 @@ namespace phy_merge_pdf_tool
                         }
                         //textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
-
                     string inputFilePath = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
@@ -202,7 +201,7 @@ namespace phy_merge_pdf_tool
 
             else
             {
-                MessageBox.Show("pls enter the files.");
+                MessageBox.Show("Enter minimum two files.");
                 Application.Restart();
             }
             
@@ -234,9 +233,17 @@ namespace phy_merge_pdf_tool
         {
             Cursor = Cursors.WaitCursor;
             var directory = @"C:/Users/User/Documents/";
-            string filePath = directory + txtmergefilename.Text + ".pdf";
-            System.Diagnostics.Process.Start(filePath);
-            MessageBox.Show("Merged file path is" + filePath);
+            if (txtmergefilename.Text != "")
+            {
+                string filePath = directory + txtmergefilename.Text + ".pdf";
+                System.Diagnostics.Process.Start(filePath);
+                MessageBox.Show("Merged file path is " + filePath);
+
+            }
+            else
+            {
+                MessageBox.Show("Select pdf files to merge pdf and give merge file name." );
+            }
             Cursor = Cursors.Arrow;
             
         }
