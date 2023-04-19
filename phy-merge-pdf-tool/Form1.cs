@@ -8,6 +8,7 @@ using System.IO;
 using static IronPython.Modules.PythonNT;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using static IronPython.Modules._ast;
 
 namespace phy_merge_pdf_tool
 {
@@ -143,6 +144,7 @@ namespace phy_merge_pdf_tool
                     }
                     else
                     {
+                        //string res = inputFilePath.Replace(@"\\","/");
                         var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
                         MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
@@ -189,6 +191,7 @@ namespace phy_merge_pdf_tool
                     }
                     else
                     {
+                        //string res = inputFilePath.Replace(@"\", "/");
                         var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
                         MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " files.");
