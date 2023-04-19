@@ -146,7 +146,7 @@ namespace phy_merge_pdf_tool
                     {
                         var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
-                        MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " pdf files.");
+                        MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
                     }
 
                     Cursor = Cursors.Arrow;
@@ -192,7 +192,7 @@ namespace phy_merge_pdf_tool
                     {
                         var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
-                        MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " pdf files.");
+                        MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " files.");
                     }
 
                     Cursor = Cursors.Arrow;
@@ -207,7 +207,7 @@ namespace phy_merge_pdf_tool
             }
             
             //Cursor = Cursors.Arrow;
-            this.Refresh();
+            //this.Refresh();
 
         }
 
