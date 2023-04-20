@@ -136,7 +136,11 @@ namespace phy_merge_pdf_tool
                         }
                         //textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
-                    string inputFilePath = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
+
+                    //C:\Users\User\Documents\
+                    //C:/Users/User/Desktop/
+
+                    string inputFilePath = @"D:\" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
@@ -183,7 +187,9 @@ namespace phy_merge_pdf_tool
                         }
                     }
 
-                    string inputFilePath = @"C:/Users/User/Documents/" + txtmergefilename.Text + ".pdf";
+                    //C:\Users\User\Documents\
+                    //C:/Users/User/Desktop/
+                    string inputFilePath = @"D:\" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
@@ -212,16 +218,6 @@ namespace phy_merge_pdf_tool
             //this.Refresh();
 
         }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var directory = @"C:/Users/User/Documents/";
-            string filePath = directory + txtmergefilename.Text + ".pdf";
-            System.Diagnostics.Process.Start(filePath);
-        }
-
-
         
         private void reset_btn_Click(object sender, EventArgs e)
         {
@@ -235,7 +231,10 @@ namespace phy_merge_pdf_tool
         private void preview_btn_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            var directory = @"C:/Users/User/Documents/";
+            //C:/Users/User/Documents/
+            //C:/Users/User/Desktop/
+
+            var directory = @"D:\";
             if (txtmergefilename.Text != "")
             {
                 string filePath = directory + txtmergefilename.Text + ".pdf";
