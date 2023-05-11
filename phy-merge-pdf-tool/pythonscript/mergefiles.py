@@ -1,6 +1,6 @@
 import PyPDF2
 
-def merge1(pdfiles,merge):
+def merge1(pdfiles,merge_file_name):
     #Merge Pdf function.
     pdfMerge = PyPDF2.PdfMerger()
 
@@ -11,14 +11,13 @@ def merge1(pdfiles,merge):
         pdfMerge.append(pdf_reader)
         pdfFile.close()
 
-    with open(merge, 'wb') as mergedFile:
+    with open(merge_file_name, 'wb') as mergedFile:
         pdfMerge.write(mergedFile)
 
     print("Successfully merged pdf files.")
-    #return "Successfully merged pdf files."
 
-merge=''
+merge_file_name=''
 pdfiles=[]
 if __name__ == "__main__":
-   merge1(pdfiles, merge)
+   merge1(pdfiles, merge_file_name)
 
