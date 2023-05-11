@@ -7,6 +7,8 @@ using System.IO;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using TextBox = System.Windows.Forms.TextBox;
+using System.Security.Cryptography.X509Certificates;
+using System.Drawing.Text;
 
 namespace phy_merge_pdf_tool
 {
@@ -106,10 +108,8 @@ namespace phy_merge_pdf_tool
 
                 }
 
-                //Merging three pdf file(textbox1,2 & 3.
-                if ((txtFirstFile.Text != "") &&
-                    (txtSecondFile.Text != "") &&
-                    (txtThirdFile.Text != ""))
+                //Common method for merge pdf function.
+                void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
                 {
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
@@ -150,48 +150,24 @@ namespace phy_merge_pdf_tool
                     Cursor = Cursors.Arrow;
                 }
 
+                //Merging first , second and thrid pdf files.
+                if ((txtFirstFile.Text != "") &&
+                    (txtSecondFile.Text != "") &&
+                    (txtThirdFile.Text != ""))
+                {
+
+                    mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
+                    
+                }
+
                 //Merging first pdf & second pdf files.
                 else if ((txtFirstFile.Text != "") &&
                     (txtSecondFile.Text != "") &&
                     (txtThirdFile.Text == ""))
                 {
-                    
-                    Cursor = Cursors.WaitCursor;
-                    var engine = Python.CreateEngine();
-                    var scope = engine.CreateScope();
-                    var libs = new[] {
-                                        "C:\\Program Files\\IronPython 3.4\\Lib",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
-                                        "C:\\Program Files\\IronPython 3.4",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
-                                     };
 
-                    engine.SetSearchPaths(libs);
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
-                    dynamic sumFunction = scope.GetVariable("mergePdfMethod");
+                    mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
 
-                    for (int i = textboxs.Count - 1; i >= 0; i--)
-                    {
-                        textboxs[i] = textboxs[i].Replace(@"\", "/");
-                        if (textboxs[i].Trim() == "")
-                        {
-                            textboxs.RemoveAt(i);
-                        }
-                    }
-
-                    if (File.Exists(inputFilePath))
-                    {
-                        MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
-                        txtmergefilename.Focus();
-                    }
-                    else
-                    {
-                        var result = sumFunction(textboxs, inputFilePath);
-                        lblStatus.Text = result;
-                        MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " files.");
-                    }
-                    Cursor = Cursors.Arrow;
                 }
 
             }
@@ -199,6 +175,9 @@ namespace phy_merge_pdf_tool
             else
             {
                 MessageBox.Show("Enter minimum two files.");
+                textboxs.Clear();
+                //System.Windows.Forms.Application.Restart();
+                txtFirstFile.Focus();
 
             }
         }
@@ -233,6 +212,7 @@ namespace phy_merge_pdf_tool
             else
             {
                 MessageBox.Show("Select pdf files to merge pdf and give merge file name.");
+                textboxs.Clear();
             }
             Cursor = Cursors.Arrow;
 
