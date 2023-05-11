@@ -24,6 +24,7 @@ namespace phy_merge_pdf_tool
   
         private void button2_Click(object sender, EventArgs e)
         {
+            //Browsing pdf documents.
             OpenFileDialog fdlg = new OpenFileDialog();
             fdlg.Title = "Select first pdf file";
             fdlg.InitialDirectory = @"C:\Users\User\Documents\";
@@ -39,6 +40,7 @@ namespace phy_merge_pdf_tool
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            //Browsing pdf file documents.
             OpenFileDialog fdlg = new OpenFileDialog();
             fdlg.Title = "Select second pdf file.";
             //point to documents folder
@@ -55,9 +57,12 @@ namespace phy_merge_pdf_tool
 
         private void button4_Click(object sender, EventArgs e)
         {
+            //Browsing pdf file documents.
             OpenFileDialog fdlg = new OpenFileDialog();
             fdlg.Title = "Select third pdf file.";
+            //point to documents folder
             fdlg.InitialDirectory = @"C:\Users\User\Documents\";
+            //Only allow pdf files
             fdlg.Filter = "Pdf Files (.pdf)|*.pdf";
             fdlg.FilterIndex = 2;
             fdlg.RestoreDirectory = true;
@@ -69,6 +74,7 @@ namespace phy_merge_pdf_tool
 
         private void button5_Click(object sender, EventArgs e)
         {
+            //Merge pdf file.
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
@@ -82,7 +88,7 @@ namespace phy_merge_pdf_tool
                     (txtSecondFile.Text == "") ||
                     (txtmergefilename.Text == ""))
                 {
-
+                    //Checking wheter the pdf file is entered or not. 
                     if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
                     {
                         MessageBox.Show("Please enter First text File.");
@@ -112,6 +118,7 @@ namespace phy_merge_pdf_tool
                     (txtSecondFile.Text != "") &&
                     (txtThirdFile.Text != ""))
                 {
+                    //Merging three pdf file(textbox1,2 & 3.
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -157,6 +164,7 @@ namespace phy_merge_pdf_tool
                     (txtSecondFile.Text != "") &&
                     (txtThirdFile.Text == ""))
                 {
+                    //Merging two pdf file(textbox1 & 2.
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -203,12 +211,12 @@ namespace phy_merge_pdf_tool
                 MessageBox.Show("Enter minimum two files.");
                 Application.Restart();
             }
-
             
         }
         
         private void reset_btn_Click(object sender, EventArgs e)
         {
+            //Reset all pdf files.
             txtFirstFile.Text = "";
             txtSecondFile.Text = "";
             txtThirdFile.Text = "";
@@ -218,6 +226,7 @@ namespace phy_merge_pdf_tool
 
         private void preview_btn_Click(object sender, EventArgs e)
         {
+            //Preview merge pdf file.
             Cursor = Cursors.WaitCursor;
 
             var directory = @"C:/Users/User/Documents/";

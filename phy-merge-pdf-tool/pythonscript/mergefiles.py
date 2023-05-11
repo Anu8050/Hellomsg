@@ -1,6 +1,7 @@
 import PyPDF2
 
 def merge1(pdfiles,merge):
+    #Merge Pdf function.
     pdfMerge = PyPDF2.PdfMerger()
 
     for filename in pdfiles:
