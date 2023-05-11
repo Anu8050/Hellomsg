@@ -14,7 +14,7 @@ def merge1(pdfiles,merge):
         pdfMerge.write(mergedFile)
 
     print("Successfully merged pdf files.")
-    return "Successfully merged pdf files."
+    #return "Successfully merged pdf files."
 
 merge=''
 pdfiles=[]
