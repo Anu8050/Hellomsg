@@ -69,7 +69,6 @@ namespace phy_merge_pdf_tool
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //Cursor = Cursors.WaitCursor;
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
@@ -115,7 +114,6 @@ namespace phy_merge_pdf_tool
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
-                                        //"F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
                                         "C:\\Program Files\\IronPython 3.4",
@@ -134,11 +132,7 @@ namespace phy_merge_pdf_tool
                         {
                             textboxs.RemoveAt(i);
                         }
-                        //textboxs[i] = textboxs[i].Replace(@"\", "/");
                     }
-
-                    //C:\Users\User\Documents\
-                    //C:/Users/User/Desktop/
 
                     string inputFilePath = @"C:\Users\User\Documents\" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
@@ -148,7 +142,6 @@ namespace phy_merge_pdf_tool
                     }
                     else
                     {
-                        //string res = inputFilePath.Replace(@"\\","/");
                         var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
                         MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
@@ -166,7 +159,6 @@ namespace phy_merge_pdf_tool
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
-                                        //"F:\\C#Example\\Hellomsg\\Hellomsg\\packages\\DynamicLanguageRuntime.1.3.3\\lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib",
                                         "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
                                         "C:\\Program Files\\IronPython 3.4",
@@ -187,8 +179,6 @@ namespace phy_merge_pdf_tool
                         }
                     }
 
-                    //C:\Users\User\Documents\
-                    //C:/Users/User/Desktop/
                     string inputFilePath = @"C:\Users\User\Documents\" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
@@ -197,15 +187,12 @@ namespace phy_merge_pdf_tool
                     }
                     else
                     {
-                        //string res = inputFilePath.Replace(@"\", "/");
                         var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
                         MessageBox.Show("Sucessfuly merge " + txtFirstFile.Text + " and" + txtSecondFile.Text + " files.");
                     }
-
                     Cursor = Cursors.Arrow;
                 }
-   
             }
 
             else
@@ -213,10 +200,8 @@ namespace phy_merge_pdf_tool
                 MessageBox.Show("Enter minimum two files.");
                 Application.Restart();
             }
-            
-            //Cursor = Cursors.Arrow;
-            //this.Refresh();
 
+            
         }
         
         private void reset_btn_Click(object sender, EventArgs e)
@@ -237,7 +222,7 @@ namespace phy_merge_pdf_tool
             var directory = @"C:/Users/User/Documents/";
             if (txtmergefilename.Text != "")
             {
-                string filePath = directory + txtmergefilename.Text + ".pdf";
+                string filePath = directory + txtmergefilename.Text+ ".pdf";
                 System.Diagnostics.Process.Start(filePath);
                 MessageBox.Show("Merged file path is " + filePath);
 
