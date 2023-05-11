@@ -20,7 +20,6 @@ namespace phy_merge_pdf_tool
             InitializeComponent();
         }
 
-
         //Browsing pdf documents.
         public void pdfFileBrowse(ref TextBox textBox)
         {    
@@ -62,7 +61,6 @@ namespace phy_merge_pdf_tool
 
         }
         
-
         //Use to merge pdf files. 
         private void mergePdfFiles_Click(object sender, EventArgs e)
         {
@@ -126,7 +124,7 @@ namespace phy_merge_pdf_tool
 
                     engine.SetSearchPaths(libs);
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
-                    dynamic sumFunction = scope.GetVariable("merge1");
+                    dynamic sumFunction = scope.GetVariable("mergePdfMethod");
 
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
@@ -137,7 +135,6 @@ namespace phy_merge_pdf_tool
                         }
                     }
 
-                    //string inputFilePath = @"C:\Users\User\Documents\" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
@@ -153,12 +150,12 @@ namespace phy_merge_pdf_tool
                     Cursor = Cursors.Arrow;
                 }
 
-
+                //Merging first pdf & second pdf files.
                 else if ((txtFirstFile.Text != "") &&
                     (txtSecondFile.Text != "") &&
                     (txtThirdFile.Text == ""))
                 {
-                    //Merging two pdf file(textbox1 & 2.
+                    
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -172,7 +169,7 @@ namespace phy_merge_pdf_tool
 
                     engine.SetSearchPaths(libs);
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
-                    dynamic sumFunction = scope.GetVariable("merge1");
+                    dynamic sumFunction = scope.GetVariable("mergePdfMethod");
 
                     for (int i = textboxs.Count - 1; i >= 0; i--)
                     {
@@ -202,10 +199,9 @@ namespace phy_merge_pdf_tool
             else
             {
                 MessageBox.Show("Enter minimum two files.");
-                //System.Windows.Forms.Application.Restart();
+
             }
         }
-
 
         //Reset all pdf files name.
         private void resetAllPdfFilesName_Click(object sender, EventArgs e)
