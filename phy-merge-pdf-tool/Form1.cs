@@ -140,7 +140,7 @@ namespace phy_merge_pdf_tool
                     //C:\Users\User\Documents\
                     //C:/Users/User/Desktop/
 
-                    string inputFilePath = @"D:\" + txtmergefilename.Text + ".pdf";
+                    string inputFilePath = @"C:\Users\User\Documents\" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
@@ -189,7 +189,7 @@ namespace phy_merge_pdf_tool
 
                     //C:\Users\User\Documents\
                     //C:/Users/User/Desktop/
-                    string inputFilePath = @"D:\" + txtmergefilename.Text + ".pdf";
+                    string inputFilePath = @"C:\Users\User\Documents\" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
@@ -234,7 +234,7 @@ namespace phy_merge_pdf_tool
             //C:/Users/User/Documents/
             //C:/Users/User/Desktop/
 
-            var directory = @"D:\";
+            var directory = @"C:/Users/User/Documents/";
             if (txtmergefilename.Text != "")
             {
                 string filePath = directory + txtmergefilename.Text + ".pdf";
