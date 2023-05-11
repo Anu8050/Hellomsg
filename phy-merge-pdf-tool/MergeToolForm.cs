@@ -3,92 +3,87 @@ using System.Linq;
 using System;
 using System.Windows.Forms;
 using IronPython.Hosting;
-using System.Diagnostics;
 using System.IO;
-using static IronPython.Modules.PythonNT;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
-using static IronPython.Modules._ast;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace phy_merge_pdf_tool
 {
-    public partial class Form1 : Form
+    public partial class MergeToolForm : Form
     {
-        
-        List<string> textboxs = new List<string>();
 
-        public Form1()
+        List<string> textboxs = new List<string>();
+       
+        public MergeToolForm()
         {
             InitializeComponent();
         }
-  
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //Browsing pdf documents.
+
+
+        //Browsing pdf documents.
+        public void pdfFileBrowse(ref TextBox textBox)
+        {    
             OpenFileDialog fdlg = new OpenFileDialog();
-            fdlg.Title = "Select first pdf file";
+            fdlg.Title = "Select pdf file";
             fdlg.InitialDirectory = @"C:\Users\User\Documents\";
-            //Only allow pdf files
-            fdlg.Filter = "Pdf Files (.pdf)|*.pdf";
+            //Only allow pdf files.
+            fdlg.Filter = "Pdf Files (.pdf)|*.pdf"; 
             fdlg.FilterIndex = 2;
             fdlg.RestoreDirectory = true;
+            
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
-                txtFirstFile.Text = fdlg.FileName;
+                textBox.Text = fdlg.FileName;
+                              
             }
+           
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        //Browsing first pdf file documents calling pdfFileBrowse method.
+        private void browseFirstFile_Click(object sender, EventArgs e)
         {
-            //Browsing pdf file documents.
-            OpenFileDialog fdlg = new OpenFileDialog();
-            fdlg.Title = "Select second pdf file.";
-            //point to documents folder
-            fdlg.InitialDirectory = @"C:\Users\User\Documents\";
-            //Only allow pdf files
-            fdlg.Filter = "Pdf Files (.pdf)|*.pdf";
-            fdlg.FilterIndex = 2;
-            fdlg.RestoreDirectory = true;
-            if (fdlg.ShowDialog() == DialogResult.OK)
-            {
-                txtSecondFile.Text = fdlg.FileName;
-            }
+
+            pdfFileBrowse(ref txtFirstFile);
+
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        //Browsing second pdf file documents calling pdfFileBrowse method.
+        private void browseSecondFile_Click(object sender, EventArgs e)
         {
-            //Browsing pdf file documents.
-            OpenFileDialog fdlg = new OpenFileDialog();
-            fdlg.Title = "Select third pdf file.";
-            //point to documents folder
-            fdlg.InitialDirectory = @"C:\Users\User\Documents\";
-            //Only allow pdf files
-            fdlg.Filter = "Pdf Files (.pdf)|*.pdf";
-            fdlg.FilterIndex = 2;
-            fdlg.RestoreDirectory = true;
-            if (fdlg.ShowDialog() == DialogResult.OK)
-            {
-                txtThirdFile.Text = fdlg.FileName;
-            }
+            pdfFileBrowse(ref txtSecondFile);
+
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        //Browsing thrid pdf file documents calling pdfFileBrowse method.
+        private void browseThridFile_Click(object sender, EventArgs e)
         {
-            //Merge pdf file.
+            pdfFileBrowse(ref txtThirdFile);
+
+        }
+        
+
+        //Use to merge pdf files. 
+        private void mergePdfFiles_Click(object sender, EventArgs e)
+        {
+
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
-  
+
+            string inputFilePath = @"C:\Users\User\Documents\" + txtmergefilename.Text + ".pdf";
+
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
                 (textboxs.ElementAt(2).Length != 0)))
             {
 
+                //Checking wheter the pdf file is entered or not. 
                 if ((txtFirstFile.Text == "") ||
                     (txtSecondFile.Text == "") ||
                     (txtmergefilename.Text == ""))
                 {
-                    //Checking wheter the pdf file is entered or not. 
+                    
                     if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
                     {
                         MessageBox.Show("Please enter First text File.");
@@ -113,12 +108,11 @@ namespace phy_merge_pdf_tool
 
                 }
 
-
+                //Merging three pdf file(textbox1,2 & 3.
                 if ((txtFirstFile.Text != "") &&
                     (txtSecondFile.Text != "") &&
                     (txtThirdFile.Text != ""))
                 {
-                    //Merging three pdf file(textbox1,2 & 3.
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -143,7 +137,7 @@ namespace phy_merge_pdf_tool
                         }
                     }
 
-                    string inputFilePath = @"C:\Users\User\Documents\" + txtmergefilename.Text + ".pdf";
+                    //string inputFilePath = @"C:\Users\User\Documents\" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
@@ -159,7 +153,7 @@ namespace phy_merge_pdf_tool
                     Cursor = Cursors.Arrow;
                 }
 
-                
+
                 else if ((txtFirstFile.Text != "") &&
                     (txtSecondFile.Text != "") &&
                     (txtThirdFile.Text == ""))
@@ -189,7 +183,6 @@ namespace phy_merge_pdf_tool
                         }
                     }
 
-                    string inputFilePath = @"C:\Users\User\Documents\" + txtmergefilename.Text + ".pdf";
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
@@ -203,48 +196,51 @@ namespace phy_merge_pdf_tool
                     }
                     Cursor = Cursors.Arrow;
                 }
-            
+
             }
 
             else
             {
                 MessageBox.Show("Enter minimum two files.");
-                Application.Restart();
+                //System.Windows.Forms.Application.Restart();
             }
-            
-        }
-        
-        private void reset_btn_Click(object sender, EventArgs e)
-        {
-            //Reset all pdf files.
-            txtFirstFile.Text = "";
-            txtSecondFile.Text = "";
-            txtThirdFile.Text = "";
-            txtmergefilename.Text = "";
-            
         }
 
-        private void preview_btn_Click(object sender, EventArgs e)
+
+        //Reset all pdf files name.
+        private void resetAllPdfFilesName_Click(object sender, EventArgs e)
         {
-            //Preview merge pdf file.
+
+            txtFirstFile.Text = string.Empty;
+            txtSecondFile.Text = string.Empty;
+            txtThirdFile.Text = string.Empty;
+            txtmergefilename.Text = string.Empty;
+            textboxs.Clear();
+
+
+        }
+
+        //Preview merge pdf file Path & content.
+        private void previewMergedFile_Click(object sender, EventArgs e)
+        {
+            
             Cursor = Cursors.WaitCursor;
 
             var directory = @"C:/Users/User/Documents/";
             if (txtmergefilename.Text != "")
             {
-                string filePath = directory + txtmergefilename.Text+ ".pdf";
+                string filePath = directory + txtmergefilename.Text + ".pdf";
                 System.Diagnostics.Process.Start(filePath);
                 MessageBox.Show("Merged file path is " + filePath);
 
             }
             else
             {
-                MessageBox.Show("Select pdf files to merge pdf and give merge file name." );
+                MessageBox.Show("Select pdf files to merge pdf and give merge file name.");
             }
             Cursor = Cursors.Arrow;
-            
-        }
 
-       
+        }
+    
     }
 };
