@@ -104,7 +104,9 @@ namespace phy_merge_pdf_tool
                         txtmergefilename.Focus();
                         return;
                     }
+
                 }
+
 
                 if ((txtFirstFile.Text != "") &&
                     (txtSecondFile.Text != "") &&
@@ -193,6 +195,7 @@ namespace phy_merge_pdf_tool
                     }
                     Cursor = Cursors.Arrow;
                 }
+            
             }
 
             else
@@ -216,8 +219,6 @@ namespace phy_merge_pdf_tool
         private void preview_btn_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            //C:/Users/User/Documents/
-            //C:/Users/User/Desktop/
 
             var directory = @"C:/Users/User/Documents/";
             if (txtmergefilename.Text != "")
