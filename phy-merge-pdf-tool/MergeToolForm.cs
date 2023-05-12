@@ -139,6 +139,7 @@ namespace phy_merge_pdf_tool
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
                         txtmergefilename.Text = string.Empty;
+                        textboxs.Clear();
                         txtmergefilename.Focus();
 
                     }
@@ -178,6 +179,7 @@ namespace phy_merge_pdf_tool
             {
 
                 MessageBox.Show("Enter minimum two files.");
+                textboxs.Clear();
                 txtFirstFile.Focus();
 
             }
