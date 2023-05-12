@@ -127,7 +127,7 @@ namespace phy_merge_pdf_tool
                                      };
 
                     engine.SetSearchPaths(libs);
-                    //Connect C# windows to python script.
+                    //Connecting C# windows to python script.
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("mergePdfMethod");
 
@@ -140,6 +140,7 @@ namespace phy_merge_pdf_tool
                         }
                     }
 
+                    //Checking merged file name is present or not.
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
@@ -150,6 +151,7 @@ namespace phy_merge_pdf_tool
                     }
                     else
                     {
+                        //Calling & Passing parameter to function.
                         var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
                         MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
