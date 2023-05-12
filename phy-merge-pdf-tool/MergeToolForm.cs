@@ -165,7 +165,7 @@ namespace phy_merge_pdf_tool
                     (txtSecondFile.Text != "") &&
                     (txtThirdFile.Text != ""))
                 {
-
+                    //Calling mergePdfFileCommonFun maethod.
                     mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
                     
                 }
@@ -175,7 +175,7 @@ namespace phy_merge_pdf_tool
                     (txtSecondFile.Text != "") &&
                     (txtThirdFile.Text == ""))
                 {
-
+                    //Calling mergePdfFileCommonFun maethod.
                     mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
 
                 }
