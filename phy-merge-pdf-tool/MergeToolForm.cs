@@ -178,7 +178,6 @@ namespace phy_merge_pdf_tool
             {
 
                 MessageBox.Show("Enter minimum two files.");
-                System.Windows.Forms.Application.Restart();
                 txtFirstFile.Focus();
 
             }
@@ -193,6 +192,7 @@ namespace phy_merge_pdf_tool
             txtThirdFile.Text = string.Empty;
             txtmergefilename.Text = string.Empty;
             textboxs.Clear();
+            txtFirstFile.Focus();
 
         }
 
