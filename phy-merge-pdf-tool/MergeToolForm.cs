@@ -105,6 +105,7 @@ namespace phy_merge_pdf_tool
                     else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
                     {
                         MessageBox.Show("Please enter the mergepdf file name to proceed.");
+                        textboxs.Clear();
                         txtmergefilename.Focus();
                         return;
                     }
