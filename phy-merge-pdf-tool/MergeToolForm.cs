@@ -44,7 +44,7 @@ namespace phy_merge_pdf_tool
         //Browsing first pdf file documents calling pdfFileBrowse method.
         private void browseFirstFile_Click(object sender, EventArgs e)
         {
-
+            //Calling pdfFileBrowse method.
             pdfFileBrowse(ref txtFirstFile);
 
         }
@@ -52,6 +52,7 @@ namespace phy_merge_pdf_tool
         //Browsing second pdf file documents calling pdfFileBrowse method.
         private void browseSecondFile_Click(object sender, EventArgs e)
         {
+            //Calling pdfFileBrowse method.
             pdfFileBrowse(ref txtSecondFile);
 
         }
@@ -59,6 +60,7 @@ namespace phy_merge_pdf_tool
         //Browsing thrid pdf file documents calling pdfFileBrowse method.
         private void browseThridFile_Click(object sender, EventArgs e)
         {
+            //Calling pdfFileBrowse method.
             pdfFileBrowse(ref txtThirdFile);
 
         }
@@ -111,6 +113,7 @@ namespace phy_merge_pdf_tool
                 //Common method for merge pdf function.
                 void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
                 {
+                    //Connect C3 windows to python script.
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();

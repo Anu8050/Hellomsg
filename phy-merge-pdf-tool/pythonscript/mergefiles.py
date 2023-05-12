@@ -1,5 +1,6 @@
 import PyPDF2
 
+#Creating method Merge pdf d in python.
 def mergePdfMethod(pdfFiles,mergeFileName):
     #Merge Pdf function.
     pdfMerge = PyPDF2.PdfMerger()
