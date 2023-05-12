@@ -69,6 +69,7 @@ namespace phy_merge_pdf_tool
         private void mergePdfFiles_Click(object sender, EventArgs e)
         {
 
+            //Adding items(textbox) to textboxs list.
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
@@ -113,7 +114,7 @@ namespace phy_merge_pdf_tool
                 //Common method for merge pdf function.
                 void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
                 {
-                    //Connect C3 windows to python script.
+                    //Create IronPython Variable.
                     Cursor = Cursors.WaitCursor;
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
@@ -126,6 +127,7 @@ namespace phy_merge_pdf_tool
                                      };
 
                     engine.SetSearchPaths(libs);
+                    //Connect C# windows to python script.
                     engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
                     dynamic sumFunction = scope.GetVariable("mergePdfMethod");
 
