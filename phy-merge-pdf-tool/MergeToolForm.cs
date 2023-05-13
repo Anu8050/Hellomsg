@@ -86,22 +86,26 @@ namespace phy_merge_pdf_tool
                     (txtSecondFile.Text == "") ||
                     (txtmergefilename.Text == ""))
                 {
-                    
+                    //Checking first pdf file is selected or not.
                     if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
                     {
                         MessageBox.Show("Please enter First text File.");
+                        textboxs.Clear();
                         txtFirstFile.Focus();
                         return;
                     }
 
+                    //Checking second pdf file is selected or not.
                     else if (string.IsNullOrWhiteSpace(txtSecondFile.Text))
                     {
                         MessageBox.Show("Please enter Second text File.");
+                        textboxs.Clear();
                         txtSecondFile.Focus();
                         return;
 
                     }
 
+                    //Checking merge pdf file name is entered or not.
                     else if (string.IsNullOrWhiteSpace(txtmergefilename.Text))
                     {
                         MessageBox.Show("Please enter the mergepdf file name to proceed.");
@@ -220,6 +224,7 @@ namespace phy_merge_pdf_tool
                 MessageBox.Show("Merged file path is " + filePath);
 
             }
+
             else
             {
                 MessageBox.Show("Select pdf files to merge pdf and give merge file name.");
