@@ -41,7 +41,7 @@ namespace phy_merge_pdf_tool
            
         }
 
-        //Browsing first pdf file documents calling pdfFileBrowse method.
+        //Browsing first pdf file documents by calling pdfFileBrowse method.
         private void browseFirstFile_Click(object sender, EventArgs e)
         {
             //Calling pdfFileBrowse method.
@@ -49,7 +49,7 @@ namespace phy_merge_pdf_tool
 
         }
 
-        //Browsing second pdf file documents calling pdfFileBrowse method.
+        //Browsing second pdf file documents by calling pdfFileBrowse method.
         private void browseSecondFile_Click(object sender, EventArgs e)
         {
             //Calling pdfFileBrowse method.
@@ -57,7 +57,7 @@ namespace phy_merge_pdf_tool
 
         }
 
-        //Browsing thrid pdf file documents calling pdfFileBrowse method.
+        //Browsing thrid pdf file documents calling by pdfFileBrowse method.
         private void browseThridFile_Click(object sender, EventArgs e)
         {
             //Calling pdfFileBrowse method.
