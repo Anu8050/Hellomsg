@@ -219,6 +219,7 @@ namespace phy_merge_pdf_tool
             var directory = @"C:/Users/User/Documents/";
             if (txtmergefilename.Text != "")
             {
+
                 string filePath = directory + txtmergefilename.Text + ".pdf";
                 System.Diagnostics.Process.Start(filePath);
                 MessageBox.Show("Merged file path is " + filePath);
