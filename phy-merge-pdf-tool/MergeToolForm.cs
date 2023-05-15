@@ -4,11 +4,8 @@ using System;
 using System.Windows.Forms;
 using IronPython.Hosting;
 using System.IO;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using TextBox = System.Windows.Forms.TextBox;
-using System.Security.Cryptography.X509Certificates;
-using System.Drawing.Text;
+
 
 namespace phy_merge_pdf_tool
 {
