@@ -9,6 +9,9 @@ using TextBox = System.Windows.Forms.TextBox;
 
 namespace phy_merge_pdf_tool
 {
+    /// <summary>
+    /// This is MergeToolForm class for creating form application to merge pdf file.
+    /// </summary>
     public partial class MergeToolForm : Form
     {
 
