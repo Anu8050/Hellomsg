@@ -197,6 +197,7 @@ namespace phy_merge_pdf_tool
                         txtMergeFileName.Focus();
 
                     }
+                    
                     else
                     {
                         //Calling & Passing parameter to function.
