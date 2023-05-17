@@ -88,7 +88,7 @@ namespace phy_merge_pdf_tool
         private void mergePdfFiles_Click(object sender, EventArgs e)
         {
 
-            //Adding items(textbox) to textboxs list.
+            //Adding items to textboxs list.
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
