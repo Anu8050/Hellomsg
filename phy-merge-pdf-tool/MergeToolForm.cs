@@ -22,7 +22,10 @@ namespace phy_merge_pdf_tool
             InitializeComponent();
         }
 
-        //Browsing pdf documents.
+        /// <summary>
+        /// This is browsing pdf documents method.
+        /// </summary>
+        /// <param name="textBox"></param>
         public void pdfFileBrowse(ref TextBox textBox)
         {    
             OpenFileDialog fdlg = new OpenFileDialog();
@@ -41,7 +44,11 @@ namespace phy_merge_pdf_tool
            
         }
 
-        //Browsing first pdf file documents by calling pdfFileBrowse method.
+        /// <summary>
+        /// Browsing first pdf file documents by calling pdfFileBrowse method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void browseFirstFile_Click(object sender, EventArgs e)
         {
             //Calling pdfFileBrowse method.
@@ -49,7 +56,11 @@ namespace phy_merge_pdf_tool
 
         }
 
-        //Browsing second pdf file documents by calling pdfFileBrowse method.
+        /// <summary>
+        /// Browsing second pdf file documents by calling pdfFileBrowse method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void browseSecondFile_Click(object sender, EventArgs e)
         {
             //Calling pdfFileBrowse method.
@@ -57,15 +68,23 @@ namespace phy_merge_pdf_tool
 
         }
 
-        //Browsing thrid pdf file documents calling by pdfFileBrowse method.
+        /// <summary>
+        /// Browsing thrid pdf file documents calling by pdfFileBrowse method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void browseThridFile_Click(object sender, EventArgs e)
         {
             //Calling pdfFileBrowse method.
             pdfFileBrowse(ref txtThirdFile);
 
         }
-        
-        //Use to merge pdf files. 
+
+        /// <summary>
+        /// Use to merge pdf files. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mergePdfFiles_Click(object sender, EventArgs e)
         {
 
@@ -197,7 +216,11 @@ namespace phy_merge_pdf_tool
             }
         }
 
-        //Reset all pdf files name.
+        /// <summary>
+        /// Reset all pdf files name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void resetAllPdfFilesName_Click(object sender, EventArgs e)
         {
 
@@ -210,7 +233,11 @@ namespace phy_merge_pdf_tool
 
         }
 
-        //Preview merge pdf file Path & content.
+        /// <summary>
+        /// Preview merge pdf file Path & content.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void previewMergedFile_Click(object sender, EventArgs e)
         {
             
