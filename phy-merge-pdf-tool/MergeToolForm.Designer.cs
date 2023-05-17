@@ -41,7 +41,7 @@ namespace phy_merge_pdf_tool
             this.browseThridFile = new System.Windows.Forms.Button();
             this.browseSecondFile = new System.Windows.Forms.Button();
             this.browseFirstFile = new System.Windows.Forms.Button();
-            this.txtmergefilename = new System.Windows.Forms.TextBox();
+            this.txterMergeFileName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.mergePdfFiles = new System.Windows.Forms.Button();
@@ -115,7 +115,7 @@ namespace phy_merge_pdf_tool
             this.groupBox1.Controls.Add(this.browseThridFile);
             this.groupBox1.Controls.Add(this.browseSecondFile);
             this.groupBox1.Controls.Add(this.browseFirstFile);
-            this.groupBox1.Controls.Add(this.txtmergefilename);
+            this.groupBox1.Controls.Add(this.txterMergeFileName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -163,12 +163,12 @@ namespace phy_merge_pdf_tool
             this.browseFirstFile.UseVisualStyleBackColor = false;
             this.browseFirstFile.Click += new System.EventHandler(this.browseFirstFile_Click);
             // 
-            // txtmergefilename
+            // txterMergeFileName
             // 
-            this.txtmergefilename.Location = new System.Drawing.Point(46, 248);
-            this.txtmergefilename.Name = "txtmergefilename";
-            this.txtmergefilename.Size = new System.Drawing.Size(506, 26);
-            this.txtmergefilename.TabIndex = 19;
+            this.txterMergeFileName.Location = new System.Drawing.Point(46, 248);
+            this.txterMergeFileName.Name = "txterMergeFileName";
+            this.txterMergeFileName.Size = new System.Drawing.Size(506, 26);
+            this.txterMergeFileName.TabIndex = 19;
             // 
             // label5
             // 
@@ -268,7 +268,7 @@ namespace phy_merge_pdf_tool
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtmergefilename;
+        private System.Windows.Forms.TextBox txterMergeFileName;
         private System.Windows.Forms.Button browseFirstFile;
         private System.Windows.Forms.Button browseThridFile;
         private System.Windows.Forms.Button browseSecondFile;
