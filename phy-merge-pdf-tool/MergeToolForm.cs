@@ -138,8 +138,9 @@ namespace phy_merge_pdf_tool
                 //Common method for merge pdf function.
                 void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
                 {
-                    //Create IronPython Variable.
+                    
                     Cursor = Cursors.WaitCursor;
+                    //Create IronPython Variable.
                     var engine = Python.CreateEngine();
                     var scope = engine.CreateScope();
                     var libs = new[] {
