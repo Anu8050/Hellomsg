@@ -171,7 +171,6 @@ namespace phy_merge_pdf_tool
             this.txtMergeFileName.Name = "txtMergeFileName";
             this.txtMergeFileName.Size = new System.Drawing.Size(506, 26);
             this.txtMergeFileName.TabIndex = 19;
-            this.txtMergeFileName.TextChanged += new System.EventHandler(this.txtmergefilename_TextChanged);
             // 
             // label5
             // 
@@ -182,7 +181,6 @@ namespace phy_merge_pdf_tool
             this.label5.Size = new System.Drawing.Size(216, 20);
             this.label5.TabIndex = 18;
             this.label5.Text = "Merged file name(Mandatory)";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // lblStatus
             // 

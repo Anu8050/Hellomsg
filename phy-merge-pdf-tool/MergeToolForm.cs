@@ -251,7 +251,7 @@ namespace phy_merge_pdf_tool
 
             txtFirstFile.Text = string.Empty;
             txtSecondFile.Text = string.Empty;
-            txtListFile.Text = string.Empty;
+            txtListFile.Items.Clear();
             txtMergeFileName.Text = string.Empty;
             textboxs.Clear();
             txtFirstFile.Focus();
@@ -286,17 +286,6 @@ namespace phy_merge_pdf_tool
             Cursor = Cursors.Arrow;
 
         }
-
-        private void txtmergefilename_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
+ 
     }
 };
