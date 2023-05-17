@@ -32,16 +32,16 @@ namespace phy_merge_pdf_tool
         {
             this.txtFirstFile = new System.Windows.Forms.TextBox();
             this.txtSecondFile = new System.Windows.Forms.TextBox();
-            this.txtThirdFile = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.browseThridFile = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtListFile = new System.Windows.Forms.ListBox();
             this.browseSecondFile = new System.Windows.Forms.Button();
             this.browseFirstFile = new System.Windows.Forms.Button();
-            this.txtmergefilename = new System.Windows.Forms.TextBox();
+            this.txtMergeFileName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.mergePdfFiles = new System.Windows.Forms.Button();
@@ -64,13 +64,6 @@ namespace phy_merge_pdf_tool
             this.txtSecondFile.Name = "txtSecondFile";
             this.txtSecondFile.Size = new System.Drawing.Size(506, 26);
             this.txtSecondFile.TabIndex = 8;
-            // 
-            // txtThirdFile
-            // 
-            this.txtThirdFile.Location = new System.Drawing.Point(46, 191);
-            this.txtThirdFile.Name = "txtThirdFile";
-            this.txtThirdFile.Size = new System.Drawing.Size(506, 26);
-            this.txtThirdFile.TabIndex = 10;
             // 
             // label1
             // 
@@ -112,34 +105,43 @@ namespace phy_merge_pdf_tool
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.browseThridFile);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.txtListFile);
             this.groupBox1.Controls.Add(this.browseSecondFile);
             this.groupBox1.Controls.Add(this.browseFirstFile);
-            this.groupBox1.Controls.Add(this.txtmergefilename);
+            this.groupBox1.Controls.Add(this.txtMergeFileName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtFirstFile);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSecondFile);
-            this.groupBox1.Controls.Add(this.txtThirdFile);
             this.groupBox1.Location = new System.Drawing.Point(16, 78);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(762, 318);
+            this.groupBox1.Size = new System.Drawing.Size(762, 351);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Browse files to merge";
             // 
-            // browseThridFile
+            // button1
             // 
-            this.browseThridFile.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.browseThridFile.Location = new System.Drawing.Point(593, 186);
-            this.browseThridFile.Name = "browseThridFile";
-            this.browseThridFile.Size = new System.Drawing.Size(129, 36);
-            this.browseThridFile.TabIndex = 22;
-            this.browseThridFile.Text = "Browse";
-            this.browseThridFile.UseVisualStyleBackColor = false;
-            this.browseThridFile.Click += new System.EventHandler(this.browseThridFile_Click);
+            this.button1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.Location = new System.Drawing.Point(593, 208);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 36);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Browse";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.browseMultipleFiles_Click);
+            // 
+            // txtListFile
+            // 
+            this.txtListFile.FormattingEnabled = true;
+            this.txtListFile.ItemHeight = 20;
+            this.txtListFile.Location = new System.Drawing.Point(46, 197);
+            this.txtListFile.Name = "txtListFile";
+            this.txtListFile.Size = new System.Drawing.Size(506, 64);
+            this.txtListFile.TabIndex = 23;
             // 
             // browseSecondFile
             // 
@@ -163,22 +165,24 @@ namespace phy_merge_pdf_tool
             this.browseFirstFile.UseVisualStyleBackColor = false;
             this.browseFirstFile.Click += new System.EventHandler(this.browseFirstFile_Click);
             // 
-            // txtmergefilename
+            // txtMergeFileName
             // 
-            this.txtmergefilename.Location = new System.Drawing.Point(46, 248);
-            this.txtmergefilename.Name = "txtmergefilename";
-            this.txtmergefilename.Size = new System.Drawing.Size(506, 26);
-            this.txtmergefilename.TabIndex = 19;
+            this.txtMergeFileName.Location = new System.Drawing.Point(46, 299);
+            this.txtMergeFileName.Name = "txtMergeFileName";
+            this.txtMergeFileName.Size = new System.Drawing.Size(506, 26);
+            this.txtMergeFileName.TabIndex = 19;
+            this.txtMergeFileName.TextChanged += new System.EventHandler(this.txtmergefilename_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(46, 225);
+            this.label5.Location = new System.Drawing.Point(46, 276);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(216, 20);
             this.label5.TabIndex = 18;
             this.label5.Text = "Merged file name(Mandatory)";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // lblStatus
             // 
@@ -191,7 +195,7 @@ namespace phy_merge_pdf_tool
             // mergePdfFiles
             // 
             this.mergePdfFiles.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.mergePdfFiles.Location = new System.Drawing.Point(643, 436);
+            this.mergePdfFiles.Location = new System.Drawing.Point(643, 450);
             this.mergePdfFiles.Name = "mergePdfFiles";
             this.mergePdfFiles.Size = new System.Drawing.Size(135, 51);
             this.mergePdfFiles.TabIndex = 21;
@@ -202,7 +206,7 @@ namespace phy_merge_pdf_tool
             // resetAllPdfFilesName
             // 
             this.resetAllPdfFilesName.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.resetAllPdfFilesName.Location = new System.Drawing.Point(18, 436);
+            this.resetAllPdfFilesName.Location = new System.Drawing.Point(18, 450);
             this.resetAllPdfFilesName.Name = "resetAllPdfFilesName";
             this.resetAllPdfFilesName.Size = new System.Drawing.Size(153, 51);
             this.resetAllPdfFilesName.TabIndex = 22;
@@ -213,7 +217,7 @@ namespace phy_merge_pdf_tool
             // previewMergedFile
             // 
             this.previewMergedFile.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.previewMergedFile.Location = new System.Drawing.Point(335, 435);
+            this.previewMergedFile.Location = new System.Drawing.Point(322, 449);
             this.previewMergedFile.Name = "previewMergedFile";
             this.previewMergedFile.Size = new System.Drawing.Size(168, 52);
             this.previewMergedFile.TabIndex = 23;
@@ -260,7 +264,6 @@ namespace phy_merge_pdf_tool
         #endregion
         private System.Windows.Forms.TextBox txtFirstFile;
         private System.Windows.Forms.TextBox txtSecondFile;
-        private System.Windows.Forms.TextBox txtThirdFile;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -268,13 +271,14 @@ namespace phy_merge_pdf_tool
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtmergefilename;
+        private System.Windows.Forms.TextBox txtMergeFileName;
         private System.Windows.Forms.Button browseFirstFile;
-        private System.Windows.Forms.Button browseThridFile;
         private System.Windows.Forms.Button browseSecondFile;
         private System.Windows.Forms.Button mergePdfFiles;
         private System.Windows.Forms.Button resetAllPdfFilesName;
         private System.Windows.Forms.Button previewMergedFile;
+        private System.Windows.Forms.ListBox txtListFile;
+        private System.Windows.Forms.Button button1;
     }
 }
 
