@@ -37,7 +37,6 @@ namespace phy_merge_pdf_tool
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtThirdFile = new System.Windows.Forms.TextBox();
             this.browseThirdFile = new System.Windows.Forms.Button();
             this.browseSecondFile = new System.Windows.Forms.Button();
             this.browseFirstFile = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@ namespace phy_merge_pdf_tool
             this.mergePdfFiles = new System.Windows.Forms.Button();
             this.resetAllPdfFilesName = new System.Windows.Forms.Button();
             this.previewMergedFile = new System.Windows.Forms.Button();
+            this.txtThirdFile = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,13 +122,6 @@ namespace phy_merge_pdf_tool
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Browse files to merge";
-            // 
-            // txtThirdFile
-            // 
-            this.txtThirdFile.Location = new System.Drawing.Point(46, 191);
-            this.txtThirdFile.Name = "txtThirdFile";
-            this.txtThirdFile.Size = new System.Drawing.Size(502, 26);
-            this.txtThirdFile.TabIndex = 25;
             // 
             // browseThirdFile
             // 
@@ -220,6 +213,13 @@ namespace phy_merge_pdf_tool
             this.previewMergedFile.Text = "Preview merged file";
             this.previewMergedFile.UseVisualStyleBackColor = false;
             this.previewMergedFile.Click += new System.EventHandler(this.previewMergedFile_Click);
+            // 
+            // txtThirdFile
+            // 
+            this.txtThirdFile.Location = new System.Drawing.Point(46, 191);
+            this.txtThirdFile.Name = "txtThirdFile";
+            this.txtThirdFile.Size = new System.Drawing.Size(502, 26);
+            this.txtThirdFile.TabIndex = 25;
             // 
             // MergeToolForm
             // 
