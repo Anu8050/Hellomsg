@@ -7,6 +7,7 @@ using System.IO;
 using TextBox = System.Windows.Forms.TextBox;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
+using System.Xml.Linq;
 
 
 namespace phy_merge_pdf_tool
@@ -107,6 +108,56 @@ namespace phy_merge_pdf_tool
             //string inputFilePath = @"C:\Users\User\Documents\" + txtMergeFileName.Text + ".pdf";
             string inputFilePath = @"" + txtMergeFileName.Text + ".pdf";
 
+            //Common method for merge pdf function.
+            void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
+            {
+
+                Cursor = Cursors.WaitCursor;
+                //Create IronPython Variable.
+                var engine = Python.CreateEngine();
+                var scope = engine.CreateScope();
+                var libs = new[] {
+                                        "C:\\Program Files\\IronPython 3.4\\Lib",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
+                                        "C:\\Program Files\\IronPython 3.4",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
+                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
+                                     };
+
+                engine.SetSearchPaths(libs);
+                //Connecting C# windows to python script.
+                engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
+                dynamic sumFunction = scope.GetVariable("mergePdfMethod");
+
+                for (int i = textboxs.Count - 1; i >= 0; i--)
+                {
+                    textboxs[i] = textboxs[i].Replace(@"\", "/");
+                    if (textboxs[i].Trim() == "")
+                    {
+                        textboxs.RemoveAt(i);
+                    }
+                }
+
+                //Checking merged file name is present or not.
+                if (File.Exists(inputFilePath))
+                {
+                    MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
+                    txtMergeFileName.Text = string.Empty;
+                    textboxs.Clear();
+                    txtMergeFileName.Focus();
+
+                }
+                else
+                {
+                    //Calling & Passing parameter to function.
+                    var result = sumFunction(textboxs, inputFilePath);
+                    lblStatus.Text = result;
+                }
+
+                Cursor = Cursors.Arrow;
+            }
+
+
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
                 (textboxs.ElementAt(2).Length != 0)))
@@ -147,55 +198,7 @@ namespace phy_merge_pdf_tool
 
                 }
 
-                //Common method for merge pdf function.
-                void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
-                {
-
-                    Cursor = Cursors.WaitCursor;
-                    //Create IronPython Variable.
-                    var engine = Python.CreateEngine();
-                    var scope = engine.CreateScope();
-                    var libs = new[] {
-                                        "C:\\Program Files\\IronPython 3.4\\Lib",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\DLLs",
-                                        "C:\\Program Files\\IronPython 3.4",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages",
-                                        "C:\\Program Files\\IronPython 3.4\\Lib\\site-packages\\PyPDF2"
-                                     };
-
-                    engine.SetSearchPaths(libs);
-                    //Connecting C# windows to python script.
-                    engine.ExecuteFile(Environment.CurrentDirectory + @"\pythonscript\mergefiles.py", scope);
-                    dynamic sumFunction = scope.GetVariable("mergePdfMethod");
-
-                    for (int i = textboxs.Count - 1; i >= 0; i--)
-                    {
-                        textboxs[i] = textboxs[i].Replace(@"\", "/");
-                        if (textboxs[i].Trim() == "")
-                        {
-                            textboxs.RemoveAt(i);
-                        }
-                    }
-
-                    //Checking merged file name is present or not.
-                    if (File.Exists(inputFilePath))
-                    {
-                        MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
-                        txtMergeFileName.Text = string.Empty;
-                        textboxs.Clear();
-                        txtMergeFileName.Focus();
-
-                    }
-                    else
-                    {
-                        //Calling & Passing parameter to function.
-                        var result = sumFunction(textboxs, inputFilePath);
-                        lblStatus.Text = result;
-                    }
-
-                    Cursor = Cursors.Arrow;
-                }
-
+                
                 //Merging first , second and thrid pdf files.
                 if ((txtFirstFile.Text != "") &&
                     (txtSecondFile.Text != "") &&
@@ -258,7 +261,7 @@ namespace phy_merge_pdf_tool
             Cursor = Cursors.WaitCursor;
 
             //var directory = @"C:/Users/User/Documents/";
-            var directory = System.AppDomain.CurrentDomain.BaseDirectory;
+            var directory = @"";
             if (txtMergeFileName.Text != "")
             {
 
