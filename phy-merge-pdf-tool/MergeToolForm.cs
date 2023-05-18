@@ -203,7 +203,7 @@ namespace phy_merge_pdf_tool
                 {
                     //Calling mergePdfFileCommonFun maethod.
                     mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
-                    MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
+                    MessageBox.Show("Successfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
 
                 }
 
@@ -214,7 +214,7 @@ namespace phy_merge_pdf_tool
                 {
                     //Calling mergePdfFileCommonFun maethod.
                     mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
-                    MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " files.");
+                    MessageBox.Show("Successfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " files.");
 
                 }
 
