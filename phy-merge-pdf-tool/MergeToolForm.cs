@@ -93,7 +93,7 @@ namespace phy_merge_pdf_tool
             textboxs.Add(txtSecondFile.Text);
             textboxs.Add(txtThirdFile.Text);
 
-            string inputFilePath = @"C:\Users\User\Documents\" + txterMergeFileName.Text + ".pdf";
+            string inputFilePath = @"C:\Users\User\Documents\" + txtMergeFileName.Text + ".pdf";
 
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
@@ -103,7 +103,7 @@ namespace phy_merge_pdf_tool
                 //Checking wheter the pdf file is entered or not. 
                 if ((txtFirstFile.Text == "") ||
                     (txtSecondFile.Text == "") ||
-                    (txterMergeFileName.Text == ""))
+                    (txtMergeFileName.Text == ""))
                 {
                     //Checking first pdf file is selected or not.
                     if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
@@ -125,11 +125,11 @@ namespace phy_merge_pdf_tool
                     }
 
                     //Checking merge pdf file name is entered or not.
-                    else if (string.IsNullOrWhiteSpace(txterMergeFileName.Text))
+                    else if (string.IsNullOrWhiteSpace(txtMergeFileName.Text))
                     {
                         MessageBox.Show("Please enter the mergepdf file name to proceed.");
                         textboxs.Clear();
-                        txterMergeFileName.Focus();
+                        txtMergeFileName.Focus();
                         return;
                     }
 
@@ -169,9 +169,9 @@ namespace phy_merge_pdf_tool
                     if (File.Exists(inputFilePath))
                     {
                         MessageBox.Show("File is already exists in " + inputFilePath + " please enter another name.");
-                        txterMergeFileName.Text = string.Empty;
+                        txtMergeFileName.Text = string.Empty;
                         textboxs.Clear();
-                        txterMergeFileName.Focus();
+                        txtMergeFileName.Focus();
 
                     }
                     else
@@ -228,7 +228,7 @@ namespace phy_merge_pdf_tool
             txtFirstFile.Text = string.Empty;
             txtSecondFile.Text = string.Empty;
             txtThirdFile.Text = string.Empty;
-            txterMergeFileName.Text = string.Empty;
+            txtMergeFileName.Text = string.Empty;
             textboxs.Clear();
             txtFirstFile.Focus();
 
@@ -245,10 +245,10 @@ namespace phy_merge_pdf_tool
             Cursor = Cursors.WaitCursor;
 
             var directory = @"C:/Users/User/Documents/";
-            if (txterMergeFileName.Text != "")
+            if (txtMergeFileName.Text != "")
             {
 
-                string filePath = directory + txterMergeFileName.Text + ".pdf";
+                string filePath = directory + txtMergeFileName.Text + ".pdf";
                 System.Diagnostics.Process.Start(filePath);
                 MessageBox.Show("Merged file path is " + filePath);
 
