@@ -37,7 +37,7 @@ namespace phy_merge_pdf_tool
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.browseThirdFile = new System.Windows.Forms.Button();
+            this.txtThirdFile = new System.Windows.Forms.TextBox();
             this.browseSecondFile = new System.Windows.Forms.Button();
             this.browseFirstFile = new System.Windows.Forms.Button();
             this.txtMergeFileName = new System.Windows.Forms.TextBox();
@@ -46,7 +46,7 @@ namespace phy_merge_pdf_tool
             this.mergePdfFiles = new System.Windows.Forms.Button();
             this.resetAllPdfFilesName = new System.Windows.Forms.Button();
             this.previewMergedFile = new System.Windows.Forms.Button();
-            this.txtThirdFile = new System.Windows.Forms.TextBox();
+            this.browseThirdFile = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,8 +105,8 @@ namespace phy_merge_pdf_tool
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtThirdFile);
             this.groupBox1.Controls.Add(this.browseThirdFile);
+            this.groupBox1.Controls.Add(this.txtThirdFile);
             this.groupBox1.Controls.Add(this.browseSecondFile);
             this.groupBox1.Controls.Add(this.browseFirstFile);
             this.groupBox1.Controls.Add(this.txtMergeFileName);
@@ -123,16 +123,12 @@ namespace phy_merge_pdf_tool
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Browse files to merge";
             // 
-            // browseThirdFile
+            // txtThirdFile
             // 
-            this.browseThirdFile.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.browseThirdFile.Location = new System.Drawing.Point(593, 186);
-            this.browseThirdFile.Name = "browseThirdFile";
-            this.browseThirdFile.Size = new System.Drawing.Size(129, 36);
-            this.browseThirdFile.TabIndex = 24;
-            this.browseThirdFile.Text = "Browse";
-            this.browseThirdFile.UseVisualStyleBackColor = false;
-            this.browseThirdFile.Click += new System.EventHandler(this.browseThirdFile_Click);
+            this.txtThirdFile.Location = new System.Drawing.Point(46, 191);
+            this.txtThirdFile.Name = "txtThirdFile";
+            this.txtThirdFile.Size = new System.Drawing.Size(502, 26);
+            this.txtThirdFile.TabIndex = 25;
             // 
             // browseSecondFile
             // 
@@ -214,12 +210,16 @@ namespace phy_merge_pdf_tool
             this.previewMergedFile.UseVisualStyleBackColor = false;
             this.previewMergedFile.Click += new System.EventHandler(this.previewMergedFile_Click);
             // 
-            // txtThirdFile
+            // browseThirdFile
             // 
-            this.txtThirdFile.Location = new System.Drawing.Point(46, 191);
-            this.txtThirdFile.Name = "txtThirdFile";
-            this.txtThirdFile.Size = new System.Drawing.Size(502, 26);
-            this.txtThirdFile.TabIndex = 25;
+            this.browseThirdFile.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.browseThirdFile.Location = new System.Drawing.Point(593, 181);
+            this.browseThirdFile.Name = "browseThirdFile";
+            this.browseThirdFile.Size = new System.Drawing.Size(129, 36);
+            this.browseThirdFile.TabIndex = 26;
+            this.browseThirdFile.Text = "Browse";
+            this.browseThirdFile.UseVisualStyleBackColor = false;
+            this.browseThirdFile.Click += new System.EventHandler(this.browseThirdFile_Click_1);
             // 
             // MergeToolForm
             // 
@@ -273,8 +273,8 @@ namespace phy_merge_pdf_tool
         private System.Windows.Forms.Button mergePdfFiles;
         private System.Windows.Forms.Button resetAllPdfFilesName;
         private System.Windows.Forms.Button previewMergedFile;
-        private System.Windows.Forms.Button browseThirdFile;
         private System.Windows.Forms.TextBox txtThirdFile;
+        private System.Windows.Forms.Button browseThirdFile;
     }
 }
 

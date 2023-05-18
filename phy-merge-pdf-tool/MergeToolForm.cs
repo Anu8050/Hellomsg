@@ -77,6 +77,13 @@ namespace phy_merge_pdf_tool
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        private void browseThirdFile_Click_1(object sender, EventArgs e)
+        {
+            //Calling pdfFileBrowse method.
+            pdfFileBrowse(ref txtThirdFile);
+
+        }
+
         private void browseThridFile_Click(object sender, EventArgs e)
         {
             //Calling pdfFileBrowse method.
@@ -183,7 +190,6 @@ namespace phy_merge_pdf_tool
                         //Calling & Passing parameter to function.
                         var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
-                        MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
                     }
 
                     Cursor = Cursors.Arrow;
@@ -196,6 +202,7 @@ namespace phy_merge_pdf_tool
                 {
                     //Calling mergePdfFileCommonFun maethod.
                     mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
+                    MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
 
                 }
 
@@ -206,6 +213,7 @@ namespace phy_merge_pdf_tool
                 {
                     //Calling mergePdfFileCommonFun maethod.
                     mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
+                    MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " files.");
 
                 }
 
@@ -254,7 +262,6 @@ namespace phy_merge_pdf_tool
 
                 string filePath = directory + txtMergeFileName.Text + ".pdf";
                 System.Diagnostics.Process.Start(filePath);
-                MessageBox.Show("Merged file path is " + filePath);
 
             }
 
@@ -267,9 +274,6 @@ namespace phy_merge_pdf_tool
 
         }
 
-        private void browseThirdFile_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 };
