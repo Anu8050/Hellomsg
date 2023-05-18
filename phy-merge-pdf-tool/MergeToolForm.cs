@@ -72,32 +72,16 @@ namespace phy_merge_pdf_tool
         }
 
         /// <summary>
-        /// Browsing multiple pdf files method.
+        /// Browsing third pdf file documents by calling pdfFileBrowse method.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void browseMultipleFiles_Click(object sender, EventArgs e)
+        private void browseThirdFile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select pdf file";
-            openFileDialog.InitialDirectory = @"C:\Users\User\Documents\";
-            //Only allow pdf files.
-            openFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
-            openFileDialog.Multiselect = true;
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                foreach (string filePath in openFileDialog.FileNames)
-                {
-                    filePaths.Add(filePath);
-                    txtListFile.Items.Add(filePath);
-                    txtListFile.Text = openFileDialog.FileName;
-                }
-            }
-
+            //Calling pdfFileBrowse method.
+            pdfFileBrowse(ref txtThirdFile);
         }
+
 
         /// <summary>
         /// Use to merge pdf files. 
@@ -110,11 +94,7 @@ namespace phy_merge_pdf_tool
             //Adding items to textboxs list.
             textboxs.Add(txtFirstFile.Text);
             textboxs.Add(txtSecondFile.Text);
-            foreach (var item in txtListFile.Items)
-            {
-                textboxs.Add(item.ToString());
-            }
-            
+            textboxs.Add(txtThirdFile.Text);
 
             string inputFilePath = @"C:\Users\User\Documents\" + txtMergeFileName.Text + ".pdf";
 
@@ -159,7 +139,7 @@ namespace phy_merge_pdf_tool
                 }
 
                 //Common method for merge pdf function.
-                void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, ListBox txtListFile)
+                void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
                 {
                     //Create IronPython Variable.
                     Cursor = Cursors.WaitCursor;
@@ -202,7 +182,7 @@ namespace phy_merge_pdf_tool
                         //Calling & Passing parameter to function.
                         var result = sumFunction(textboxs, inputFilePath);
                         lblStatus.Text = result;
-                        MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtListFile.Text + " files.");
+                        MessageBox.Show("Sucessfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
                     }
 
                     Cursor = Cursors.Arrow;
@@ -211,20 +191,20 @@ namespace phy_merge_pdf_tool
                 //Merging first , second and thrid pdf files.
                 if ((txtFirstFile.Text != "") &&
                     (txtSecondFile.Text != "") &&
-                    (txtListFile.Text != ""))
+                    (txtThirdFile.Text != ""))
                 {
                     //Calling mergePdfFileCommonFun maethod.
-                    mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtListFile);
+                    mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
                     
                 }
 
                 //Merging first pdf & second pdf files.
                 else if ((txtFirstFile.Text != "") &&
                     (txtSecondFile.Text != "") &&
-                    (txtListFile.Text == ""))
+                    (txtThirdFile.Text == ""))
                 {
                     //Calling mergePdfFileCommonFun maethod.
-                    mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtListFile);
+                    mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
 
                 }
 
@@ -248,10 +228,10 @@ namespace phy_merge_pdf_tool
         /// <param name="e"></param>
         private void resetAllPdfFilesName_Click(object sender, EventArgs e)
         {
-
+            
             txtFirstFile.Text = string.Empty;
             txtSecondFile.Text = string.Empty;
-            txtListFile.Items.Clear();
+            txtThirdFile.Text = string.Empty;
             txtMergeFileName.Text = string.Empty;
             textboxs.Clear();
             txtFirstFile.Focus();
@@ -286,6 +266,6 @@ namespace phy_merge_pdf_tool
             Cursor = Cursors.Arrow;
 
         }
- 
+        
     }
 };
