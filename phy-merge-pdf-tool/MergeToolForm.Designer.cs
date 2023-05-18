@@ -157,7 +157,7 @@ namespace phy_merge_pdf_tool
             // browseFirstFile
             // 
             this.browseFirstFile.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.browseFirstFile.Location = new System.Drawing.Point(593, 63);
+            this.browseFirstFile.Location = new System.Drawing.Point(593, 58);
             this.browseFirstFile.Name = "browseFirstFile";
             this.browseFirstFile.Size = new System.Drawing.Size(129, 36);
             this.browseFirstFile.TabIndex = 20;
