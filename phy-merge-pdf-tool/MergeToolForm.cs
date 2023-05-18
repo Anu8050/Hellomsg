@@ -16,7 +16,6 @@ namespace phy_merge_pdf_tool
     public partial class MergeToolForm : Form
     {
         List<string> textboxs = new List<string>();
-        List<string> filePaths = new List<string>();
         public MergeToolForm()
         {
             InitializeComponent();
@@ -147,7 +146,7 @@ namespace phy_merge_pdf_tool
             string ironPythonInstalledPath = ConfigurationManager.AppSettings["ironpython-installedpath"];
 
             var libs = new[] {
-                                         ironPythonInstalledPath + "\\Lib",
+                                        ironPythonInstalledPath + "\\Lib",
                                         ironPythonInstalledPath + "\\Lib\\DLLs",
                                         ironPythonInstalledPath ,
                                         ironPythonInstalledPath + "\\Lib\\site-packages",
