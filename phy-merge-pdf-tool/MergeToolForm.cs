@@ -167,8 +167,12 @@ namespace phy_merge_pdf_tool
                 }
             }
 
-            string inputFilePath = Environment.CurrentDirectory + "\\" + txtMergeFileName.Text + ".pdf";
-
+            string mergeFolderPath = Environment.CurrentDirectory + "\\mergedfiles";
+            if (!Directory.Exists(mergeFolderPath))
+            {
+                Directory.CreateDirectory(mergeFolderPath);
+            }
+            string inputFilePath = mergeFolderPath + "\\" + txtMergeFileName.Text + ".pdf";
             //Checking merged file name is present or not.
             if (File.Exists(inputFilePath))
             {
@@ -230,16 +234,17 @@ namespace phy_merge_pdf_tool
         private void previewMergedFile_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            var directory = Environment.CurrentDirectory;
-            if (txtMergeFileName.Text != "")
+            var directory = Environment.CurrentDirectory  + "\\mergedfiles";
+            string filePath = directory + "\\" + txtMergeFileName.Text + ".pdf";
+
+            if (File.Exists(filePath))
             {
-                string filePath = directory + "\\" + txtMergeFileName.Text + ".pdf";
                 System.Diagnostics.Process.Start(filePath);
                 MessageBox.Show("Merged file path is " + filePath);
             }
             else
             {
-                MessageBox.Show("Please select the PDF file and enter the Merged file name.");
+                MessageBox.Show("There is no file to preview with this file name. Please select atleast two PDF files to perform merge.");
                 textboxs.Clear();
             }
             Cursor = Cursors.Arrow;
