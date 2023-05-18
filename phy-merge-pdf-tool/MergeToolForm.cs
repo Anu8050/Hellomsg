@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using IronPython.Hosting;
 using System.IO;
 using TextBox = System.Windows.Forms.TextBox;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 
 namespace phy_merge_pdf_tool
@@ -16,7 +18,9 @@ namespace phy_merge_pdf_tool
     {
 
         List<string> textboxs = new List<string>();
-       
+
+        List<string> filePaths = new List<string>();
+
         public MergeToolForm()
         {
             InitializeComponent();
@@ -27,7 +31,7 @@ namespace phy_merge_pdf_tool
         /// </summary>
         /// <param name="textBox"></param>
         public void pdfFileBrowse(ref TextBox textBox)
-        {    
+        {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Select pdf file";
             openFileDialog.InitialDirectory = @"C:\Users\User\Documents\";
@@ -35,13 +39,13 @@ namespace phy_merge_pdf_tool
             openFileDialog.Filter = "Pdf Files (.pdf)|*.pdf";
             openFileDialog.FilterIndex = 2;
             openFileDialog.RestoreDirectory = true;
-            
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 textBox.Text = openFileDialog.FileName;
-                              
+
             }
-           
+
         }
 
         /// <summary>
@@ -138,7 +142,7 @@ namespace phy_merge_pdf_tool
                 //Common method for merge pdf function.
                 void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
                 {
-                    
+
                     Cursor = Cursors.WaitCursor;
                     //Create IronPython Variable.
                     var engine = Python.CreateEngine();
@@ -192,7 +196,7 @@ namespace phy_merge_pdf_tool
                 {
                     //Calling mergePdfFileCommonFun maethod.
                     mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
-                    
+
                 }
 
                 //Merging first pdf & second pdf files.
@@ -241,7 +245,7 @@ namespace phy_merge_pdf_tool
         /// <param name="e"></param>
         private void previewMergedFile_Click(object sender, EventArgs e)
         {
-            
+
             Cursor = Cursors.WaitCursor;
 
             var directory = @"C:/Users/User/Documents/";
@@ -262,6 +266,10 @@ namespace phy_merge_pdf_tool
             Cursor = Cursors.Arrow;
 
         }
-    
+
+        private void browseThirdFile_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 };
