@@ -105,7 +105,7 @@ namespace phy_merge_pdf_tool
             textboxs.Add(txtThirdFile.Text);
 
             //string inputFilePath = @"C:\Users\User\Documents\" + txtMergeFileName.Text + ".pdf";
-            string inputFilePath = @"C:\Users\User\Desktop\" + txtMergeFileName.Text + ".pdf";
+            string inputFilePath = @"" + txtMergeFileName.Text + ".pdf";
 
             if (((textboxs.ElementAt(0).Length != 0) ||
                 (textboxs.ElementAt(1).Length != 0) ||
@@ -203,7 +203,7 @@ namespace phy_merge_pdf_tool
                 {
                     //Calling mergePdfFileCommonFun maethod.
                     mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
-                    MessageBox.Show("Successfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " and" + txtThirdFile.Text + " files.");
+                    MessageBox.Show("successfully merge" + txtFirstFile.Text + " and " + txtSecondFile.Text + " and " + txtThirdFile.Text + " files.");
 
                 }
 
@@ -214,7 +214,7 @@ namespace phy_merge_pdf_tool
                 {
                     //Calling mergePdfFileCommonFun maethod.
                     mergePdfFileCommonFun(txtFirstFile, txtSecondFile, txtThirdFile);
-                    MessageBox.Show("Successfuly merge" + txtFirstFile.Text + " and" + txtSecondFile.Text + " files.");
+                    MessageBox.Show("successfully merge" + txtFirstFile.Text + " and " + txtSecondFile.Text + " files.");
 
                 }
 
@@ -258,7 +258,7 @@ namespace phy_merge_pdf_tool
             Cursor = Cursors.WaitCursor;
 
             //var directory = @"C:/Users/User/Documents/";
-            var directory = "C:/Users/User/Desktop/";
+            var directory = System.AppDomain.CurrentDomain.BaseDirectory;
             if (txtMergeFileName.Text != "")
             {
 
