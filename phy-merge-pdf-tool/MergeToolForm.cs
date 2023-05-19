@@ -5,7 +5,9 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using TextBox = System.Windows.Forms.TextBox;
 
 namespace phy_merge_pdf_tool
@@ -136,6 +138,18 @@ namespace phy_merge_pdf_tool
             }
         }
 
+        /// <summary>
+        /// Checking the merge file name format function.
+        /// </summary>
+        /// <param name="txtMergeFileName"></param>
+        /// <returns></returns>
+        private bool isValidMergeFileName(TextBox txtMergeFileName)
+        {
+            // Regular expression pattern to match .pdf or .txt extension
+            string pattern = @".(pdf|txt)$";
+            return !Regex.IsMatch(txtMergeFileName.Text, pattern, RegexOptions.IgnoreCase);
+        }
+
         void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
         {
             
@@ -172,41 +186,51 @@ namespace phy_merge_pdf_tool
                 Directory.CreateDirectory(mergeFolderPath);
             }
             string inputFilePath = mergeFolderPath + "\\" + txtMergeFileName.Text + ".pdf";
-            //Checking merged file name is present or not.
-            if (File.Exists(inputFilePath))
+            //Checking merge file name is correct format or not by calling IsValidString string method.
+            if (isValidMergeFileName(txtMergeFileName))
             {
-                MessageBox.Show("File already exists in " + inputFilePath + " please enter a different file name.");
-                txtMergeFileName.Text = string.Empty;
-                textboxs.Clear();
-                txtMergeFileName.Focus();
+                //Checking merged file name is present or not.
+                if (File.Exists(inputFilePath))
+                {
+                    MessageBox.Show("File already exists in " + inputFilePath + " please enter a different file name.");
+                    txtMergeFileName.Text = string.Empty;
+                    textboxs.Clear();
+                    txtMergeFileName.Focus();
+                }
+                else
+                {
+                    //Calling & Passing parameter to function.
+                    dynamic sumFunction = scope.GetVariable("mergePdfMethod");
+                    var result = sumFunction(textboxs, inputFilePath);
+                    lblStatus.Text = result;
+                    StringBuilder successMessage = new StringBuilder();
+                    successMessage.Append($"Successfuly merged below files:{Environment.NewLine}");
+                    if (txtFirstFile.Text.Trim() != string.Empty)
+                    {
+                        successMessage.Append(Path.GetFileName(txtFirstFile.Text.Trim()))
+                                      .Append(Environment.NewLine);
+                    }
+                    if (txtSecondFile.Text.Trim() != string.Empty)
+                    {
+                        successMessage.Append(Path.GetFileName(txtSecondFile.Text.Trim()))
+                                      .Append(Environment.NewLine);
+                    }
+                    if (txtThirdFile.Text.Trim() != string.Empty)
+                    {
+                        successMessage.Append(Path.GetFileName(txtThirdFile.Text.Trim()))
+                                      .Append(Environment.NewLine);
+                    }
+
+                    MessageBox.Show(successMessage.ToString());
+                    textboxs.Clear();
+                }
             }
             else
             {
-                //Calling & Passing parameter to function.
-                dynamic sumFunction = scope.GetVariable("mergePdfMethod");
-                var result = sumFunction(textboxs, inputFilePath);
-                lblStatus.Text = result;
-                StringBuilder successMessage = new StringBuilder();
-                successMessage.Append($"Successfuly merged below files:{Environment.NewLine}");
-                if (txtFirstFile.Text.Trim() != string.Empty)
-                {
-                    successMessage.Append(Path.GetFileName(txtFirstFile.Text.Trim()))
-                                  .Append(Environment.NewLine);
-                }
-                if (txtSecondFile.Text.Trim() != string.Empty)
-                {
-                    successMessage.Append(Path.GetFileName(txtSecondFile.Text.Trim()))
-                                  .Append(Environment.NewLine);
-                }
-                if (txtThirdFile.Text.Trim() != string.Empty)
-                {
-                    successMessage.Append(Path.GetFileName(txtThirdFile.Text.Trim()))
-                                  .Append(Environment.NewLine);
-                }
-
-                MessageBox.Show(successMessage.ToString());
+                MessageBox.Show("Invalid merge file name format. Please enter a valid merge file name format without .pdf or .txt extension.");
                 textboxs.Clear();
             }
+            
         }
 
 
