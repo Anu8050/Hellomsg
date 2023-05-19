@@ -102,14 +102,14 @@ namespace phy_merge_pdf_tool
                 //Checking first pdf file is selected or not.
                 if (string.IsNullOrWhiteSpace(txtFirstFile.Text))
                 {
-                    MessageBox.Show("Please select a pdf File.");
+                    MessageBox.Show("Please select a pdf file.");
                     textboxs.Clear();
                     txtFirstFile.Focus();
                     return;
                 }
                 else if (string.IsNullOrWhiteSpace(txtSecondFile.Text)) //Checking second pdf file is selected or not.
                 {
-                    MessageBox.Show("Please select a pdf File.");
+                    MessageBox.Show("Please select a pdf file.");
                     textboxs.Clear();
                     txtSecondFile.Focus();
                     return;
@@ -255,7 +255,6 @@ namespace phy_merge_pdf_tool
                 textboxs.Clear();
                 txtFirstFile.Focus();
             }
-            
             else
             {
                 MessageBox.Show("There is no file name to reset. Please enter file name.");
