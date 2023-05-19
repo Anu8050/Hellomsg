@@ -245,12 +245,23 @@ namespace phy_merge_pdf_tool
         /// <param name="e"></param>
         private void resetAllPdfFilesName_Click(object sender, EventArgs e)
         {
-            txtFirstFile.Text = string.Empty;
-            txtSecondFile.Text = string.Empty;
-            txtThirdFile.Text = string.Empty;
-            txtMergeFileName.Text = string.Empty;
-            textboxs.Clear();
-            txtFirstFile.Focus();
+            if((txtFirstFile.Text != string.Empty) || 
+                (txtSecondFile.Text != string.Empty) ||
+                (txtThirdFile.Text != string.Empty) ||
+                (txtMergeFileName.Text != string.Empty))
+            {
+                txtFirstFile.Text = string.Empty;
+                txtSecondFile.Text = string.Empty;
+                txtThirdFile.Text = string.Empty;
+                txtMergeFileName.Text = string.Empty;
+                textboxs.Clear();
+                txtFirstFile.Focus();
+            }
+            
+            else
+            {
+                MessageBox.Show("There is no file name to reset.");
+            }
 
         }
 
