@@ -150,10 +150,14 @@ namespace phy_merge_pdf_tool
             return !Regex.IsMatch(txtMergeFileName.Text, pattern, RegexOptions.IgnoreCase);
         }
 
+        /// <summary>
+        /// Establish coonection between c# to python script file by passing parameter.
+        /// </summary>
+        /// <param name="txtFirstFile"></param>
+        /// <param name="txtSecondFile"></param>
+        /// <param name="txtThirdFile"></param>
         void mergePdfFileCommonFun(TextBox txtFirstFile, TextBox txtSecondFile, TextBox txtThirdFile)
         {
-            
-            
             //Create IronPython Variable.
             var engine = Python.CreateEngine();
             var scope = engine.CreateScope();
