@@ -81,7 +81,6 @@ namespace phy_merge_pdf_tool
         {
             //Calling pdfFileBrowse method.
             pdfFileBrowse(ref txtThirdFile);
-
         }
 
         /// <summary>
@@ -234,8 +233,7 @@ namespace phy_merge_pdf_tool
             {
                 MessageBox.Show("Invalid merge file name format. Please enter a valid merge file name format without .pdf or .txt extension.");
                 textboxs.Clear();
-            }
-            
+            }   
         }
 
         /// <summary>
@@ -262,7 +260,6 @@ namespace phy_merge_pdf_tool
             {
                 MessageBox.Show("There is no file name to reset. Please enter file name.");
             }
-
         }
 
         /// <summary>
