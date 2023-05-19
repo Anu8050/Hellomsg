@@ -191,7 +191,7 @@ namespace phy_merge_pdf_tool
                 Directory.CreateDirectory(mergeFolderPath);
             }
             string inputFilePath = mergeFolderPath + "\\" + txtMergeFileName.Text + ".pdf";
-            //Checking merge file name is correct format or not by calling IsValidString string method.
+            //Checking merge file name is correct format or not by calling isValidString method.
             if (isValidMergeFileName(txtMergeFileName))
             {
                 //Checking merged file name is present or not.
@@ -260,7 +260,7 @@ namespace phy_merge_pdf_tool
             
             else
             {
-                MessageBox.Show("There is no file name to reset.");
+                MessageBox.Show("There is no file name to reset. Please enter file name.");
             }
 
         }
