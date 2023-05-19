@@ -205,6 +205,7 @@ namespace phy_merge_pdf_tool
                 }
 
                 MessageBox.Show(successMessage.ToString());
+                textboxs.Clear();
             }
         }
 
