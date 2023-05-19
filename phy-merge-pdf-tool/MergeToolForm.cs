@@ -34,19 +34,20 @@ namespace phy_merge_pdf_tool
         /// <param name="textBox"></param>
         public void pdfFileBrowse(ref TextBox textBox)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select a pdf file to merge";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //@"C:\Users\User\Documents\";
-            //Only allow pdf files.
-            openFileDialog.Filter = "Pdf Files (.pdf)|*.pdf";
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                textBox.Text = openFileDialog.FileName;
-            }
+                openFileDialog.Title = "Select a pdf file to merge";
+                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //@"C:\Users\User\Documents\";
+                //Only allow pdf files.
+                openFileDialog.Filter = "Pdf Files (.pdf)|*.pdf";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
 
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    textBox.Text = openFileDialog.FileName;
+                }
+            }
         }
 
         /// <summary>
