@@ -237,7 +237,6 @@ namespace phy_merge_pdf_tool
             
         }
 
-
         /// <summary>
         /// Reset all pdf files name.
         /// </summary>
